@@ -1,44 +1,36 @@
-# SlideBloom Studio Stable
+# SlideBloom Studio v5.0
 
-Stabilitäts-Neuauflage der GitHub-Pages-Präsentations-App.
+## Woran du die richtige Version erkennst
+Oben links steht **v5.0**. Außerdem heißen die Assets absichtlich `app.v5.js` und `styles.v5.css`. Es gibt **keinen Service Worker mehr**, damit GitHub Pages nicht wieder eine alte Version mischt.
 
-## Wichtigste Fehlerbehebungen
-- Kein automatisches Hochfahren des Inspectors mehr, wenn ein Element angetippt wird.
-- Auf Handy/Tablet erscheint stattdessen ein eigener **Bearbeiten**-Button.
-- Die App ist fest an `100dvh` gebunden; die Webseite selbst scrollt nicht mehr weg.
-- Canvas-Gesten scrollen nicht mehr versehentlich die Browser-Seite.
-- Eingabefelder sind mobil mindestens 16 px groß, damit iPhone/Safari beim Antippen nicht automatisch hineinzoomt.
-- Inspector ist ein kontrolliertes Bottom-Sheet und überdeckt nicht mehr den kompletten Editor.
-- Smart-Panel öffnet nur noch bewusst.
-- Alte SlideBloom-Service-Worker und Caches werden entfernt, damit GitHub Pages nicht alte JS/CSS-Dateien mit der neuen Version mischt.
-- Alt+Drag-Duplizieren wurde entfernt, weil es bei Pointer-Gesten unnötig fehleranfällig war. Duplizieren geht weiterhin über Ctrl/Cmd+D.
+## Neu in v5
+- kompaktere, aufgeräumte Oberfläche
+- Quick-Dock links an der Arbeitsfläche
+- eigene Textstile: Auswahl gestalten → `Textstile` → `Auswahl als Stil` → später mit einem Klick wieder einfügen
+- eigene Folienvorlagen
+- eigene komplette Präsentationsvorlagen (Morph-IDs bleiben innerhalb der Vorlage erhalten)
+- Pathfinder für Rechteck/Kreis/Dreieck/Stern: Vereinen, Abziehen, Schnittmenge, Ausschließen
+- Horizontal/vertikal verteilen
+- Story Rail: Seitenleiste wie im Beispiel, deren aktiver Punkt über die Folien hinweg per Morph nach unten wandert
+- alte Funktionen aus v4.2 bleiben erhalten: Bilder, SVG, GIF/Video/Audio, Charts, Tabellen, Masken, Crop, Effekte, Gruppen, Ebenen, Timeline, Notizen, Morph, Presenter usw.
 
 ## GitHub aktualisieren
-Alle Dateien im bestehenden Repository durch die Dateien aus dieser ZIP ersetzen und committen.
+Lösche die alten App-Dateien im Repository und lade **nur** die Dateien aus dieser ZIP hoch. Wichtig: In v5 gibt es `app.v5.js` und `styles.v5.css`; die alten `app.js`, `styles.css`, `sw.js` und `manifest.webmanifest` sollen nicht mehr im Repo liegen.
 
-Danach beim **ersten Aufruf** am besten einmal diese URL öffnen:
+Danach öffne: `https://DEINNAME.github.io/DEINREPO/?v=5.0`
 
-`https://DEINNAME.github.io/DEIN-REPO/?stable=3`
+Wenn oben links nicht **v5.0** steht, ist noch die alte GitHub-Version offen.
 
-Der Query-Parameter sorgt dafür, dass ein eventuell noch aktiver alter Service-Worker nicht die alte Startseite aus seinem Cache nimmt. Die neue Version entfernt danach den alten Cache automatisch.
+## Pathfinder
+Zwei oder mehr Formen mit Shift auswählen → `Anordnen` → Pathfinder. Rotation muss derzeit 0° sein. Vereinen/Ausschließen funktionieren mit mehreren Formen; Abziehen mit mehreren; Schnittmenge mit genau zwei.
 
-## Mobile Bedienung
-- Element antippen = auswählen.
-- Unten erscheint **Bearbeiten**.
-- Erst auf **Bearbeiten** tippen, wenn du Eigenschaften ändern möchtest.
-- Mit dem Pfeil im Bearbeitungsfenster schließt du es wieder.
-- Shift/Ctrl/Command + Klick = Mehrfachauswahl (Desktop).
-- Auswahlrahmen = auf freie Fläche ziehen.
-- Ctrl/Cmd+C / V = Kopieren / Einfügen.
-- Ctrl/Cmd+D = Duplizieren.
-- Ctrl/Cmd+G = Gruppieren.
+## Eigener Überschriften-Stil
+1. Titel erstellen.
+2. Schrift, Farbe, Hintergrund-Kasten, Ecken, Rahmen, Schatten und Animation einstellen.
+3. Tab `Textstile`.
+4. `Auswahl als Stil`.
+5. Namen vergeben, z. B. `Meine Überschrift`.
+6. Ab jetzt erscheint der Stil als eigener Button. Ein Klick fügt sofort ein neues Textelement in genau diesem Design ein.
 
-## Morph
-1. Folie erstellen.
-2. Folie duplizieren.
-3. Auf der duplizierten Folie Elemente verschieben/skalieren/rotieren.
-4. Übergang **Morph** wählen.
-5. Präsentieren.
-
-## Hinweis
-Die App läuft weiterhin vollständig statisch auf GitHub Pages. Login, serverseitige KI, echte Cloud-Kollaboration und vollständig kompatibler PPTX-Import/Export benötigen später ein Backend bzw. zusätzliche Dienste.
+## Story Rail / Morph-Leiste
+`Animation → Story Rail`. Sie wird auf alle Folien gelegt. Der aktive Marker hat auf jeder Folie dieselbe Morph-ID, aber eine andere Y-Position. Ab Folie 2 wird deshalb automatisch Morph gesetzt und der Punkt bewegt sich beim Präsentieren immer weiter nach unten.

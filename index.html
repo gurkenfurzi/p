@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#fff8f4" />
-  <title>SlideBloom Studio Stable</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#f8f7f2" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>SlideBloom Studio v5.0</title>
+  <link rel="stylesheet" href="styles.v5.css?v=5.0.0" />
 </head>
 <body>
 <div id="app">
@@ -14,7 +16,7 @@
     <div class="brand">
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <div class="logo">✦</div>
-      <div class="brandcopy"><strong>SlideBloom</strong><span>Studio Ultimate</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v5.0</span></div><span>Studio · Presentation Lab</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -46,6 +48,7 @@
       <nav class="ribbon">
         <button class="ribbon-tab active" data-panel="insert">Einfügen</button>
         <button class="ribbon-tab" data-panel="design">Design</button>
+        <button class="ribbon-tab" data-panel="styles">Textstile</button>
         <button class="ribbon-tab" data-panel="animate">Animation</button>
         <button class="ribbon-tab" data-panel="arrange">Anordnen</button>
         <button class="ribbon-tab" data-panel="media">Medien</button>
@@ -53,75 +56,38 @@
         <button class="ribbon-tab" data-panel="notes">Notizen</button>
       </nav>
 
-      <section class="toolstrip" id="insertTools">
-        <button data-add="title">T Titel</button>
-        <button data-add="text">T Text</button>
-        <button data-add="rect">▭ Rechteck</button>
-        <button data-add="circle">○ Kreis</button>
-        <button data-add="triangle">△ Dreieck</button>
-        <button data-add="star">★ Stern</button>
-        <button data-add="line">╱ Linie</button>
-        <button data-add="arrow">→ Pfeil</button>
-        <button data-add="badge">✦ Badge</button>
-        <button id="imageBtn">▧ Bild</button>
-        <button id="svgBtn">◇ SVG</button>
-        <button id="chartBtn">▥ Diagramm</button>
-        <button id="tableBtn">▦ Tabelle</button>
-        <button id="iconBtn">☺ Icon</button>
-        <button id="drawBtn">✎ Zeichnen</button>
-        <button id="templateBtn">⊞ Vorlagen</button>
+      <section class="toolstrip grouped-tools" id="insertTools">
+        <div class="tool-group"><span class="group-label">Text</span><button data-add="title">Tᴴ Titel</button><button data-add="text">T Text</button><button data-add="badge">✦ Badge</button></div>
+        <div class="tool-group"><span class="group-label">Formen</span><button data-add="rect">▭</button><button data-add="circle">○</button><button data-add="triangle">△</button><button data-add="star">★</button><button data-add="line">╱</button><button data-add="arrow">→</button></div>
+        <div class="tool-group"><span class="group-label">Inhalt</span><button id="imageBtn">▧ Bild</button><button id="svgBtn">◇ SVG</button><button id="chartBtn">▥ Chart</button><button id="tableBtn">▦ Tabelle</button><button id="iconBtn">☺ Icon</button><button id="drawBtn">✎ Zeichnen</button></div>
+        <div class="tool-group"><span class="group-label">Layouts</span><button id="templateBtn">⊞ Vorlagen</button></div>
         <input id="imageInput" type="file" accept="image/*" hidden>
         <input id="svgInput" type="file" accept=".svg,image/svg+xml" hidden>
       </section>
 
-      <section class="toolstrip hidden" id="designTools">
-        <label>Folienfarbe <input type="color" id="slideBg" value="#fffdf8"></label>
-        <label>Text <input type="color" id="textColor" value="#3c312d"></label>
-        <label>Akzent <input type="color" id="accentColor" value="#ef9e9c"></label>
-        <button class="theme-chip" data-theme="blush">Blush</button>
-        <button class="theme-chip" data-theme="sage">Sage</button>
-        <button class="theme-chip" data-theme="sky">Sky</button>
-        <button class="theme-chip" data-theme="lavender">Lavender</button>
-        <button class="theme-chip" data-theme="night">Night</button>
-        <button id="gridToggle"># Raster</button>
-        <button id="snapToggle">⌁ Snap</button>
-        <button id="guidesToggle">⌖ Guides</button>
+      <section class="toolstrip hidden grouped-tools" id="designTools">
+        <div class="tool-group"><span class="group-label">Farben</span><label>Folie <input type="color" id="slideBg" value="#fffdf8"></label><label>Text <input type="color" id="textColor" value="#3c312d"></label><label>Akzent <input type="color" id="accentColor" value="#55c7c4"></label></div>
+        <div class="tool-group"><span class="group-label">Themes</span><button class="theme-chip" data-theme="blush">Blush</button><button class="theme-chip" data-theme="sage">Sage</button><button class="theme-chip" data-theme="sky">Aqua</button><button class="theme-chip" data-theme="lavender">Lilac</button><button class="theme-chip" data-theme="night">Night</button></div>
+        <div class="tool-group"><span class="group-label">Eigene Vorlagen</span><button id="saveSlideTemplateBtn">＋ Folie speichern</button><button id="savePresentationTemplateBtn">＋ Präsentation speichern</button><button id="userTemplatesBtn">♡ Meine Vorlagen</button></div>
+        <div class="tool-group"><span class="group-label">Ansicht</span><button id="gridToggle"># Raster</button><button id="snapToggle">⌁ Snap</button><button id="guidesToggle">⌖ Guides</button><button id="applyBgAllBtn">↯ Hintergrund auf alle</button></div>
       </section>
 
-      <section class="toolstrip hidden" id="animateTools">
-        <label>Folienübergang
-          <select id="transitionSelect">
-            <option value="none">Ohne</option>
-            <option value="fade">Fade</option>
-            <option value="slide">Slide</option>
-            <option value="push">Push</option>
-            <option value="zoom">Zoom</option>
-            <option value="flip">Flip</option>
-            <option value="morph">✨ Morph</option>
-          </select>
-        </label>
-        <label>Dauer <input id="transitionDuration" type="number" min="0.1" max="8" step="0.1" value="0.7"> s</label>
-        <button id="previewTransitionBtn">▶ Übergang testen</button>
-        <button id="openTimelineBtn">▰ Timeline</button>
-        <span class="hint">Morph: Folie duplizieren → dieselben Elemente verschieben/skalieren/rotieren.</span>
+      <section class="toolstrip hidden grouped-tools styles-strip" id="stylesTools">
+        <div class="tool-group style-actions"><span class="group-label">Meine Textformate</span><div id="textStyleButtons" class="text-style-buttons"></div></div>
+        <div class="tool-group"><span class="group-label">Speichern</span><button id="saveTextStyleBtn">＋ Auswahl als Stil</button><button id="manageLibraryBtn">⚙ Bibliothek</button></div>
       </section>
 
-      <section class="toolstrip hidden" id="arrangeTools">
-        <button data-arrange="front">Ganz nach vorn</button>
-        <button data-arrange="back">Ganz nach hinten</button>
-        <button data-arrange="up">Ebene hoch</button>
-        <button data-arrange="down">Ebene runter</button>
-        <button data-arrange="left">Links</button>
-        <button data-arrange="centerX">Horizontal zentrieren</button>
-        <button data-arrange="right">Rechts</button>
-        <button data-arrange="top">Oben</button>
-        <button data-arrange="centerY">Vertikal zentrieren</button>
-        <button data-arrange="bottom">Unten</button>
-        <button data-arrange="group">⊞ Gruppieren</button>
-        <button data-arrange="ungroup">⊟ Gruppe lösen</button>
-        <button data-arrange="duplicate">⧉ Duplizieren</button>
-        <button data-arrange="lock">🔒 Sperren</button>
-        <button data-arrange="delete">⌫ Löschen</button>
+      <section class="toolstrip hidden grouped-tools" id="animateTools">
+        <div class="tool-group"><span class="group-label">Folie</span><label>Übergang <select id="transitionSelect"><option value="none">Ohne</option><option value="fade">Fade</option><option value="slide">Slide</option><option value="push">Push</option><option value="zoom">Zoom</option><option value="flip">Flip</option><option value="morph">✨ Morph</option></select></label><label>Dauer <input id="transitionDuration" type="number" min="0.1" max="8" step="0.1" value="0.7"> s</label></div>
+        <div class="tool-group"><span class="group-label">Morph</span><button id="previewTransitionBtn">▶ Test</button><button id="openTimelineBtn">▰ Timeline</button><button class="special-tool" id="addStoryRailBtn">✦ Story Rail</button><button id="refreshStoryRailBtn">↻ Rail aktualisieren</button></div>
+        <div class="morph-tip"><b>Morph-Tipp</b><span>Folie duplizieren → Objekt verschieben. Die gleiche Morph-ID verbindet beide Zustände.</span></div>
+      </section>
+
+      <section class="toolstrip hidden grouped-tools" id="arrangeTools">
+        <div class="tool-group"><span class="group-label">Ebene</span><button data-arrange="front">⇈ Vorne</button><button data-arrange="back">⇊ Hinten</button><button data-arrange="up">↑ Ebene</button><button data-arrange="down">↓ Ebene</button></div>
+        <div class="tool-group"><span class="group-label">Ausrichten</span><button data-arrange="left">← Links</button><button data-arrange="centerX">↔ Mitte</button><button data-arrange="right">Rechts →</button><button data-arrange="top">↑ Oben</button><button data-arrange="centerY">↕ Mitte</button><button data-arrange="bottom">↓ Unten</button><button data-arrange="distributeH">⇆ Verteilen</button><button data-arrange="distributeV">⇅ Verteilen</button></div>
+        <div class="tool-group"><span class="group-label">Pathfinder</span><button data-pathfinder="union" title="Formen vereinen">⬡＋ Vereinen</button><button data-pathfinder="subtract" title="Vordere Form abziehen">⬡− Abziehen</button><button data-pathfinder="intersect" title="Schnittmenge">⬡∩ Schnitt</button><button data-pathfinder="exclude" title="Überlappung ausschließen">⬡⊕ Ausschließen</button></div>
+        <div class="tool-group"><span class="group-label">Objekte</span><button data-arrange="group">⊞ Gruppe</button><button data-arrange="ungroup">⊟ Lösen</button><button data-arrange="duplicate">⧉ Dupl.</button><button data-arrange="lock">🔒</button><button data-arrange="delete">⌫</button></div>
       </section>
 
       <section class="toolstrip hidden" id="mediaTools">
@@ -148,12 +114,20 @@
 
       <div class="editor-row">
         <div class="canvas-area">
+          <div class="quick-dock" id="quickDock">
+            <button data-openpanel="insert" title="Einfügen">＋</button>
+            <button data-openpanel="styles" title="Textstile">T</button>
+            <button data-openpanel="design" title="Design">◐</button>
+            <button data-openpanel="animate" title="Animation & Morph">✦</button>
+            <button data-openpanel="arrange" title="Anordnen & Pathfinder">◇</button>
+            <button id="quickLayersBtn" title="Ebenen">▤</button>
+          </div>
           <div class="canvas-toolbar">
             <span id="zoomLabel">100%</span>
             <input id="zoomRange" type="range" min="25" max="160" value="85">
             <button id="fitBtn">Einpassen</button>
             <button id="panBtn" title="Leertaste + Ziehen funktioniert ebenfalls">✋ Pan</button>
-            <span class="canvas-hint">Shift+Klick = Multi-Select • Ctrl/Cmd+C/V • Ctrl/Cmd+G • Entf • Alt+Drag = Duplikat</span>
+            <span class="canvas-hint">Shift+Klick = Multi-Select • Ctrl/Cmd+C/V • Ctrl/Cmd+D • Ctrl/Cmd+G • Entf</span>
           </div>
           <div id="stageViewport" class="stage-viewport">
             <div id="stageShell" class="stage-shell">
@@ -327,7 +301,9 @@
 <div class="modal hidden" id="templateModal">
   <div class="modal-card large">
     <div class="modal-head"><strong>Vorlagen</strong><button class="icon-btn modal-close">×</button></div>
-    <div class="template-grid" id="templateGrid"></div>
+    <div class="library-section"><div class="section-heading"><strong>SlideBloom Vorlagen</strong><span>fertige Layouts</span></div><div class="template-grid" id="templateGrid"></div></div>
+      <div class="library-section"><div class="section-heading"><strong>Meine Folienvorlagen</strong><span>von dir gespeichert</span></div><div class="template-grid" id="userSlideTemplateGrid"></div></div>
+      <div class="library-section"><div class="section-heading"><strong>Meine Präsentationsvorlagen</strong><span>komplette Präsentationen inkl. Morph</span></div><div class="template-grid" id="userPresentationTemplateGrid"></div></div>
   </div>
 </div>
 
@@ -364,6 +340,46 @@
     <div class="modal-head"><strong>Kommentar hinzufügen</strong><button class="icon-btn modal-close">×</button></div>
     <textarea id="commentText" placeholder="Kommentar …"></textarea>
     <button class="primary-btn" id="saveCommentBtn">Speichern</button>
+  </div>
+</div>
+
+
+<div class="modal hidden" id="saveStyleModal">
+  <div class="modal-card cute-modal">
+    <div class="modal-head"><div><strong>Eigenes Textformat</strong><small>Speichert Schrift + Kasten + Farbe + Schatten + Animation.</small></div><button class="icon-btn modal-close">×</button></div>
+    <label>Name<input id="textStyleName" value="Meine Überschrift" maxlength="40"></label>
+    <div id="stylePreview" class="style-preview">Meine Überschrift</div>
+    <button class="primary-btn" id="confirmSaveTextStyleBtn">Stil speichern</button>
+  </div>
+</div>
+
+<div class="modal hidden" id="saveTemplateModal">
+  <div class="modal-card cute-modal">
+    <div class="modal-head"><div><strong id="saveTemplateTitle">Vorlage speichern</strong><small id="saveTemplateHint">Du kannst sie später mit einem Klick wiederverwenden.</small></div><button class="icon-btn modal-close">×</button></div>
+    <label>Name<input id="templateNameInput" value="Meine Vorlage" maxlength="50"></label>
+    <button class="primary-btn" id="confirmSaveTemplateBtn">Vorlage speichern</button>
+  </div>
+</div>
+
+<div class="modal hidden" id="libraryModal">
+  <div class="modal-card large">
+    <div class="modal-head"><div><strong>Meine Bibliothek</strong><small>Eigene Textstile und Präsentationsvorlagen.</small></div><button class="icon-btn modal-close">×</button></div>
+    <div class="library-manager-grid">
+      <section><h3>Textstile</h3><div id="manageTextStyles"></div></section>
+      <section><h3>Folienvorlagen</h3><div id="manageSlideTemplates"></div></section>
+      <section><h3>Präsentationsvorlagen</h3><div id="managePresentationTemplates"></div></section>
+    </div>
+  </div>
+</div>
+
+<div class="modal hidden" id="storyRailModal">
+  <div class="modal-card cute-modal">
+    <div class="modal-head"><div><strong>✦ Story Rail</strong><small>Ein Morph-Element, das beim Weitergehen an der Seite nach unten wandert.</small></div><button class="icon-btn modal-close">×</button></div>
+    <div class="rail-preview"><div class="mini-rail"><span>⌂</span><span>⌕</span><span>▤</span><span>☼</span><span>✓</span><i>✦</i></div><p>Der aktive Punkt nutzt auf jeder Folie dieselbe Morph-ID und bewegt sich dadurch fließend.</p></div>
+    <label>Seite<select id="railSide"><option value="left">Links</option><option value="right">Rechts</option></select></label>
+    <label>Akzentfarbe<input id="railAccent" type="color" value="#55c7c4"></label>
+    <label>Icons (5 Zeichen, mit Komma)<input id="railIcons" value="⌂,⌕,▤,☼,✓"></label>
+    <button class="primary-btn" id="confirmStoryRailBtn">Auf alle Folien anwenden</button>
   </div>
 </div>
 
@@ -404,6 +420,6 @@
 </div>
 
 <div id="toast" class="toast"></div>
-<script src="app.js"></script>
+<script src="app.v5.js?v=5.0.0"></script>
 </body>
 </html>

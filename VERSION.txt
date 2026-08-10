@@ -1,2 +1,2 @@
-SlideBloom Studio Stable 3.0
-Build: mobile-viewport-fix
+SlideBloom Studio v5.0.0
+Build: compact-library-pathfinder-storyrail
