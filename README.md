@@ -1,86 +1,44 @@
-# SlideBloom Studio Ultimate
+# SlideBloom Studio Stable
 
-Kostenlose Präsentations-Web-App für GitHub Pages. Keine Datenbank und kein Server nötig.
+Stabilitäts-Neuauflage der GitHub-Pages-Präsentations-App.
 
-## Große Funktionen dieser Version
+## Wichtigste Fehlerbehebungen
+- Kein automatisches Hochfahren des Inspectors mehr, wenn ein Element angetippt wird.
+- Auf Handy/Tablet erscheint stattdessen ein eigener **Bearbeiten**-Button.
+- Die App ist fest an `100dvh` gebunden; die Webseite selbst scrollt nicht mehr weg.
+- Canvas-Gesten scrollen nicht mehr versehentlich die Browser-Seite.
+- Eingabefelder sind mobil mindestens 16 px groß, damit iPhone/Safari beim Antippen nicht automatisch hineinzoomt.
+- Inspector ist ein kontrolliertes Bottom-Sheet und überdeckt nicht mehr den kompletten Editor.
+- Smart-Panel öffnet nur noch bewusst.
+- Alte SlideBloom-Service-Worker und Caches werden entfernt, damit GitHub Pages nicht alte JS/CSS-Dateien mit der neuen Version mischt.
+- Alt+Drag-Duplizieren wurde entfernt, weil es bei Pointer-Gesten unnötig fehleranfällig war. Duplizieren geht weiterhin über Ctrl/Cmd+D.
 
-### Editor
-- 16:9 Folien
-- Titel, Text, Rechteck, Kreis, Dreieck, Stern, Linien, Pfeile, Badges
-- Bilder, SVG, GIF, Video, Audio
-- Icons, Tabellen, Balken-/Linien-/Kreis-/Donutdiagramme
-- Freihandzeichnen
-- Drag & Drop, Rotation und 4 Resize-Griffe
-- Shift+Klick und Auswahlrahmen für Multi-Select
-- Copy/Paste, Duplizieren, Gruppen, Ungroup
-- Ebenen, Sperren, Ausblenden
-- Smart Guides, Raster, Snap
-- Tastatursteuerung und Undo/Redo
+## GitHub aktualisieren
+Alle Dateien im bestehenden Repository durch die Dateien aus dieser ZIP ersetzen und committen.
 
-### Design
-- Themes
-- Farben
-- lineare und radiale Verläufe
-- Rahmen, Schatten, Ecken, Transparenz
-- Typografie, Zeilenhöhe, Buchstabenabstand
-- Bild-Crop/Zoom, Object Position
-- Helligkeit, Kontrast, Sättigung, Blur
-- Kreis-, Rund-, Hexagon- und Blob-Masken
+Danach beim **ersten Aufruf** am besten einmal diese URL öffnen:
 
-### Animation
-- Fade
-- Von oben/unten/links/rechts
-- Pop
-- Zoom
-- Blur
-- Bounce
-- Spin
-- Typewriter
-- Delay und Dauer
-- Trigger "automatisch" / "beim Klick"
-- Animation Timeline
-- Folienübergänge Fade, Slide, Push, Zoom, Flip
-- echtes Element-Morph über stabile Morph-IDs
+`https://DEINNAME.github.io/DEIN-REPO/?stable=3`
 
-### Präsentation
-- Vollbildmodus
-- Sprechernotizen
-- Timer
-- Laserpointer
-- versteckte Folien
-- Klick-Animationen
+Der Query-Parameter sorgt dafür, dass ein eventuell noch aktiver alter Service-Worker nicht die alte Startseite aus seinem Cache nimmt. Die neue Version entfernt danach den alten Cache automatisch.
 
-### Speichern / Export
-- Autosave im Browser
-- Projekt Export/Import (.json)
-- eigenständige HTML-Präsentation
-- PDF über Browser-Druckdialog
-- PWA/Offline-Grundlage
-
-## GitHub Pages Update
-Wenn du dein Repository schon online hast:
-
-1. ZIP entpacken.
-2. In deinem bestehenden Repository die bisherigen Dateien ersetzen:
-   - index.html
-   - styles.css
-   - app.js
-   - manifest.webmanifest
-   - sw.js
-   - README.md
-   - .nojekyll
-3. Committen.
-4. GitHub Pages aktualisiert die Website automatisch.
-5. Wenn du noch die alte Version siehst: Browser hart neu laden (`Ctrl+F5`) oder Website-Daten/Cache einmal löschen, weil die App einen Service Worker nutzt.
+## Mobile Bedienung
+- Element antippen = auswählen.
+- Unten erscheint **Bearbeiten**.
+- Erst auf **Bearbeiten** tippen, wenn du Eigenschaften ändern möchtest.
+- Mit dem Pfeil im Bearbeitungsfenster schließt du es wieder.
+- Shift/Ctrl/Command + Klick = Mehrfachauswahl (Desktop).
+- Auswahlrahmen = auf freie Fläche ziehen.
+- Ctrl/Cmd+C / V = Kopieren / Einfügen.
+- Ctrl/Cmd+D = Duplizieren.
+- Ctrl/Cmd+G = Gruppieren.
 
 ## Morph
-1. Folie bauen.
-2. "Duplizieren".
-3. Auf Folie 2 Übergang **Morph** wählen.
-4. Bestehende Elemente verschieben/skalieren/rotieren/umfärben.
+1. Folie erstellen.
+2. Folie duplizieren.
+3. Auf der duplizierten Folie Elemente verschieben/skalieren/rotieren.
+4. Übergang **Morph** wählen.
 5. Präsentieren.
 
-Die Morph-ID bleibt beim Folien-Duplizieren identisch.
-
-## Technische Grenze
-Diese Version bildet sehr viele PowerPoint-/Canva-Workflows lokal nach. Eine echte 1:1-Kopie aller Cloud-Funktionen ist mit reinem GitHub Pages nicht möglich. Dinge wie Echtzeit-Kollaboration mehrerer Accounts, Cloud-Login, serverseitige KI, Stock-Medien-Suche, dauerhafte Team-Kommentare und 100% PowerPoint-kompatibler PPTX-Import/Export brauchen einen Backend-/Cloud-Dienst oder zusätzliche Bibliotheken.
+## Hinweis
+Die App läuft weiterhin vollständig statisch auf GitHub Pages. Login, serverseitige KI, echte Cloud-Kollaboration und vollständig kompatibler PPTX-Import/Export benötigen später ein Backend bzw. zusätzliche Dienste.

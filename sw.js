@@ -1,4 +1,16 @@
-const CACHE='slidebloom-ultimate-v1';const ASSETS=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest'];
-self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)))});
-self.addEventListener('activate',e=>e.waitUntil(Promise.all([self.clients.claim(),caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k))))])));
-self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
+// SlideBloom Stable cache-cleanup service worker.
+// This version intentionally does not cache app files, preventing stale GitHub Pages builds.
+self.addEventListener('install', event => {
+  self.skipWaiting();
+});
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(k => k.toLowerCase().includes('slidebloom')).map(k => caches.delete(k)));
+    await self.clients.claim();
+    try { await self.registration.unregister(); } catch {}
+  })());
+});
+self.addEventListener('fetch', event => {
+  event.respondWith(fetch(event.request));
+});

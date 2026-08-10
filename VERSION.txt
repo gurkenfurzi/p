@@ -1,0 +1,2 @@
+SlideBloom Studio Stable 3.0
+Build: mobile-viewport-fix

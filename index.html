@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#fff8f4" />
-  <title>SlideBloom Studio Ultimate</title>
+  <title>SlideBloom Studio Stable</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -174,7 +174,10 @@
           <div id="inspectorContent" class="hidden">
             <div class="inspector-title">
               <strong id="elementTypeLabel">Element</strong>
-              <button class="icon-btn" id="deleteElementBtn">⌫</button>
+              <div class="inspector-title-actions">
+                <button class="icon-btn mobile-inspector-close" id="closeInspectorMobile" title="Schließen">⌄</button>
+                <button class="icon-btn" id="deleteElementBtn" title="Löschen">⌫</button>
+              </div>
             </div>
 
             <div class="control-group" id="textControls">
@@ -287,6 +290,12 @@
             </div>
           </div>
         </aside>
+      </div>
+
+      <div class="mobile-floating-tools" id="mobileFloatingTools">
+        <button class="float-tool" id="mobileSlidesBtn" title="Folien">☰</button>
+        <button class="float-tool edit-tool hidden" id="mobileEditBtn" title="Auswahl bearbeiten">✎ Bearbeiten</button>
+        <button class="float-tool" id="mobileFitBtn" title="Folie einpassen">⊙</button>
       </div>
 
       <section id="timelinePanel" class="timeline-panel">
