@@ -1,0 +1,9 @@
+{
+  "name": "BloomSlides",
+  "short_name": "BloomSlides",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff9f5",
+  "theme_color": "#fff8f3",
+  "description": "Kostenloser, responsiver Präsentationseditor im Browser."
+}

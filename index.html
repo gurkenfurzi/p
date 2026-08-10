@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff8f3" />
+  <meta name="description" content="BloomSlides – kostenloser Präsentationseditor für Schule, Handy, Tablet und Laptop." />
+  <title>BloomSlides</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <button class="icon-btn mobile-menu" id="mobileMenuBtn" title="Menü">☰</button>
+        <div class="brand-mark">✿</div>
+        <div>
+          <div class="brand">BloomSlides</div>
+          <div class="save-state" id="saveState">Gespeichert</div>
+        </div>
+      </div>
+
+      <nav class="top-tabs" aria-label="Werkzeuge">
+        <button class="top-tab active" data-panel="slides">Folien</button>
+        <button class="top-tab" data-panel="insert">Einfügen</button>
+        <button class="top-tab" data-panel="design">Design</button>
+        <button class="top-tab" data-panel="animation">Animationen</button>
+      </nav>
+
+      <div class="top-actions">
+        <button class="soft-btn" id="undoBtn" title="Rückgängig">↶</button>
+        <button class="soft-btn" id="redoBtn" title="Wiederholen">↷</button>
+        <button class="soft-btn hide-small" id="exportBtn">Export</button>
+        <button class="primary-btn" id="presentBtn">▶ Präsentieren</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar left-sidebar" id="leftSidebar">
+        <section class="panel-section visible" data-section="slides">
+          <button class="primary-btn full" id="addSlideBtn">＋ Folie hinzufügen</button>
+          <div class="slides-list" id="slidesList"></div>
+        </section>
+
+        <section class="panel-section" data-section="insert">
+          <h3>Einfügen</h3>
+          <div class="insert-grid">
+            <button class="insert-card" data-add="title"><span>H1</span><b>Titel</b></button>
+            <button class="insert-card" data-add="text"><span>Tx</span><b>Text</b></button>
+            <button class="insert-card" data-add="card"><span>▭</span><b>Karte</b></button>
+            <button class="insert-card" data-add="badge"><span>✦</span><b>Badge</b></button>
+            <button class="insert-card" data-add="shape"><span>●</span><b>Form</b></button>
+            <button class="insert-card" id="imageUploadTrigger"><span>⌁</span><b>Bild</b></button>
+          </div>
+          <input id="imageInput" type="file" accept="image/*" hidden />
+        </section>
+
+        <section class="panel-section" data-section="design">
+          <h3>Design</h3>
+          <p class="muted">Farbstil der aktuellen Folie</p>
+          <div class="theme-list" id="themeList">
+            <button class="theme-card active" data-theme="blush"><i class="theme-swatch blush"></i><span>Blush</span></button>
+            <button class="theme-card" data-theme="sage"><i class="theme-swatch sage"></i><span>Sage</span></button>
+            <button class="theme-card" data-theme="sun"><i class="theme-swatch sun"></i><span>Sun</span></button>
+            <button class="theme-card" data-theme="lilac"><i class="theme-swatch lilac"></i><span>Lilac</span></button>
+          </div>
+          <label class="field-label">Folienübergang</label>
+          <select id="transitionSelect" class="field">
+            <option value="fade">Sanft einblenden</option>
+            <option value="slide">Seitlich gleiten</option>
+            <option value="zoom">Sanft zoomen</option>
+            <option value="none">Keiner</option>
+          </select>
+        </section>
+
+        <section class="panel-section" data-section="animation">
+          <h3>Animationen</h3>
+          <p class="muted">Wähle zuerst ein Element auf der Folie.</p>
+          <div id="leftAnimationHint" class="hint-card">Tippe oder klicke ein Element an, um seine Animation zu bearbeiten.</div>
+        </section>
+      </aside>
+
+      <section class="stage-area">
+        <div class="document-bar">
+          <div>
+            <input id="deckTitle" class="deck-title" value="Meine Präsentation" aria-label="Präsentationstitel" />
+            <span class="tiny-dot">•</span>
+            <span class="muted" id="slideCounter">1 / 1</span>
+          </div>
+          <div class="zoom-row">
+            <button class="mini-btn" id="zoomOutBtn">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="mini-btn" id="zoomInBtn">＋</button>
+          </div>
+        </div>
+
+        <div class="canvas-viewport" id="canvasViewport">
+          <div class="canvas-wrap" id="canvasWrap">
+            <div class="slide-canvas theme-blush" id="slideCanvas" tabindex="0" aria-label="Aktuelle Folie"></div>
+          </div>
+        </div>
+
+        <div class="mobile-toolbar" id="mobileToolbar">
+          <button data-mobile-panel="slides">▤<span>Folien</span></button>
+          <button data-mobile-panel="insert">＋<span>Einfügen</span></button>
+          <button data-mobile-panel="design">◐<span>Design</span></button>
+          <button data-mobile-panel="animation">✦<span>Animation</span></button>
+          <button id="mobilePresentBtn">▶<span>Start</span></button>
+        </div>
+      </section>
+
+      <aside class="sidebar right-sidebar" id="rightSidebar">
+        <div class="right-empty" id="rightEmpty">
+          <div class="empty-icon">✦</div>
+          <h3>Element auswählen</h3>
+          <p>Klicke auf Text, Bild oder Form, um es hier zu bearbeiten.</p>
+        </div>
+
+        <div class="properties" id="propertiesPanel" hidden>
+          <div class="properties-head">
+            <div>
+              <div class="eyebrow">AUSGEWÄHLT</div>
+              <h3 id="selectedTypeLabel">Element</h3>
+            </div>
+            <button class="icon-btn danger" id="deleteElementBtn" title="Löschen">⌫</button>
+          </div>
+
+          <label class="field-label">Text</label>
+          <textarea id="textField" class="field textarea" rows="3"></textarea>
+
+          <div class="two-col">
+            <div>
+              <label class="field-label">Größe</label>
+              <input id="fontSizeField" class="field" type="number" min="10" max="120" />
+            </div>
+            <div>
+              <label class="field-label">Farbe</label>
+              <input id="colorField" class="field color-field" type="color" />
+            </div>
+          </div>
+
+          <label class="field-label">Animation</label>
+          <select id="animationSelect" class="field">
+            <option value="fade-up">Von unten</option>
+            <option value="fade">Einblenden</option>
+            <option value="pop">Aufpoppen</option>
+            <option value="slide-left">Von links</option>
+            <option value="slide-right">Von rechts</option>
+            <option value="zoom">Zoom sanft</option>
+            <option value="none">Keine</option>
+          </select>
+
+          <div class="two-col">
+            <div>
+              <label class="field-label">Dauer (s)</label>
+              <input id="durationField" class="field" type="number" min="0.1" max="5" step="0.1" />
+            </div>
+            <div>
+              <label class="field-label">Verzögerung (s)</label>
+              <input id="delayField" class="field" type="number" min="0" max="10" step="0.1" />
+            </div>
+          </div>
+
+          <button class="soft-btn full" id="previewAnimationBtn">▶ Animation testen</button>
+
+          <div class="divider"></div>
+          <div class="two-col">
+            <div>
+              <label class="field-label">Breite</label>
+              <input id="widthField" class="field" type="number" min="5" max="100" />
+            </div>
+            <div>
+              <label class="field-label">Höhe</label>
+              <input id="heightField" class="field" type="number" min="3" max="100" />
+            </div>
+          </div>
+          <button class="soft-btn full" id="duplicateElementBtn">⧉ Element duplizieren</button>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div class="sheet-backdrop" id="sheetBackdrop"></div>
+
+  <div class="export-modal" id="exportModal" hidden>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">EXPORT</div>
+          <h2>Präsentation sichern</h2>
+        </div>
+        <button class="icon-btn" id="closeExportBtn">✕</button>
+      </div>
+      <p class="muted">Du kannst dein Projekt sichern oder als eigenständige HTML-Präsentation exportieren.</p>
+      <div class="export-grid">
+        <button class="export-option" id="exportHtmlBtn"><span>🌐</span><b>Präsentation als HTML</b><small>Läuft offline im Browser</small></button>
+        <button class="export-option" id="exportJsonBtn"><span>💾</span><b>Projekt-Datei</b><small>Später wieder importieren</small></button>
+        <button class="export-option" id="importJsonBtn"><span>📥</span><b>Projekt importieren</b><small>JSON-Datei öffnen</small></button>
+      </div>
+      <input id="importInput" type="file" accept="application/json,.json" hidden />
+    </div>
+  </div>
+
+  <div class="presentation-overlay" id="presentationOverlay" hidden>
+    <button class="presentation-close" id="closePresentationBtn">✕</button>
+    <div class="presentation-stage" id="presentationStage"></div>
+    <div class="presentation-controls">
+      <button id="prevSlideBtn">←</button>
+      <span id="presentationCounter">1 / 1</span>
+      <button id="nextSlideBtn">→</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
