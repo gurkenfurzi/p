@@ -1,35 +1,86 @@
-# BloomSlides
+# SlideBloom Studio Ultimate
 
-Kostenlose Präsentations-Web-App für GitHub Pages – optimiert für Handy, Tablet und Laptop.
+Kostenlose Präsentations-Web-App für GitHub Pages. Keine Datenbank und kein Server nötig.
 
-## Was funktioniert
+## Große Funktionen dieser Version
 
-- responsive Editor-Oberfläche
-- Folien erstellen, duplizieren und löschen
-- Text, Titel, Karten, Badges, Formen und eigene Bilder
-- Elemente per Maus oder Touch verschieben
-- Größenänderung per Handle
-- mehrere Pastell-Themes
-- Animationen pro Element
-- Präsentationsmodus
-- automatisches Speichern im Browser (localStorage)
-- Projekt als JSON exportieren/importieren
-- Präsentation als eigenständige HTML-Datei exportieren
-- PWA-Grundlage / Offline-Cache
+### Editor
+- 16:9 Folien
+- Titel, Text, Rechteck, Kreis, Dreieck, Stern, Linien, Pfeile, Badges
+- Bilder, SVG, GIF, Video, Audio
+- Icons, Tabellen, Balken-/Linien-/Kreis-/Donutdiagramme
+- Freihandzeichnen
+- Drag & Drop, Rotation und 4 Resize-Griffe
+- Shift+Klick und Auswahlrahmen für Multi-Select
+- Copy/Paste, Duplizieren, Gruppen, Ungroup
+- Ebenen, Sperren, Ausblenden
+- Smart Guides, Raster, Snap
+- Tastatursteuerung und Undo/Redo
 
-## Auf GitHub Pages veröffentlichen
+### Design
+- Themes
+- Farben
+- lineare und radiale Verläufe
+- Rahmen, Schatten, Ecken, Transparenz
+- Typografie, Zeilenhöhe, Buchstabenabstand
+- Bild-Crop/Zoom, Object Position
+- Helligkeit, Kontrast, Sättigung, Blur
+- Kreis-, Rund-, Hexagon- und Blob-Masken
 
-1. Auf GitHub ein neues Repository erstellen, z. B. `bloomslides`.
-2. Alle Dateien aus diesem Ordner in das Repository hochladen.
-3. Auf GitHub zu **Settings → Pages** gehen.
-4. Unter **Build and deployment** bei Source **Deploy from a branch** auswählen.
-5. Branch `main` und Ordner `/ (root)` auswählen.
-6. **Save** klicken.
-7. Nach kurzer Zeit ist die App über deine GitHub-Pages-Adresse erreichbar.
+### Animation
+- Fade
+- Von oben/unten/links/rechts
+- Pop
+- Zoom
+- Blur
+- Bounce
+- Spin
+- Typewriter
+- Delay und Dauer
+- Trigger "automatisch" / "beim Klick"
+- Animation Timeline
+- Folienübergänge Fade, Slide, Push, Zoom, Flip
+- echtes Element-Morph über stabile Morph-IDs
 
-Beispiel:
-`https://DEINNAME.github.io/bloomslides/`
+### Präsentation
+- Vollbildmodus
+- Sprechernotizen
+- Timer
+- Laserpointer
+- versteckte Folien
+- Klick-Animationen
 
-## Wichtig
+### Speichern / Export
+- Autosave im Browser
+- Projekt Export/Import (.json)
+- eigenständige HTML-Präsentation
+- PDF über Browser-Druckdialog
+- PWA/Offline-Grundlage
 
-Da die App komplett statisch ist, gibt es aktuell keine Benutzerkonten oder Cloud-Synchronisierung. Projekte werden im jeweiligen Browser gespeichert. Für echte Konten, Cloud-Speicher, gemeinsames Bearbeiten oder KI-Funktionen wäre später ein Backend nötig.
+## GitHub Pages Update
+Wenn du dein Repository schon online hast:
+
+1. ZIP entpacken.
+2. In deinem bestehenden Repository die bisherigen Dateien ersetzen:
+   - index.html
+   - styles.css
+   - app.js
+   - manifest.webmanifest
+   - sw.js
+   - README.md
+   - .nojekyll
+3. Committen.
+4. GitHub Pages aktualisiert die Website automatisch.
+5. Wenn du noch die alte Version siehst: Browser hart neu laden (`Ctrl+F5`) oder Website-Daten/Cache einmal löschen, weil die App einen Service Worker nutzt.
+
+## Morph
+1. Folie bauen.
+2. "Duplizieren".
+3. Auf Folie 2 Übergang **Morph** wählen.
+4. Bestehende Elemente verschieben/skalieren/rotieren/umfärben.
+5. Präsentieren.
+
+Die Morph-ID bleibt beim Folien-Duplizieren identisch.
+
+## Technische Grenze
+Diese Version bildet sehr viele PowerPoint-/Canva-Workflows lokal nach. Eine echte 1:1-Kopie aller Cloud-Funktionen ist mit reinem GitHub Pages nicht möglich. Dinge wie Echtzeit-Kollaboration mehrerer Accounts, Cloud-Login, serverseitige KI, Stock-Medien-Suche, dauerhafte Team-Kommentare und 100% PowerPoint-kompatibler PPTX-Import/Export brauchen einen Backend-/Cloud-Dienst oder zusätzliche Bibliotheken.
