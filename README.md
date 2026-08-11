@@ -1,26 +1,20 @@
-# SlideBloom Studio v6.0 — Scrapbook Build
+# SlideBloom Studio v6.2
 
-## Neu
-- Sticker-Bibliothek: Notizbuch, Polaroid, Karo-/Linienpapier, Sticky Note, gerissenes Papier, Tape, Washi Tape, Büroklammer, Foldback Clip, Pin, Label, Highlight, Sparkles, Pflanze.
-- Polaroid mit eigenem Bildslot.
-- Glatte editierbare SVG-Pfade: Freihand, Gerade, Kurve, geschlossene Form.
-- Füllung, Kontur, Konturbreite und Linienenden für Pfade.
-- Eigene Schriften importieren: WOFF/WOFF2/TTF/OTF.
-- Ästhetische Webfonts: Nunito, Quicksand, Patrick Hand, Caveat, Dancing Script, Playfair Display, Cormorant Garamond.
-- Dashboard „Meine Präsentationen“ mit mehreren lokal gespeicherten Präsentationen.
-- App-Hauptfarbe frei einstellbar. Standard wieder Rosé.
-- Morph, Story Rail, Pathfinder, Textstile, eigene Vorlagen, Timeline, Medien, Charts, Tabellen, Ebenen bleiben enthalten.
+## Neu in v6.2
+- Noch übersichtlichere Sticker- und Icons-Menüs mit Suche.
+- Neue Sticker-Packs: Frames, School, Kawaii, Minimal.
+- Mehr Scrapbook-Sticker: Polaroid Stack, Post-it Square/Circle, Torn Memo, Soft Frame, Blob Frame, Scallop Frame, Checkliste, Lineal, Ordner-Reiter, Speech Bubble, Bow, Daisy, Doodle Arrow, Squiggle.
+- Icons-Menü mit Suche nach Begriffen wie `school`, `heart`, `book`, `arrow`.
+- Icons8-Shortcut bleibt erhalten. Für echte Live-API-Anbindung braucht man später einen API-Key und Lizenz-/Attribution-Beachtung.
 
 ## GitHub
-Lade nur die Dateien dieser Version hoch. Alte `app.v5.js` und `styles.v5.css` löschen.
+Lade hoch:
+- index.html
+- app.v6.js
+- styles.v6.css
+- README.md
+- TEST-REPORT.md
+- VERSION.txt
+- .nojekyll
 
-Danach öffnen:
-`https://DEINNAME.github.io/DEIN-REPO/?v=6.0`
-
-Oben links muss `v6.0` stehen.
-
-## Fonts
-Es werden keine Font-Dateien mitgeliefert. Die ästhetischen Schriften sind Webfonts. Eigene Font-Dateien kannst du selbst in der App importieren; sie bleiben lokal in deinem Browser.
-
-## Speicherung
-GitHub Pages hat keine Datenbank. Präsentationen, eigene Fonts, Vorlagen und Textstile werden lokal im Browser gespeichert.
+Dann im Browser: `?v=6.2`

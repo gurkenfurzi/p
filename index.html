@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>SlideBloom Studio v6.0</title>
-  <link rel="stylesheet" href="styles.v6.css?v=6.0.0" />
+  <title>SlideBloom Studio v6.2</title>
+  <link rel="stylesheet" href="styles.v6.css?v=6.2.0" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo">✦</div>
-      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.0</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.2</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -367,6 +367,8 @@
 <div class="modal hidden" id="iconModal">
   <div class="modal-card">
     <div class="modal-head"><strong>Icons</strong><button class="icon-btn modal-close">×</button></div>
+    <div class="icon-toolbar"><small>Viele Gratis-Icons direkt hier. Für eine echte Live-Icons8-Suche braucht man später einen API-Key/Attribution.</small><button class="soft-btn" id="openIcons8Btn">Icons8 öffnen ↗</button></div>
+    <div class="search-row"><input id="iconSearch" placeholder="Icons suchen: book, heart, school, arrow ..."></div>
     <div class="icon-grid" id="iconGrid"></div>
   </div>
 </div>
@@ -382,9 +384,12 @@
       <button class="sticker-cat active" data-sticker-cat="all">Alle</button>
       <button class="sticker-cat" data-sticker-cat="paper">Papier</button>
       <button class="sticker-cat" data-sticker-cat="photo">Fotos</button>
+      <button class="sticker-cat" data-sticker-cat="frames">Frames</button>
+      <button class="sticker-cat" data-sticker-cat="school">Schule</button>
       <button class="sticker-cat" data-sticker-cat="tape">Kleben</button>
       <button class="sticker-cat" data-sticker-cat="decor">Deko</button>
     </div>
+    <div class="search-row"><input id="stickerSearch" placeholder="Sticker suchen: polaroid, zettel, frame, heart, school ..."></div>
     <div id="stickerGrid" class="sticker-grid"></div>
   </div>
 </div>
@@ -530,6 +535,6 @@
 </div>
 
 <div id="toast" class="toast"></div>
-<script src="app.v6.js?v=6.0.0"></script>
+<script src="app.v6.js?v=6.2.0"></script>
 </body>
 </html>

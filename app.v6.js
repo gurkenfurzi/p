@@ -1,7 +1,7 @@
 
 (() => {
 'use strict';
-const APP_VERSION='6.0.0';
+const APP_VERSION='6.2.0';
 const W=1280,H=720,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const uid=p=>`${p}_${Math.random().toString(36).slice(2,9)}_${Date.now().toString(36).slice(-5)}`;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),deep=o=>JSON.parse(JSON.stringify(o));
@@ -83,21 +83,44 @@ function styleText(c,e){Object.assign(c.style,{color:e.color||'#3c312d',fontFami
 
 function stickerHTML(e){
  const kind=e.stickerKind||'sticky',txt=esc(e.content||''),col=e.stickerColor||e.fill||'#fff8ef',acc=e.stickerAccent||'#e8d7a7',style=`--sticker-color:${col};--sticker-accent:${acc};`;
- if(kind==='notebook')return`<div class="sticker-root sticker-notebook" style="${style}"><div class="rings"></div><div class="sticker-text">${txt||'Notizen\\n• Punkt 1\\n• Punkt 2'}</div></div>`;
+ if(kind==='notebook')return`<div class="sticker-root sticker-notebook" style="${style}"><div class="rings"></div><div class="sticker-text">${txt||'Notizen\n• Punkt 1\n• Punkt 2'}</div></div>`;
  if(kind==='graph')return`<div class="sticker-root sticker-graph" style="${style}"><div class="sticker-text">${txt||'Karo-Zettel'}</div></div>`;
  if(kind==='lined')return`<div class="sticker-root sticker-lined" style="${style}"><div class="sticker-text">${txt||'Linierter Zettel'}</div></div>`;
+ if(kind==='graph_torn')return`<div class="sticker-root sticker-graph-torn" style="${style}"><div class="sticker-text">${txt||'Gerissener Karo-Zettel'}</div></div>`;
+ if(kind==='lined_torn')return`<div class="sticker-root sticker-lined-torn" style="${style}"><div class="sticker-text">${txt||'Gerissener Linien-Zettel'}</div></div>`;
  if(kind==='sticky')return`<div class="sticker-root sticker-sticky" style="${style}"><div class="sticker-text">${txt||'Merken ✦'}</div></div>`;
+ if(kind==='postit_square')return`<div class="sticker-root sticker-postit" style="${style}"><div class="sticker-text">${txt||'Post-it'}</div></div>`;
+ if(kind==='postit_round')return`<div class="sticker-root sticker-roundpostit" style="${style}"><div class="sticker-text">${txt||'Idea'}</div></div>`;
  if(kind==='torn')return`<div class="sticker-root sticker-torn" style="${style}"><div class="sticker-text">${txt||'wichtige Info'}</div></div>`;
+ if(kind==='torn_memo')return`<div class="sticker-root sticker-tornmemo" style="${style}"><div class="sticker-text">${txt||'Memo'}</div></div>`;
  if(kind==='polaroid'){const im=e.imageSrc?`<img src="${e.imageSrc}" style="--photo-zoom:${(e.cropZoom||100)/100};--photo-x:${e.cropX??50}%;--photo-y:${e.cropY??50}%">`:'<span>Bild hinzufügen</span>';return`<div class="sticker-root sticker-polaroid" style="${style}"><div class="photo">${im}</div><div class="caption">${txt||'Moment ♡'}</div></div>`}
+ if(kind==='polaroid_stack'){const im=e.imageSrc?`<img src="${e.imageSrc}" style="--photo-zoom:${(e.cropZoom||100)/100};--photo-x:${e.cropX??50}%;--photo-y:${e.cropY??50}%">`:'<span>Bild hinzufügen</span>';return`<div class="sticker-root sticker-polaroid-stack" style="${style}"><div class="photo">${im}</div><div class="caption">${txt||'Memories'}</div></div>`}
+ if(kind==='frame_window')return`<div class="sticker-root sticker-frame-window" style="${style}"></div>`;
+ if(kind==='frame_blob')return`<div class="sticker-root sticker-frame-blob" style="${style}"></div>`;
+ if(kind==='frame_scallop')return`<div class="sticker-root sticker-frame-scallop" style="${style}"></div>`;
  if(kind==='tape')return`<div class="sticker-root sticker-tape" style="${style}"></div>`;
  if(kind==='washi')return`<div class="sticker-root sticker-washi" style="${style}"></div>`;
- if(kind==='paperclip')return`<div class="sticker-root sticker-paperclip" style="${style}"><svg viewBox="0 0 100 180"><path d="M68 22C89 35 86 61 72 80L41 122C30 137 12 122 24 106L58 60C66 49 78 58 70 69L39 111" fill="none" stroke="${acc}" stroke-width="9" stroke-linecap="round"/></svg></div>`;
+ if(kind==='paperclip')return`<div class="sticker-root sticker-paperclip" style="${style}"><svg viewBox="0 0 100 180"><path d="M63 28C78 28 88 40 88 55c0 11-4 19-10 27L46 122c-14 18-44 8-44-18 0-10 3-18 11-28l33-42c10-12 30-4 30 13 0 7-2 13-7 19l-31 39c-4 5-11 6-15 2-5-4-5-10 0-16l27-34" fill="none" stroke="${acc}" stroke-width="8" stroke-linecap="round"/></svg></div>`;
  if(kind==='binder')return`<div class="sticker-root sticker-binder" style="${style}"><svg viewBox="0 0 160 150"><path d="M42 62h76l-9 63H51z" fill="${acc}" stroke="#5d5753" stroke-width="4"/><path d="M57 62C54 31 69 16 81 16s27 15 22 46M43 63C26 57 25 37 39 31M118 63c17-6 18-26 4-32" fill="none" stroke="#5d5753" stroke-width="6" stroke-linecap="round"/></svg></div>`;
  if(kind==='pin')return`<div class="sticker-root sticker-pin" style="${style}"><svg viewBox="0 0 120 160"><circle cx="60" cy="48" r="31" fill="${acc}" stroke="#835f59" stroke-width="4"/><path d="M60 78v65" stroke="#8b8b8b" stroke-width="7"/><path d="M55 143h10l-5 13z" fill="#777"/></svg></div>`;
+ if(kind==='checklist')return`<div class="sticker-root sticker-checklist" style="${style}"><div class="sticker-text">${txt||'Checkliste'}</div><ul><li><i></i><span>Punkt 1</span></li><li><i></i><span>Punkt 2</span></li><li><i></i><span>Punkt 3</span></li></ul></div>`;
+ if(kind==='ruler')return`<div class="sticker-root sticker-ruler" style="${style}"><div class="ruler-label">cm</div></div>`;
+ if(kind==='foldertab')return`<div class="sticker-root sticker-foldertab" style="${style}"><div class="sticker-text">${txt||'Kapitel'}</div></div>`;
+ if(kind==='speech')return`<div class="sticker-root sticker-speech" style="${style}"><div class="sticker-text">${txt||'Wichtige Definition'}</div></div>`;
  if(kind==='label')return`<div class="sticker-root sticker-label" style="${style}"><div class="sticker-text">${txt||'subtitle'}</div></div>`;
  if(kind==='highlight')return`<div class="sticker-root sticker-highlight" style="${style}"><div class="sticker-text">${txt||'highlight'}</div></div>`;
  if(kind==='sparkle')return`<div class="sticker-root sticker-sparkle" style="${style}">✦ ✧</div>`;
+ if(kind==='sparklegif')return`<div class="sticker-root sticker-sparklegif" style="${style}"><span>✦</span><span>✧</span><span>✦</span></div>`;
+ if(kind==='heartgif')return`<div class="sticker-root sticker-heartgif" style="${style}"><span>♥</span><span>♡</span><span>♥</span></div>`;
  if(kind==='leaf')return`<div class="sticker-root sticker-leaf" style="${style}">🌿</div>`;
+ if(kind==='tab')return`<div class="sticker-root sticker-tab" style="${style}"><div class="sticker-text">${txt||'Kapitel'}</div></div>`;
+ if(kind==='bookmark')return`<div class="sticker-root sticker-bookmark" style="${style}">${txt||'01'}</div>`;
+ if(kind==='stamp')return`<div class="sticker-root sticker-stamp" style="${style}"><div class="sticker-text">${txt||'STUDY'}</div></div>`;
+ if(kind==='cloud')return`<div class="sticker-root sticker-cloud" style="${style}"><div class="sticker-text">${txt||'Merksatz'}</div></div>`;
+ if(kind==='bow')return`<div class="sticker-root sticker-bow" style="${style}">🎀</div>`;
+ if(kind==='daisy')return`<div class="sticker-root sticker-daisy" style="${style}">🌼</div>`;
+ if(kind==='arrowdoodle')return`<div class="sticker-root sticker-arrowdoodle" style="${style}">➜</div>`;
+ if(kind==='squiggle')return`<div class="sticker-root sticker-squiggle" style="${style}">〰</div>`;
  return`<div class="sticker-root sticker-sticky" style="${style}"><div class="sticker-text">${txt}</div></div>`
 }
 
@@ -125,7 +148,7 @@ function renderElement(e,editable=false){
   d.addEventListener('pointerdown',ev=>startMove(ev,e.id));
   d.addEventListener('click',ev=>{ev.stopPropagation();selectElement(e.id,ev.shiftKey||ev.ctrlKey||ev.metaKey);});
   if(['title','text','badge','icon'].includes(e.type)){d.addEventListener('dblclick',ev=>{ev.stopPropagation();c.contentEditable='true';c.focus();selectText(c)});c.addEventListener('blur',()=>{c.contentEditable='false';e.content=c.textContent;commit();renderSlides()});c.addEventListener('keydown',ev=>ev.stopPropagation())}
-  if(e.type==='sticker'&&!['tape','washi','paperclip','binder','pin','sparkle','leaf'].includes(e.stickerKind)){d.addEventListener('dblclick',ev=>{ev.stopPropagation();const t=c.querySelector('.sticker-text,.caption');if(!t)return;t.contentEditable='true';t.focus();selectText(t);t.onblur=()=>{t.contentEditable='false';e.content=t.textContent;commit();renderSlides();renderInspector()}})}
+  if(e.type==='sticker'&&!['tape','washi','paperclip','binder','pin','sparkle','sparklegif','heartgif','leaf','ruler','bow','daisy','arrowdoodle','squiggle','frame_window','frame_blob','frame_scallop'].includes(e.stickerKind)){d.addEventListener('dblclick',ev=>{ev.stopPropagation();const t=c.querySelector('.sticker-text,.caption');if(!t)return;t.contentEditable='true';t.focus();selectText(t);t.onblur=()=>{t.contentEditable='false';e.content=t.textContent;commit();renderSlides();renderInspector()}})}
   if(selectedIds.size===1&&selectedIds.has(e.id)){[['br','br'],['bl','bl'],['tr','tr'],['tl','tl']].forEach(([cls,corner])=>{const h=document.createElement('div');h.className=`handle ${cls}`;h.addEventListener('pointerdown',ev=>startResize(ev,e.id,corner));d.appendChild(h)});const r=document.createElement('div');r.className='rotate-handle';r.addEventListener('pointerdown',ev=>startRotate(ev,e.id));d.appendChild(r)}
  }
  return d
@@ -302,33 +325,96 @@ function insertDataFile(file,type){
 function insertSVG(file){const r=new FileReader();r.onload=()=>{const e={...shapeEl('svg',uid('morph'),180,140,430,330,'transparent',0),svg:r.result,name:file.name};activeSlide().elements.push(e);selectedIds=new Set([e.id]);mediaStore.push({id:uid('media'),type:'svg',name:file.name,src:r.result});commit();renderAll()};r.readAsText(file)}
 
 const stickerCatalog=[
- {kind:'notebook',name:'Notizbuch',cat:'paper',w:430,h:310,desc:'Ringbuch + Linien'},
- {kind:'polaroid',name:'Polaroid',cat:'photo',w:300,h:360,desc:'Bild austauschbar'},
- {kind:'graph',name:'Karo-Zettel',cat:'paper',w:380,h:270,desc:'Editierbarer Text'},
- {kind:'lined',name:'Linierter Zettel',cat:'paper',w:400,h:270,desc:'Study Notes'},
- {kind:'sticky',name:'Sticky Note',cat:'paper',w:270,h:230,desc:'Gefaltete Ecke'},
- {kind:'torn',name:'Gerissener Zettel',cat:'paper',w:430,h:230,desc:'Papierkante'},
- {kind:'tape',name:'Transparentes Tape',cat:'tape',w:300,h:70,desc:'Zum Festkleben'},
- {kind:'washi',name:'Washi Tape',cat:'tape',w:330,h:74,desc:'Gemustertes Tape'},
- {kind:'paperclip',name:'Büroklammer',cat:'tape',w:90,h:160,desc:'Metall-Clip'},
- {kind:'binder',name:'Foldback Clip',cat:'tape',w:130,h:120,desc:'Klammer'},
- {kind:'pin',name:'Pin',cat:'tape',w:85,h:125,desc:'Pinnadel'},
- {kind:'label',name:'Label',cat:'decor',w:250,h:70,desc:'Beschriftung'},
- {kind:'highlight',name:'Textmarker',cat:'decor',w:300,h:70,desc:'Highlight-Streifen'},
- {kind:'sparkle',name:'Sparkles',cat:'decor',w:160,h:120,desc:'Deko'},
- {kind:'leaf',name:'Pflanze',cat:'decor',w:140,h:140,desc:'Study-Deko'}
+ {kind:'notebook',name:'Notizbuch',cat:'paper',pack:'study',w:430,h:310,desc:'Ringbuch + Linien'},
+ {kind:'polaroid',name:'Polaroid',cat:'photo',pack:'photo',w:300,h:360,desc:'Bild austauschbar'},
+ {kind:'polaroid_stack',name:'Polaroid Stack',cat:'photo',pack:'photo',w:320,h:370,desc:'Mehrere Fotos übereinander'},
+ {kind:'graph',name:'Karo-Zettel',cat:'paper',pack:'paper',w:380,h:270,desc:'Sauber ohne Hinterkante'},
+ {kind:'lined',name:'Linierter Zettel',cat:'paper',pack:'paper',w:400,h:270,desc:'Sauber ohne Vorderlinie'},
+ {kind:'graph_torn',name:'Gerissener Karo-Zettel',cat:'paper',pack:'paper',w:395,h:275,desc:'Karo mit Torn-Optik'},
+ {kind:'lined_torn',name:'Gerissener Linien-Zettel',cat:'paper',pack:'paper',w:410,h:275,desc:'Liniert mit Torn-Optik'},
+ {kind:'torn',name:'Gerissener Zettel',cat:'paper',pack:'paper',w:430,h:230,desc:'Papierkante'},
+ {kind:'torn_memo',name:'Gerissene Memo-Notiz',cat:'paper',pack:'paper',w:360,h:240,desc:'Scrapbook-Memo'},
+ {kind:'sticky',name:'Sticky Note',cat:'paper',pack:'paper',w:270,h:230,desc:'Gefaltete Ecke'},
+ {kind:'postit_square',name:'Post-it Square',cat:'paper',pack:'paper',w:250,h:230,desc:'Quadratisches Post-it'},
+ {kind:'postit_round',name:'Post-it Circle',cat:'paper',pack:'paper',w:220,h:220,desc:'Rundes Post-it'},
+ {kind:'frame_window',name:'Soft Frame',cat:'frames',pack:'frames',w:320,h:240,desc:'Sanfter Bilderrahmen'},
+ {kind:'frame_blob',name:'Blob Frame',cat:'frames',pack:'frames',w:320,h:240,desc:'Organischer Frame'},
+ {kind:'frame_scallop',name:'Scallop Frame',cat:'frames',pack:'frames',w:340,h:250,desc:'Verspielter Frame'},
+ {kind:'tape',name:'Transparentes Tape',cat:'tape',pack:'tape',w:300,h:70,desc:'Zum Festkleben'},
+ {kind:'washi',name:'Washi Tape',cat:'tape',pack:'tape',w:330,h:74,desc:'Gemustertes Tape'},
+ {kind:'paperclip',name:'Büroklammer',cat:'tape',pack:'tape',w:95,h:160,desc:'Normale Klammer'},
+ {kind:'binder',name:'Foldback Clip',cat:'tape',pack:'tape',w:130,h:120,desc:'Klammer'},
+ {kind:'pin',name:'Pin',cat:'tape',pack:'tape',w:85,h:125,desc:'Pinnadel'},
+ {kind:'checklist',name:'Checkliste',cat:'school',pack:'study',w:290,h:240,desc:'Punkte abhaken'},
+ {kind:'ruler',name:'Lineal',cat:'school',pack:'study',w:370,h:75,desc:'Study Decor'},
+ {kind:'foldertab',name:'Ordner-Reiter',cat:'school',pack:'study',w:250,h:150,desc:'Kapitelmarker'},
+ {kind:'speech',name:'Speech Bubble',cat:'school',pack:'study',w:280,h:180,desc:'Definition oder Tipp'},
+ {kind:'label',name:'Label',cat:'decor',pack:'cute',w:250,h:70,desc:'Beschriftung'},
+ {kind:'highlight',name:'Textmarker',cat:'decor',pack:'cute',w:300,h:70,desc:'Highlight-Streifen'},
+ {kind:'sparkle',name:'Sparkles',cat:'decor',pack:'cute',w:160,h:120,desc:'Deko'},
+ {kind:'sparklegif',name:'Animierte Sparkles',cat:'decor',pack:'cute',w:170,h:130,desc:'Schwebende Sterne'},
+ {kind:'heartgif',name:'Animierte Hearts',cat:'decor',pack:'cute',w:170,h:130,desc:'Schwebende Herzen'},
+ {kind:'leaf',name:'Pflanze',cat:'decor',pack:'cute',w:140,h:140,desc:'Study-Deko'},
+ {kind:'tab',name:'Tab / Kapitelreiter',cat:'decor',pack:'cute',w:240,h:120,desc:'Für Kapitel'},
+ {kind:'bookmark',name:'Lesezeichen',cat:'decor',pack:'cute',w:150,h:240,desc:'Scrapbook Bookmark'},
+ {kind:'stamp',name:'Stempel-Sticker',cat:'decor',pack:'cute',w:200,h:140,desc:'Perforierte Marke'},
+ {kind:'cloud',name:'Cloud Note',cat:'decor',pack:'cute',w:260,h:160,desc:'Wolken-Notiz'},
+ {kind:'bow',name:'Bow',cat:'decor',pack:'kawaii',w:140,h:120,desc:'Kawaii Schleife'},
+ {kind:'daisy',name:'Daisy',cat:'decor',pack:'kawaii',w:150,h:140,desc:'Blumensticker'},
+ {kind:'arrowdoodle',name:'Doodle Arrow',cat:'decor',pack:'minimal',w:180,h:120,desc:'Pfeil-Doodle'},
+ {kind:'squiggle',name:'Squiggle',cat:'decor',pack:'minimal',w:180,h:120,desc:'Linien-Doodle'}
 ];
 function stickerElement(kind){
- const def=stickerCatalog.find(s=>s.kind===kind)||stickerCatalog[0],e={...shapeEl('sticker',uid('morph'),180,140,def.w,def.h,'transparent',0),stickerKind:kind,stickerColor:'#fff8ef',stickerAccent:kind==='highlight'?'#f2d56c':kind==='tape'?'#e8d7a7':'#d9b7b7',content:'',cropZoom:100,cropX:50,cropY:50};
- if(kind==='notebook')e.content='Meine Notizen\\n• Punkt 1\\n• Punkt 2';if(kind==='graph')e.content='Karo-Zettel';if(kind==='lined')e.content='Linierter Zettel';if(kind==='sticky')e.content='Merken ✦';if(kind==='torn')e.content='wichtige Info';if(kind==='polaroid')e.content='Moment ♡';if(kind==='label')e.content='subtitle';if(kind==='highlight')e.content='highlight';e.z=Math.max(0,...activeSlide().elements.map(x=>x.z||0))+1;return e
+ const def=stickerCatalog.find(s=>s.kind===kind)||stickerCatalog[0],e={...shapeEl('sticker',uid('morph'),180,140,def.w,def.h,'transparent',0),stickerKind:kind,stickerColor:'#fff8ef',stickerAccent:['highlight','ruler'].includes(kind)?'#f2d56c':['tape'].includes(kind)?'#e8d7a7':'#d9b7b7',content:'',cropZoom:100,cropX:50,cropY:50};
+ if(kind==='notebook')e.content='Meine Notizen\n• Punkt 1\n• Punkt 2';
+ if(kind==='graph')e.content='Karo-Zettel';
+ if(kind==='lined')e.content='Linierter Zettel';
+ if(kind==='graph_torn')e.content='Gerissener Karo-Zettel';
+ if(kind==='lined_torn')e.content='Gerissener Linien-Zettel';
+ if(kind==='sticky')e.content='Merken ✦';
+ if(kind==='postit_square')e.content='Post-it';
+ if(kind==='postit_round')e.content='Idea';
+ if(kind==='torn')e.content='wichtige Info';
+ if(kind==='torn_memo')e.content='Memo';
+ if(kind==='polaroid')e.content='Moment ♡';
+ if(kind==='polaroid_stack')e.content='Memories';
+ if(kind==='checklist')e.content='Checkliste';
+ if(kind==='foldertab')e.content='Kapitel';
+ if(kind==='speech')e.content='Wichtige Definition';
+ if(kind==='label')e.content='subtitle';
+ if(kind==='highlight')e.content='highlight';
+ if(kind==='tab')e.content='Kapitel';
+ if(kind==='bookmark')e.content='01';
+ if(kind==='stamp')e.content='STUDY';
+ if(kind==='cloud')e.content='Merksatz';
+ e.z=Math.max(0,...activeSlide().elements.map(x=>x.z||0))+1;return e
 }
 function insertSticker(kind){const e=stickerElement(kind);activeSlide().elements.push(e);selectedIds=new Set([e.id]);commit();renderAll();closeModals()}
-function renderStickerGrid(cat='all'){const g=$('#stickerGrid');if(!g)return;g.innerHTML='';stickerCatalog.filter(s=>cat==='all'||s.cat===cat).forEach(s=>{const card=document.createElement('div');card.className='sticker-choice';const pv=document.createElement('div');pv.className='sticker-choice-preview';const demo=stickerElement(s.kind);const wrap=document.createElement('div');wrap.style.cssText='width:220px;height:105px;position:relative;overflow:hidden';const n=renderElement(demo,false);Object.assign(n.style,{left:'20px',top:'8px',width:Math.min(demo.w,240)+'px',height:Math.min(demo.h,120)+'px',transform:'scale(.62)',transformOrigin:'top left'});wrap.appendChild(n);pv.appendChild(wrap);card.appendChild(pv);card.insertAdjacentHTML('beforeend',`<div><b>${esc(s.name)}</b><br><small>${esc(s.desc)}</small></div>`);card.onclick=()=>insertSticker(s.kind);g.appendChild(card)})}
+function renderStickerGrid(cat='all'){
+ const g=$('#stickerGrid');if(!g)return;g.innerHTML='';
+ const q=($('#stickerSearch')?.value||'').trim().toLowerCase();
+ stickerCatalog.filter(s=>(cat==='all'||s.cat===cat)&&(!q||`${s.name} ${s.desc} ${s.kind} ${s.pack||''}`.toLowerCase().includes(q))).forEach(s=>{
+  const card=document.createElement('div');card.className='sticker-choice';
+  const pv=document.createElement('div');pv.className='sticker-choice-preview';
+  const demo=stickerElement(s.kind);const wrap=document.createElement('div');wrap.style.cssText='width:220px;height:105px;position:relative;overflow:hidden';
+  const n=renderElement(demo,false);Object.assign(n.style,{left:'20px',top:'8px',width:Math.min(demo.w,240)+'px',height:Math.min(demo.h,120)+'px',transform:'scale(.62)',transformOrigin:'top left'});
+  wrap.appendChild(n);pv.appendChild(wrap);card.appendChild(pv);
+  card.insertAdjacentHTML('beforeend',`<div><b>${esc(s.name)}</b><br><small>${esc(s.desc)}</small><div class="pack-badge">${esc(s.pack||'set')}</div></div>`);
+  card.onclick=()=>insertSticker(s.kind);g.appendChild(card)
+ });
+ if(!g.children.length)g.innerHTML='<div class="hint">Kein Sticker gefunden.</div>'
+}
 
 function insertChart(){const values=$('#chartValues').value.split(',').map(x=>Number(x.trim())||0),labels=$('#chartLabels').value.split(',').map(x=>x.trim());const e={...shapeEl('chart',uid('morph'),180,150,560,350,'#fff',24),chartType:$('#chartType').value,values,labels,color:project.theme.accent,shadow:12};activeSlide().elements.push(e);selectedIds=new Set([e.id]);commit();renderAll();closeModals()}
 function insertTable(){const e={...shapeEl('table',uid('morph'),150,150,650,320,'transparent',0),rows:+$('#tableRows').value,cols:+$('#tableCols').value,color:project.theme.ink};activeSlide().elements.push(e);selectedIds=new Set([e.id]);commit();renderAll();closeModals()}
-const icons=['✦','★','✓','♥','☀','☁','⚡','☕','✎','⌂','♬','⚙','☻','⚑','➜','∞','⌘','⚗','☘','✿','❖','◉','➤','⬡','◒','☂','♛','⚐','⌁','✦'];
-function renderIcons(){const g=$('#iconGrid');g.innerHTML='';icons.forEach(ic=>{const b=document.createElement('button');b.textContent=ic;b.onclick=()=>{const e=textEl('icon',uid('morph'),200,170,150,150,ic,92,project.theme.accent,true,'center');activeSlide().elements.push(e);selectedIds=new Set([e.id]);commit();renderAll();closeModals()};g.appendChild(b)})}
+const icons=[
+ {icon:'✦',tags:'star sparkle cute'},{icon:'★',tags:'star favorite'},{icon:'✓',tags:'check yes'},{icon:'♥',tags:'heart love'},{icon:'♡',tags:'heart outline'},{icon:'☀',tags:'sun weather'},{icon:'☁',tags:'cloud weather'},{icon:'⚡',tags:'flash energy'},{icon:'☕',tags:'coffee cafe'},{icon:'✎',tags:'pencil write note'},{icon:'⌂',tags:'home house'},{icon:'♬',tags:'music note song'},{icon:'⚙',tags:'settings gear'},{icon:'☻',tags:'smile face'},{icon:'⚑',tags:'flag marker'},{icon:'➜',tags:'arrow direction'},{icon:'∞',tags:'infinity math'},{icon:'⌘',tags:'command key'},{icon:'⚗',tags:'science chemistry'},{icon:'☘',tags:'clover nature'},{icon:'✿',tags:'flower blossom'},{icon:'❖',tags:'diamond gem'},{icon:'◉',tags:'circle dot'},{icon:'➤',tags:'arrow triangle'},{icon:'⬡',tags:'hexagon shape'},{icon:'◒',tags:'half moon shape'},{icon:'☂',tags:'umbrella weather'},{icon:'♛',tags:'crown queen'},{icon:'⚐',tags:'flag finish'},{icon:'⌁',tags:'wave squiggle'},{icon:'☾',tags:'moon night'},{icon:'☼',tags:'sun star'},{icon:'⌛',tags:'time hourglass'},{icon:'✈',tags:'airplane travel'},{icon:'☎',tags:'phone call'},{icon:'✉',tags:'mail envelope'},{icon:'⌨',tags:'keyboard computer'},{icon:'⏰',tags:'alarm clock time'},{icon:'📚',tags:'books school study'},{icon:'📝',tags:'notes write school'},{icon:'📌',tags:'pin office'},{icon:'📎',tags:'paperclip office'},{icon:'💡',tags:'idea bulb'},{icon:'🌿',tags:'leaf nature plant'},{icon:'🌸',tags:'flower kawaii pink'},{icon:'💗',tags:'heart pink love'},{icon:'💫',tags:'sparkle magic'},{icon:'⭐',tags:'star yellow'},{icon:'🖇',tags:'paperclip office'},{icon:'📖',tags:'book open study'},{icon:'📘',tags:'book blue school'},{icon:'📐',tags:'ruler geometry school'},{icon:'📏',tags:'ruler line school'},{icon:'🎓',tags:'education graduate school'},{icon:'🧠',tags:'brain idea study'},{icon:'🧪',tags:'science lab chemistry'},{icon:'🧮',tags:'calculator math'},{icon:'🗂',tags:'folder files'},{icon:'🧷',tags:'pin safety office'},{icon:'🎀',tags:'bow kawaii cute'},{icon:'🌼',tags:'daisy flower'},{icon:'🩷',tags:'heart pink cute'},{icon:'🫶',tags:'hands heart love'}
+];
+function renderIcons(query=''){
+ const g=$('#iconGrid');g.innerHTML='';const q=(query||$('#iconSearch')?.value||'').trim().toLowerCase();
+ icons.filter(it=>!q||`${it.icon} ${it.tags}`.toLowerCase().includes(q)).forEach(it=>{const b=document.createElement('button');b.textContent=it.icon;b.title=it.tags;b.onclick=()=>{const e=textEl('icon',uid('morph'),200,170,150,150,it.icon,92,project.theme.accent,true,'center');activeSlide().elements.push(e);selectedIds=new Set([e.id]);commit();renderAll();closeModals()};g.appendChild(b)});
+ if(!g.children.length)g.innerHTML='<div class="hint">Kein Icon gefunden.</div>'
+}
 
 const templates=[
  {name:'Minimal Titel',bg:'#fffaf4',els:()=>[textEl('title',uid('morph'),100,160,770,160,'Große Idee.\nKlar erklärt.',72,'#40332e',true),textEl('text',uid('morph'),105,365,570,90,'Eine ruhige, hochwertige Titelfolie.',25,'#8f7c73'),shapeEl('circle',uid('morph'),930,150,220,220,'#f3b0aa',120)]},
@@ -501,7 +587,7 @@ $('#imageBtn').onclick=()=>$('#imageInput').click();$('#imageInput').onchange=e=
 $('#videoBtn').onclick=()=>$('#videoInput').click();$('#videoInput').onchange=e=>e.target.files[0]&&insertDataFile(e.target.files[0],'video');
 $('#audioBtn').onclick=()=>$('#audioInput').click();$('#audioInput').onchange=e=>e.target.files[0]&&insertDataFile(e.target.files[0],'audio');
 $('#svgBtn').onclick=()=>$('#svgInput').click();$('#svgInput').onchange=e=>e.target.files[0]&&insertSVG(e.target.files[0]);
-$('#chartBtn').onclick=()=>openModal('#chartModal');$('#tableBtn').onclick=()=>openModal('#tableModal');$('#iconBtn').onclick=()=>openModal('#iconModal');$('#templateBtn').onclick=()=>openModal('#templateModal');
+$('#chartBtn').onclick=()=>openModal('#chartModal');$('#tableBtn').onclick=()=>openModal('#tableModal');$('#iconBtn').onclick=()=>{renderIcons('');openModal('#iconModal')};$('#openIcons8Btn').onclick=()=>window.open('https://icons8.com/icons','_blank','noopener');$('#templateBtn').onclick=()=>openModal('#templateModal');
 $('#insertChartBtn').onclick=insertChart;$('#insertTableBtn').onclick=insertTable;
 
 $('#projectName').onchange=e=>{project.name=e.target.value;commit()};
@@ -564,8 +650,10 @@ $('#pathStrokeWidth').oninput=e=>liveSelected(x=>{if(x.type==='drawing')x.stroke
 $('#pathLineCap').onchange=e=>updateSelected(x=>{if(x.type==='drawing')x.lineCap=e.target.value});$('#pathFillToggle').onchange=e=>updateSelected(x=>{if(x.type==='drawing')x.pathFillEnabled=e.target.checked});
 $('#smoothPathBtn').onclick=()=>toast('Neue Freihand-Pfade werden schon automatisch geglättet.');
 
-$('#stickerBtn').onclick=()=>{renderStickerGrid('all');openModal('#stickerModal')};$('#quickStickerBtn').onclick=$('#stickerBtn').onclick;
+$('#stickerBtn').onclick=()=>{if($('#stickerSearch'))$('#stickerSearch').value='';renderStickerGrid('all');openModal('#stickerModal')};$('#quickStickerBtn').onclick=$('#stickerBtn').onclick;
 $$('.sticker-cat').forEach(b=>b.onclick=()=>{$$('.sticker-cat').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderStickerGrid(b.dataset.stickerCat)});
+$('#stickerSearch').oninput=()=>renderStickerGrid(($('.sticker-cat.active')?.dataset.stickerCat)||'all');
+$('#iconSearch').oninput=()=>renderIcons($('#iconSearch').value);
 $('#drawBtn').onclick=()=>openModal('#drawModal');$$('.draw-mode').forEach(b=>b.onclick=()=>{$$('.draw-mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');drawSettings.mode=b.dataset.drawmode});
 $('#startDrawingBtn').onclick=()=>{drawSettings={mode:drawSettings.mode||'freehand',stroke:$('#drawStrokeColor').value,fill:$('#drawFillColor').value,width:+$('#drawStrokeWidth').value,smoothing:+$('#drawSmoothing').value,fillEnabled:$('#drawFillEnabled').checked};drawMode=drawSettings.mode;document.body.classList.add('draw-mode');closeModals();toast('Zeichenmodus aktiv · Esc zum Abbrechen')};
 
@@ -592,7 +680,7 @@ document.addEventListener('keydown',e=>{
 });
 document.addEventListener('keyup',e=>{if(e.code==='Space'){spacePan=false;UI.viewport.classList.toggle('panning',panMode)}});
 
-project=normalizeProject(project);if(!projectRegistry[project.id])projectRegistry[project.id]=deep(project);applyUIAccent(uiAccent);renderTemplates();renderIcons();renderStickerGrid('all');renderFeaturedFonts();registerAllCustomFonts();renderAll();setScale(scale,false);history=[JSON.stringify(project)];saveProjectRegistry();setTimeout(()=>{fitStage();ensureStageVisible(true)},50);console.info('SlideBloom',APP_VERSION,'Scrapbook build');
+project=normalizeProject(project);if(!projectRegistry[project.id])projectRegistry[project.id]=deep(project);applyUIAccent(uiAccent);renderTemplates();renderIcons();renderStickerGrid('all');renderFeaturedFonts();registerAllCustomFonts();renderAll();setScale(scale,false);history=[JSON.stringify(project)];saveProjectRegistry();setTimeout(()=>{fitStage();ensureStageVisible(true)},50);console.info('SlideBloom',APP_VERSION,'Scrapbook build v6.2');
 
 if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{})}
 if('caches' in window){caches.keys().then(ks=>ks.filter(k=>k.toLowerCase().includes('slidebloom')).forEach(k=>caches.delete(k))).catch(()=>{})}

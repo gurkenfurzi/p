@@ -1,2 +1,2 @@
-SlideBloom Studio v6.0
-Build: scrapbook-stickers-paths-fonts-project-dashboard
+SlideBloom Studio v6.2
+Build: extra-sticker-packs-overview-icon-search
