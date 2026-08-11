@@ -1,24 +1,24 @@
-# SlideBloom Studio v6.6
+# SlideBloom Studio v6.8.1 — Stability Hotfix
 
-## Schwerpunkt dieser Version
-- Rechtsklick-Menü stabilisiert; Rechtsklick startet keinen Drag mehr.
-- Direktformatierung für Text im Rechtsklick-Menü: Schrift, Größe, Farbe, Fett.
-- Zeitstrahl per Rechtsklick oder Eigenschaften bearbeiten.
-- Zeitstrahl: 2–10 Punkte, Startwert, Schrittweite, Einheit und eigene Beschriftungen.
-- Zeitstrahl-Linien enden vor den Punkten statt durch die Kreise zu laufen.
-- Standard-Zeitstrahl übernimmt die aktuelle SlideBloom-Akzentfarbe.
-- Polygon ersetzt feste Fünf-/Achteck-Buttons; 3–12 Seiten einstellbar.
-- Bilder können direkt in Formen eingesetzt, gezoomt und verschoben werden.
-- Bildmasken für Kreis, Stern, Herz, Diamant, Sprechblase, Polygon usw.
-- Rand-Fade/Feather für Bilder und Formen.
-- Erweiterte Schatten: Soft-Blur, Soft-X/Y/Deckkraft sowie harter X/Y-Schatten.
-- Rechte Seitenleiste kompakter: Eigenschaften/Ebenen per Icon, per X schließen, per ⚙ wieder öffnen.
-- Projekt wird bei Page-Hide/Reload zusätzlich gespeichert und robuster wiederhergestellt.
-- Sticker-Farben weiter verbessert; Bow/Leaf/Speech/Cloud/Notebook sind farblich anpassbarer.
-- Notizbuch, Foldback Clip, Daisy und Sparkles überarbeitet.
-- Story Rail markiert die aktive Station farbig und nutzt Morph beim Wechsel.
-- Mehr eingebaute Präsentationsvorlagen.
-- Ctrl/Cmd+C, X, V, D, G, A sowie Entf/Backspace unterstützt.
+Diese Version ist absichtlich ein Hotfix und kein weiterer Feature-Sprung.
 
-## GitHub
-Dateien aus dieser ZIP in dein Repository hochladen. Falls der Browser cached, mit `?v=6.6` öffnen.
+## Behobene kritische Fehler
+- Fehlender `openAnimationPanel`-Button hat v6.8 beim Start per JavaScript-Fehler abgebrochen. Behoben.
+- Fehlender `rightDockLayerHost` ließ das Ebenenfenster über der UI liegen und Klicks abfangen. Behoben.
+- Rechtsklick-Menü ist scrollbar und schließt wieder außerhalb.
+- Rechte Leiste kann zwischen Eigenschaften, Ebenen und Animation wechseln.
+- Asset-Dateien sind versioniert: `app.v68.js` und `styles.v68.css`.
+
+## Getestete Kernfunktionen
+- Home / Präsentationsübersicht
+- Element hinzufügen
+- Rechtsklick öffnen, scrollen und schließen
+- Ctrl/Cmd+C, Ctrl/Cmd+V und Delete
+- Eigenschaften / Ebenen / Animation
+- App-Einstellungen
+- Linearer Verlauf
+- Story Rail erstellen, aktualisieren und löschen
+- Tablet- und Handy-Start ohne Seiten-Sprung
+
+## GitHub Pages
+Alle Dateien aus der ZIP direkt in den Repository-Hauptordner hochladen. Danach einmal mit `?v=6.8.1` öffnen.

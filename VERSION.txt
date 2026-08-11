@@ -1,2 +1,2 @@
-SlideBloom Studio v6.8
-Stable UI Polish + Story Rail Update
+SlideBloom Studio v6.8.1
+Stability Hotfix

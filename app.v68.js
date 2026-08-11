@@ -1,7 +1,7 @@
 
 (() => {
 'use strict';
-const APP_VERSION='6.8.0';
+const APP_VERSION='6.8.1';
 const W=1280,H=720,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const uid=p=>`${p}_${Math.random().toString(36).slice(2,9)}_${Date.now().toString(36).slice(-5)}`;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),deep=o=>JSON.parse(JSON.stringify(o));
@@ -708,7 +708,7 @@ $('#closeInspectorMobile').onclick=closeInspectorMobile;
 $('#mobileFitBtn').onclick=()=>{zoomMode='fit';fitStage()};
 const rightLayerHost=$('#rightDockLayerHost'),layersPanel=$('#layersPanel');if(rightLayerHost&&layersPanel)rightLayerHost.appendChild(layersPanel);
 function setRightDockMode(mode='properties'){
- UI.inspector.classList.remove('hidden');UI.inspector.classList.toggle('animation-mode',mode==='animation');UI.inspector.classList.toggle('layers-mode',mode==='layers');
+ UI.inspector.classList.remove('hidden');if($('#rightDockLabel'))$('#rightDockLabel').textContent=mode==='layers'?'Ebenen':mode==='animation'?'Animation':'Eigenschaften';UI.inspector.classList.toggle('animation-mode',mode==='animation');UI.inspector.classList.toggle('layers-mode',mode==='layers');
  [$('#openInspectorPanel'),$('#openLayersPanel2'),$('#openAnimationPanel')].forEach(b=>b?.classList.remove('active'));
  if(mode==='layers'){
    $('#openLayersPanel2')?.classList.add('active');rightLayerHost?.classList.remove('hidden');layersPanel?.classList.remove('hidden');UI.empty.classList.add('hidden');UI.content.classList.add('hidden');renderLayers();
@@ -717,7 +717,7 @@ function setRightDockMode(mode='properties'){
    if(mode==='animation'&&selectedIds.size){setTimeout(()=>$('#animationControls')?.scrollIntoView({block:'start',behavior:'smooth'}),20)}
  }
 }
-$('#toggleLayersBtn').onclick=()=>setRightDockMode('layers');$('#closeLayers').onclick=()=>setRightDockMode('properties');$('#openLayersPanel2').onclick=()=>setRightDockMode('layers');$('#openInspectorPanel').onclick=()=>setRightDockMode('properties');$('#openAnimationPanel').onclick=()=>setRightDockMode('animation');$('#selectAllBtn').onclick=()=>{selectedIds=new Set(activeSlide().elements.map(e=>e.id));renderAll()};$('#addCommentBtn').onclick=addComment;$('#saveCommentBtn').onclick=saveComment;$('#clearCommentsBtn').onclick=()=>{activeSlide().comments=[];commit();renderLayers()};
+$('#closeRightPanels')?.addEventListener('click',()=>setRightDockMode('properties'));$('#toggleLayersBtn').onclick=()=>setRightDockMode('layers');$('#closeLayers').onclick=()=>setRightDockMode('properties');$('#openLayersPanel2').onclick=()=>setRightDockMode('layers');$('#openInspectorPanel').onclick=()=>setRightDockMode('properties');$('#openAnimationPanel')?.addEventListener('click',()=>setRightDockMode('animation'));$('#selectAllBtn').onclick=()=>{selectedIds=new Set(activeSlide().elements.map(e=>e.id));renderAll()};$('#addCommentBtn').onclick=addComment;$('#saveCommentBtn').onclick=saveComment;$('#clearCommentsBtn').onclick=()=>{activeSlide().comments=[];commit();renderLayers()};
 $('#mediaLibraryBtn').onclick=()=>{renderMediaLibrary();openModal('#mediaLibraryModal')};
 
 $('#saveTextStyleBtn').onclick=openSaveTextStyle;$('#confirmSaveTextStyleBtn').onclick=confirmSaveTextStyle;$('#manageLibraryBtn').onclick=()=>{renderLibraryManager();openModal('#libraryModal')};
@@ -807,7 +807,7 @@ function initInspectorCollapsibles(){
  });
 }
 
-project=normalizeProject(project);if(!projectRegistry[project.id])projectRegistry[project.id]=deep(project);applyUIAccent(uiAccent);renderTemplates();renderIcons();renderStickerGrid('all');renderFeaturedFonts();registerAllCustomFonts();renderAll();initInspectorCollapsibles();setRightDockMode('properties');setScale(scale,false);history=[JSON.stringify(project)];saveProjectRegistry();setTimeout(()=>{fitStage();ensureStageVisible(true)},50);console.info('SlideBloom',APP_VERSION,'Stable UI rebuild v6.8');
+project=normalizeProject(project);if(!projectRegistry[project.id])projectRegistry[project.id]=deep(project);applyUIAccent(uiAccent);renderTemplates();renderIcons();renderStickerGrid('all');renderFeaturedFonts();registerAllCustomFonts();renderAll();initInspectorCollapsibles();setRightDockMode('properties');setScale(scale,false);history=[JSON.stringify(project)];saveProjectRegistry();setTimeout(()=>{fitStage();ensureStageVisible(true)},50);console.info('SlideBloom',APP_VERSION,'Stable UI rebuild v6.8.1');
 
 if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{})}
 if('caches' in window){caches.keys().then(ks=>ks.filter(k=>k.toLowerCase().includes('slidebloom')).forEach(k=>caches.delete(k))).catch(()=>{})}

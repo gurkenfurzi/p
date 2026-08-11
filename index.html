@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>SlideBloom Studio v6.8</title>
-  <link rel="stylesheet" href="styles.v68.css?v=6.8.0" />
+  <title>SlideBloom Studio v6.8.1</title>
+  <link rel="stylesheet" href="styles.v68.css?v=6.8.1" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo">✦</div>
-      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.8</span></div><span>Studio · Stable v6.8</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.8.1</span></div><span>Studio · Stable Hotfix</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -149,7 +149,8 @@
           </div>
         </div>
 
-        <aside class="inspector" id="inspector"><div class="inspector-switch"><button id="openInspectorPanel" class="active" title="Eigenschaften">⚙</button><button id="openLayersPanel2" title="Ebenen">☰</button><span class="dock-label" id="rightDockLabel">Eigenschaften</span><button id="closeRightPanels" title="Schließen">✕</button></div>
+        <aside class="inspector right-dock" id="inspector"><div class="inspector-switch"><button id="openInspectorPanel" class="active" title="Eigenschaften">⚙</button><button id="openLayersPanel2" title="Ebenen">☰</button><button id="openAnimationPanel" title="Animation">✦</button><span class="dock-label" id="rightDockLabel">Eigenschaften</span><button id="closeRightPanels" title="Schließen">✕</button></div>
+          <div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div>
           <div class="inspector-empty" id="inspectorEmpty">
             <div class="big-icon">✦</div>
             <strong>Element auswählen</strong>
@@ -298,7 +299,7 @@
               <button class="soft-btn" id="smoothPathBtn">⌁ Pfad glätten</button>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" id="animationControls">
               <strong>Element-Animation</strong>
               <label>Eingang
                 <select id="animIn">
@@ -581,7 +582,7 @@
 </div>
 
 <div id="toast" class="toast"></div>
-<script src="app.v68.js?v=6.8.0"></script>
+<script src="app.v68.js?v=6.8.1"></script>
 
 <div id="contextMenu" class="context-menu hidden">
   <button data-cm="duplicate">Duplizieren</button>
