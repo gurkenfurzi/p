@@ -7,16 +7,17 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>SlideBloom Studio v5.0</title>
-  <link rel="stylesheet" href="styles.v5.css?v=5.0.0" />
+  <title>SlideBloom Studio v6.0</title>
+  <link rel="stylesheet" href="styles.v6.css?v=6.0.0" />
 </head>
 <body>
 <div id="app">
   <header class="topbar">
     <div class="brand">
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
+      <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo">✦</div>
-      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v5.0</span></div><span>Studio · Presentation Lab</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.0</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -59,22 +60,30 @@
       <section class="toolstrip grouped-tools" id="insertTools">
         <div class="tool-group"><span class="group-label">Text</span><button data-add="title">Tᴴ Titel</button><button data-add="text">T Text</button><button data-add="badge">✦ Badge</button></div>
         <div class="tool-group"><span class="group-label">Formen</span><button data-add="rect">▭</button><button data-add="circle">○</button><button data-add="triangle">△</button><button data-add="star">★</button><button data-add="line">╱</button><button data-add="arrow">→</button></div>
-        <div class="tool-group"><span class="group-label">Inhalt</span><button id="imageBtn">▧ Bild</button><button id="svgBtn">◇ SVG</button><button id="chartBtn">▥ Chart</button><button id="tableBtn">▦ Tabelle</button><button id="iconBtn">☺ Icon</button><button id="drawBtn">✎ Zeichnen</button></div>
+        <div class="tool-group"><span class="group-label">Inhalt</span><button id="imageBtn">▧ Bild</button><button id="svgBtn">◇ SVG</button><button id="chartBtn">▥ Chart</button><button id="tableBtn">▦ Tabelle</button><button id="iconBtn">☺ Icon</button><button id="stickerBtn">✿ Sticker</button><button id="drawBtn">✎ Pfade</button></div>
         <div class="tool-group"><span class="group-label">Layouts</span><button id="templateBtn">⊞ Vorlagen</button></div>
         <input id="imageInput" type="file" accept="image/*" hidden>
         <input id="svgInput" type="file" accept=".svg,image/svg+xml" hidden>
       </section>
 
       <section class="toolstrip hidden grouped-tools" id="designTools">
-        <div class="tool-group"><span class="group-label">Farben</span><label>Folie <input type="color" id="slideBg" value="#fffdf8"></label><label>Text <input type="color" id="textColor" value="#3c312d"></label><label>Akzent <input type="color" id="accentColor" value="#55c7c4"></label></div>
-        <div class="tool-group"><span class="group-label">Themes</span><button class="theme-chip" data-theme="blush">Blush</button><button class="theme-chip" data-theme="sage">Sage</button><button class="theme-chip" data-theme="sky">Aqua</button><button class="theme-chip" data-theme="lavender">Lilac</button><button class="theme-chip" data-theme="night">Night</button></div>
+        <div class="tool-group"><span class="group-label">Farben</span><label>Folie <input type="color" id="slideBg" value="#fffdf8"></label><label>Text <input type="color" id="textColor" value="#3c312d"></label><label>Akzent <input type="color" id="accentColor" value="#ef9e9c"></label></div>
+        <div class="tool-group"><span class="group-label">App-Farbe</span>
+          <label>UI <input type="color" id="appAccentColor" value="#ef9e9c"></label>
+          <button class="accent-dot" data-uiaccent="#ef9e9c" title="Rosé">●</button>
+          <button class="accent-dot" data-uiaccent="#aab98d" title="Sage">●</button>
+          <button class="accent-dot" data-uiaccent="#9db9d3" title="Sky">●</button>
+          <button class="accent-dot" data-uiaccent="#c5a9d6" title="Lilac">●</button>
+          <button class="accent-dot" data-uiaccent="#e8c877" title="Honey">●</button>
+        </div>
+        <div class="tool-group"><span class="group-label">Themes</span><button class="theme-chip" data-theme="blush">Blush</button><button class="theme-chip" data-theme="sage">Sage</button><button class="theme-chip" data-theme="sky">Sky</button><button class="theme-chip" data-theme="lavender">Lilac</button><button class="theme-chip" data-theme="night">Night</button></div>
         <div class="tool-group"><span class="group-label">Eigene Vorlagen</span><button id="saveSlideTemplateBtn">＋ Folie speichern</button><button id="savePresentationTemplateBtn">＋ Präsentation speichern</button><button id="userTemplatesBtn">♡ Meine Vorlagen</button></div>
         <div class="tool-group"><span class="group-label">Ansicht</span><button id="gridToggle"># Raster</button><button id="snapToggle">⌁ Snap</button><button id="guidesToggle">⌖ Guides</button><button id="applyBgAllBtn">↯ Hintergrund auf alle</button></div>
       </section>
 
       <section class="toolstrip hidden grouped-tools styles-strip" id="stylesTools">
         <div class="tool-group style-actions"><span class="group-label">Meine Textformate</span><div id="textStyleButtons" class="text-style-buttons"></div></div>
-        <div class="tool-group"><span class="group-label">Speichern</span><button id="saveTextStyleBtn">＋ Auswahl als Stil</button><button id="manageLibraryBtn">⚙ Bibliothek</button></div>
+        <div class="tool-group"><span class="group-label">Speichern</span><button id="saveTextStyleBtn">＋ Auswahl als Stil</button><button id="fontLibraryBtn">Aa Schriften</button><button id="manageLibraryBtn">⚙ Bibliothek</button></div>
       </section>
 
       <section class="toolstrip hidden grouped-tools" id="animateTools">
@@ -116,6 +125,7 @@
         <div class="canvas-area">
           <div class="quick-dock" id="quickDock">
             <button data-openpanel="insert" title="Einfügen">＋</button>
+            <button id="quickStickerBtn" title="Sticker">✿</button>
             <button data-openpanel="styles" title="Textstile">T</button>
             <button data-openpanel="design" title="Design">◐</button>
             <button data-openpanel="animate" title="Animation & Morph">✦</button>
@@ -160,6 +170,13 @@
                   <option>Inter</option><option>Arial</option><option>Georgia</option>
                   <option>Trebuchet MS</option><option>Times New Roman</option>
                   <option>Courier New</option><option>Verdana</option><option>Impact</option>
+                  <option value="Nunito">Nunito</option>
+                  <option value="Quicksand">Quicksand</option>
+                  <option value="Patrick Hand">Patrick Hand</option>
+                  <option value="Caveat">Caveat</option>
+                  <option value="Dancing Script">Dancing Script</option>
+                  <option value="Playfair Display">Playfair Display</option>
+                  <option value="Cormorant Garamond">Cormorant Garamond</option>
                 </select>
               </label>
               <div class="control-row">
@@ -229,6 +246,25 @@
                   <option value="blob">Blob</option>
                 </select>
               </label>
+            </div>
+
+            <div class="control-group hidden" id="stickerControls">
+              <strong>Sticker</strong>
+              <label>Text / Beschriftung<input id="stickerTextInput" maxlength="100"></label>
+              <button class="soft-btn" id="stickerImageBtn">▧ Bild im Sticker einsetzen</button>
+              <label>Sticker-Farbe <input id="stickerColor" type="color" value="#fff8ef"></label>
+              <label>Tape-Farbe <input id="stickerAccentColor" type="color" value="#e8d7a7"></label>
+              <input id="stickerImageInput" type="file" accept="image/*" hidden>
+            </div>
+
+            <div class="control-group hidden" id="drawingControls">
+              <strong>Pfad</strong>
+              <label>Konturbreite <input id="pathStrokeWidth" type="range" min="1" max="30" value="5"></label>
+              <label>Linienenden
+                <select id="pathLineCap"><option value="round">Rund</option><option value="square">Eckig</option><option value="butt">Flach</option></select>
+              </label>
+              <label><span>Fläche ausfüllen</span><input id="pathFillToggle" type="checkbox"></label>
+              <button class="soft-btn" id="smoothPathBtn">⌁ Pfad glätten</button>
             </div>
 
             <div class="control-group">
@@ -335,6 +371,79 @@
   </div>
 </div>
 
+
+<div class="modal hidden" id="stickerModal">
+  <div class="modal-card large scrapbook-modal">
+    <div class="modal-head">
+      <div><strong>✿ Sticker & Scrapbook</strong><small>Alle Sticker sind editierbare Elemente – keine flachen Bilder.</small></div>
+      <button class="icon-btn modal-close">×</button>
+    </div>
+    <div class="sticker-category-row">
+      <button class="sticker-cat active" data-sticker-cat="all">Alle</button>
+      <button class="sticker-cat" data-sticker-cat="paper">Papier</button>
+      <button class="sticker-cat" data-sticker-cat="photo">Fotos</button>
+      <button class="sticker-cat" data-sticker-cat="tape">Kleben</button>
+      <button class="sticker-cat" data-sticker-cat="decor">Deko</button>
+    </div>
+    <div id="stickerGrid" class="sticker-grid"></div>
+  </div>
+</div>
+
+<div class="modal hidden" id="drawModal">
+  <div class="modal-card cute-modal">
+    <div class="modal-head">
+      <div><strong>✎ Zeichnen als SVG-Pfad</strong><small>Glatt statt zittrig. Jeder Strich bleibt editierbar.</small></div>
+      <button class="icon-btn modal-close">×</button>
+    </div>
+    <div class="draw-mode-grid">
+      <button class="draw-mode active" data-drawmode="freehand">〰 Freihand glatt</button>
+      <button class="draw-mode" data-drawmode="line">╱ Gerade Linie</button>
+      <button class="draw-mode" data-drawmode="curve">⌒ Kurve</button>
+      <button class="draw-mode" data-drawmode="blob">◌ Geschlossene Form</button>
+    </div>
+    <div class="control-row">
+      <label>Kontur<input id="drawStrokeColor" type="color" value="#473a34"></label>
+      <label>Füllung<input id="drawFillColor" type="color" value="#f6d9d2"></label>
+    </div>
+    <label>Konturbreite <input id="drawStrokeWidth" type="range" min="1" max="24" value="5"></label>
+    <label>Glättung <input id="drawSmoothing" type="range" min="0" max="90" value="58"></label>
+    <label class="check-row"><input id="drawFillEnabled" type="checkbox"> Geschlossene Pfade ausfüllen</label>
+    <button class="primary-btn" id="startDrawingBtn">Auf der Folie zeichnen</button>
+    <p class="hint">Esc beendet den Zeichenmodus. Freihand und Blob werden automatisch geglättet.</p>
+  </div>
+</div>
+
+<div class="modal hidden" id="fontModal">
+  <div class="modal-card large">
+    <div class="modal-head">
+      <div><strong>Aa Schriften</strong><small>Web-Schriften + deine eigenen Font-Dateien.</small></div>
+      <button class="icon-btn modal-close">×</button>
+    </div>
+    <div class="font-featured-grid" id="featuredFonts"></div>
+    <div class="font-upload-box">
+      <div><strong>Eigene Schrift hinzufügen</strong><small>WOFF, WOFF2, TTF oder OTF. Bleibt nur in deinem Browser gespeichert.</small></div>
+      <button class="primary-btn" id="uploadFontBtn">＋ Font auswählen</button>
+      <input id="fontFileInput" type="file" accept=".woff,.woff2,.ttf,.otf,font/woff,font/woff2,font/ttf,font/otf" hidden>
+    </div>
+    <div id="customFontsList" class="custom-font-list"></div>
+  </div>
+</div>
+
+<div class="modal hidden" id="projectsModal">
+  <div class="modal-card xlarge projects-modal-card">
+    <div class="modal-head">
+      <div><strong>⌂ Meine Präsentationen</strong><small>Automatisch lokal im Browser gespeichert.</small></div>
+      <button class="icon-btn modal-close">×</button>
+    </div>
+    <div class="projects-toolbar">
+      <button class="primary-btn" id="newProjectBtn">＋ Neue Präsentation</button>
+      <button class="soft-btn" id="saveProjectCopyBtn">⧉ Kopie speichern</button>
+      <button class="soft-btn" id="projectsImportBtn">⇧ Importieren</button>
+    </div>
+    <div id="projectsGrid" class="projects-grid"></div>
+  </div>
+</div>
+
 <div class="modal hidden" id="commentModal">
   <div class="modal-card">
     <div class="modal-head"><strong>Kommentar hinzufügen</strong><button class="icon-btn modal-close">×</button></div>
@@ -368,6 +477,7 @@
       <section><h3>Textstile</h3><div id="manageTextStyles"></div></section>
       <section><h3>Folienvorlagen</h3><div id="manageSlideTemplates"></div></section>
       <section><h3>Präsentationsvorlagen</h3><div id="managePresentationTemplates"></div></section>
+      <section><h3>Eigene Schriften</h3><div id="manageCustomFonts"></div></section>
     </div>
   </div>
 </div>
@@ -420,6 +530,6 @@
 </div>
 
 <div id="toast" class="toast"></div>
-<script src="app.v5.js?v=5.0.0"></script>
+<script src="app.v6.js?v=6.0.0"></script>
 </body>
 </html>

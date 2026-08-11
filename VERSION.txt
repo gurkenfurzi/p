@@ -1,2 +1,2 @@
-SlideBloom Studio v5.0.0
-Build: compact-library-pathfinder-storyrail
+SlideBloom Studio v6.0
+Build: scrapbook-stickers-paths-fonts-project-dashboard
