@@ -1,2 +1,1 @@
-SlideBloom Studio v6.4
-Build: all-in update compact-ui-more-shapes-timelines-contextmenu
+SlideBloom Studio v6.6

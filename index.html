@@ -7,7 +7,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>SlideBloom Studio v6.4</title>
+  <title>SlideBloom Studio v6.6</title>
   <link rel="stylesheet" href="styles.v6.css?v=6.3.0" />
 </head>
 <body>
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo">✦</div>
-      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.4</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.6</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -59,7 +59,7 @@
 
       <section class="toolstrip grouped-tools" id="insertTools">
         <div class="tool-group"><span class="group-label">Text</span><button data-add="title">Tᴴ Titel</button><button data-add="text">T Text</button><button data-add="badge">✦ Badge</button></div>
-        <div class="tool-group"><span class="group-label">Formen</span><button data-add="rect">▭</button><button data-add="circle">○</button><button data-add="triangle">△</button><button data-add="star">★</button><button data-add="diamond">◆</button><button data-add="hexagon">⬡</button><button data-add="heart">♥</button><button data-add="capsule">▱</button><button data-add="pentagon">⬟</button><button data-add="octagon">🛑</button><button data-add="speechbubble">💬</button><button data-add="burst">✹</button><button data-add="line">╱</button><button data-add="arrow">→</button></div>
+        <div class="tool-group"><span class="group-label">Formen</span><button data-add="rect">▭</button><button data-add="circle">○</button><button data-add="triangle">△</button><button data-add="star">★</button><button data-add="diamond">◆</button><button data-add="polygon">⬢</button><button data-add="heart">♥</button><button data-add="capsule">▱</button><button data-add="speechbubble">💬</button><button data-add="burst">✹</button><button data-add="line">╱</button><button data-add="arrow">→</button></div>
         <div class="tool-group"><span class="group-label">Inhalt</span><button id="imageBtn">▧ Bild</button><button id="svgBtn">◇ SVG</button><button id="chartBtn">▥ Chart</button><button id="tableBtn">▦ Tabelle</button><button id="iconBtn">☺ Icon</button><button id="stickerBtn">✿ Sticker</button><button id="drawBtn">✎ Pfade</button></div>
         <div class="tool-group"><span class="group-label">Layouts</span><button id="templateBtn">⊞ Vorlagen</button><button id="quickTimelineBtn">⟷ Zeitstrahl</button><button id="quickMilestoneBtn">◉ Meilenstein</button></div>
         <input id="imageInput" type="file" accept="image/*" hidden>
@@ -136,7 +136,7 @@
             <span id="zoomLabel">100%</span>
             <input id="zoomRange" type="range" min="25" max="160" value="85">
             <button id="fitBtn">Einpassen</button>
-            <button id="panBtn" title="Leertaste + Ziehen funktioniert ebenfalls">✋ Pan</button>
+            <button id="panBtn" title="Leertaste + Ziehen funktioniert ebenfalls">✋ Pan</button><button id="openRightDockBtn" title="Rechte Seitenleiste öffnen">⚙</button>
             <span class="canvas-hint">Shift+Klick = Multi-Select • Ctrl/Cmd+C/V • Ctrl/Cmd+D • Ctrl/Cmd+G • Entf</span>
           </div>
           <div id="stageViewport" class="stage-viewport">
@@ -149,7 +149,7 @@
           </div>
         </div>
 
-        <aside class="inspector" id="inspector">
+        <aside class="inspector" id="inspector"><div class="inspector-switch"><button id="openInspectorPanel" class="active" title="Eigenschaften">⚙</button><button id="openLayersPanel2" title="Ebenen">☰</button><span class="dock-label" id="rightDockLabel">Eigenschaften</span><button id="closeRightPanels" title="Schließen">✕</button></div>
           <div class="inspector-empty" id="inspectorEmpty">
             <div class="big-icon">✦</div>
             <strong>Element auswählen</strong>
@@ -211,7 +211,14 @@
               </div>
               <label>Deckkraft <input id="opacityRange" type="range" min="0" max="100"></label>
               <label>Ecken <input id="radiusRange" type="range" min="0" max="160"></label>
-              <label>Schatten <input id="shadowRange" type="range" min="0" max="50"></label>
+              <div class="mini-section"><strong>Schatten</strong>
+                <label>Soft Blur <input id="shadowRange" type="range" min="0" max="60"></label>
+                <div class="control-row"><label>Soft X <input id="shadowXRange" type="range" min="-30" max="30"></label><label>Soft Y <input id="shadowYRange" type="range" min="-30" max="30"></label></div>
+                <label>Soft Deckkraft <input id="shadowOpacityRange" type="range" min="0" max="70"></label>
+                <div class="control-row"><label>Hart X <input id="shadowHardXRange" type="range" min="-30" max="30"></label><label>Hart Y <input id="shadowHardYRange" type="range" min="-30" max="30"></label></div>
+                <label>Hart Deckkraft <input id="shadowHardOpacityRange" type="range" min="0" max="70"></label>
+              </div>
+              <label>Rand-Fade <input id="featherRange" type="range" min="0" max="45"></label>
               <label>Rahmen <input id="borderRange" type="range" min="0" max="20"></label>
             </div>
 
@@ -245,8 +252,22 @@
                   <option value="rounded">Rund</option>
                   <option value="hex">Hexagon</option>
                   <option value="blob">Blob</option>
+                  <option value="star">Stern</option>
+                  <option value="heart">Herz</option>
+                  <option value="diamond">Diamant</option>
+                  <option value="speech">Sprechblase</option>
+                  <option value="polygon">Polygon</option>
                 </select>
               </label>
+            </div>
+
+            <div class="control-group hidden" id="shapeControls"><strong>Form</strong>
+              <div id="polygonControls" class="hidden"><label>Ecken / Seiten <input id="polygonSides" type="range" min="3" max="12" value="6"></label></div>
+              <button class="soft-btn" id="shapeImageBtn">▧ Bild in Form</button>
+              <button class="soft-btn" id="removeShapeImageBtn">Bild aus Form entfernen</button>
+              <label>Bild-Zoom <input id="shapeImageZoom" type="range" min="100" max="300" value="100"></label>
+              <div class="control-row"><label>Bild X <input id="shapeImageX" type="range" min="0" max="100" value="50"></label><label>Bild Y <input id="shapeImageY" type="range" min="0" max="100" value="50"></label></div>
+              <input id="shapeImageInput" type="file" accept="image/*" hidden>
             </div>
 
             <div class="control-group hidden" id="stickerControls">
@@ -255,7 +276,16 @@
               <button class="soft-btn" id="stickerImageBtn">▧ Bild im Sticker einsetzen</button>
               <label>Sticker-Farbe <input id="stickerColor" type="color" value="#fff8ef"></label>
               <label>Tape-Farbe <input id="stickerAccentColor" type="color" value="#e8d7a7"></label>
+              <div class="control-row"><label>Text X <input id="stickerTextX" type="range" min="-80" max="80" value="0"></label><label>Text Y <input id="stickerTextY" type="range" min="-80" max="80" value="0"></label></div>
               <input id="stickerImageInput" type="file" accept="image/*" hidden>
+            </div>
+
+            <div class="control-group hidden" id="timelineStickerControls"><strong>Zeitstrahl bearbeiten</strong>
+              <label>Punkte <input id="timelinePoints" type="range" min="2" max="10" value="4"></label>
+              <div class="control-row"><label>Start <input id="timelineStart" type="number" value="0"></label><label>Schritt <input id="timelineStep" type="number" value="1"></label></div>
+              <label>Einheit <input id="timelineUnit" value="Jahre" placeholder="Jahre / Min / Schritte"></label>
+              <label>Beschriftungen <textarea id="timelineLabels" rows="4" placeholder="Eine Beschriftung pro Zeile"></textarea></label>
+              <small>Die Linie wird zwischen den Punkten gezeichnet – nicht durch die Kreise.</small>
             </div>
 
             <div class="control-group hidden" id="drawingControls">
@@ -536,7 +566,7 @@
 </div>
 
 <div id="toast" class="toast"></div>
-<script src="app.v6.js?v=6.4.0"></script>
+<script src="app.v6.js?v=6.6.0"></script>
 
 <div id="contextMenu" class="context-menu hidden">
   <button data-cm="duplicate">Duplizieren</button>
@@ -544,6 +574,15 @@
   <button data-cm="paste">Einfügen</button>
   <button data-cm="copyStyle">Stil kopieren</button>
   <button data-cm="pasteStyle">Stil einfügen</button>
+  <button data-cm="fontUp">Text größer</button>
+  <button data-cm="fontDown">Text kleiner</button>
+  <div id="contextTextTools" class="context-text-tools hidden">
+    <select id="contextFont"><option>Nunito</option><option>Quicksand</option><option>Inter</option><option>Arial</option><option>Patrick Hand</option><option>Caveat</option></select>
+    <input id="contextFontSize" type="number" min="8" max="220" value="28" title="Textgröße">
+    <input id="contextTextColor" type="color" value="#3c312d" title="Textfarbe">
+  </div>
+  <button data-cm="toggleBold">Fett umschalten</button>
+  <button data-cm="editTimeline" id="contextTimelineEdit">Zeitstrahl bearbeiten</button>
   <button data-cm="group">Gruppieren</button>
   <button data-cm="ungroup">Gruppe lösen</button>
   <button data-cm="front">In den Vordergrund</button>

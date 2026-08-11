@@ -4,7 +4,7 @@
   --bg:#fff8f4;--panel:#fffdf9;--ink:#3c312d;--muted:#9d8c84;--line:#eadbd4;
   --accent:#ef9e9c;--accent2:#f8c7be;--sage:#aab98d;--shadow:0 18px 50px rgba(95,67,52,.10);
 }
-*{box-sizing:border-box}html,body,#app{margin:0;width:100%;height:100%;height:100dvh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);overflow:hidden;overscroll-behavior:none}body{position:fixed;inset:0}
+*{box-sizing:border-box}html,body,#app{margin:0;width:100%;height:100%;height:100dvh;font-family:Nunito,Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);overflow:hidden;overscroll-behavior:none}body{position:fixed;inset:0}
 button,input,select,textarea{font:inherit}button{cursor:pointer}input[type=color]{padding:2px!important;height:34px}
 .topbar{height:68px;display:flex;align-items:center;gap:18px;padding:0 18px;background:rgba(255,253,249,.97);border-bottom:1px solid var(--line);position:relative;z-index:80}
 .brand{display:flex;align-items:center;gap:10px;min-width:220px}.logo{width:36px;height:36px;border-radius:13px;background:linear-gradient(145deg,var(--accent),#ffd8cb);display:grid;place-items:center;color:#fff;box-shadow:0 9px 20px rgba(239,158,156,.3)}
@@ -229,3 +229,50 @@ body{background:var(--bg)}
 @keyframes sbTwinkle2{0%{transform:scale(.84) rotate(-9deg);opacity:.72}100%{transform:scale(1.07) rotate(6deg);opacity:1}}
 @keyframes sbPulse2{0%{transform:translateY(2px) scale(.92);opacity:.7}100%{transform:translateY(-2px) scale(1.06);opacity:1}}
 .el[data-shape="true"]{overflow:visible}
+
+
+/* ===== v6.5 UX polish ===== */
+.inspector-switch{display:flex;gap:6px;align-items:center;margin-bottom:12px;position:sticky;top:0;background:#fffdf9;padding-bottom:8px;z-index:2}
+.inspector-switch button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:7px 10px;font:700 12px/1 Nunito,sans-serif;color:#5d4a43}
+.inspector-switch button.active{background:#fff3ef;border-color:#efc8bf}
+.inspector-switch #closeRightPanels{margin-left:auto;padding-inline:9px}
+.control-group strong{font-family:Nunito,sans-serif}
+.sticker-text{font-family:'Patrick Hand','Caveat',cursive}
+.sticker-notebook{background:linear-gradient(180deg,#fffdfa,#fff6ef);border:1px solid #e8ddd3;border-radius:24px;box-shadow:8px 12px 24px #4b38251a;overflow:hidden}
+.sticker-notebook::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:2px;background:#efc7c1;box-shadow:28px 0 0 #dbe7f9,0 0 0 999px transparent}
+.sticker-notebook .rings{position:absolute;left:12px;top:18px;bottom:18px;width:18px;background:repeating-linear-gradient(180deg,#8b817b 0 6px,transparent 6px 28px)}
+.sticker-notebook .sticker-text{position:absolute;left:58px;right:18px;top:24px;bottom:18px;padding-top:8px;background:repeating-linear-gradient(180deg,transparent 0 29px,#dbe7f9 29px 31px);font-size:24px}
+.sticker-cloud .sticker-text{max-width:78%;margin:auto}
+.sticker-daisy svg{filter:none}
+.sticker-binder svg{width:100%;height:100%}
+.context-menu{max-height:min(78vh,520px);overflow:auto}
+.tool-group button,.soft-btn,.icon-btn,.mini-btn{font-family:Nunito,sans-serif}
+
+
+/* ===== v6.6 compact editor + advanced dock ===== */
+.editor-row{grid-template-columns:minmax(0,1fr) 286px}
+.inspector{padding:12px}
+.control-group{padding:10px 0;gap:7px}
+.control-group input,.control-group select,.control-group textarea{padding:6px 7px;border-radius:8px}
+.inspector-switch{gap:5px;padding-bottom:6px}
+.inspector-switch button{width:34px;height:32px;padding:0;display:grid;place-items:center;font-size:14px}
+.inspector-switch .dock-label{font:800 12px/1 Nunito,sans-serif;color:#5d4a43;flex:1}
+.inspector-switch #closeRightPanels{margin-left:0}
+.mini-section{display:grid;gap:7px;padding:8px;border:1px solid #eee3dc;border-radius:12px;background:#fffaf7}
+.mini-section>strong{font-size:11px;color:#66544d}
+.context-text-tools{display:grid;grid-template-columns:minmax(100px,1fr) 64px 42px;gap:6px;padding:6px 4px;border-top:1px solid #eee3dc;border-bottom:1px solid #eee3dc;margin:3px 0}
+.context-text-tools select,.context-text-tools input{min-width:0;width:100%;height:32px;border:1px solid #e7ddd5;border-radius:9px;background:#fff;padding:4px 6px}
+.context-text-tools input[type=color]{padding:3px}
+.shape-media{width:100%;height:100%;display:block;object-fit:cover;pointer-events:none}
+.sticker-notebook{background:var(--sticker-color,#fffdfa)!important}
+.sticker-notebook::before{background:color-mix(in srgb,var(--sticker-accent,#efc7c1) 75%,white)!important}
+.sticker-speech{background:transparent!important;clip-path:none!important;padding:0!important;border:0!important}
+.sticker-cloud{overflow:visible!important;clip-path:none!important}
+.sticker-cloud svg{overflow:visible!important}
+.sticker-binder{filter:none!important}
+.sticker-sparklegif .twinkle1,.sticker-sparklegif .twinkle2,.sticker-sparklegif .twinkle3{animation:sbFlipDoodle .72s steps(1,end) infinite}
+.sticker-sparklegif .twinkle2{animation-delay:.36s}.sticker-sparklegif .twinkle3{animation-delay:.36s}
+@keyframes sbFlipDoodle{0%,49%{transform:translate(-1px,1px) rotate(-5deg) scale(.96)}50%,100%{transform:translate(2px,-1px) rotate(5deg) scale(1.05)}}
+@media(max-width:980px){.editor-row{grid-template-columns:minmax(0,1fr)}.inspector{width:min(92vw,320px)}}
+
+.editor-row.right-closed{grid-template-columns:minmax(0,1fr)}
