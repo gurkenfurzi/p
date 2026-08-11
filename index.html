@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>SlideBloom Studio v6.6</title>
-  <link rel="stylesheet" href="styles.v6.css?v=6.3.0" />
+  <title>SlideBloom Studio v6.7</title>
+  <link rel="stylesheet" href="styles.v67.css?v=6.7.0" />
 </head>
 <body>
 <div id="app">
@@ -17,11 +17,11 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo">✦</div>
-      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.6</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.7</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
-      <span id="saveStatus">Gespeichert</span>
+      <span id="saveStatus">Gespeichert</span><span class="build-chip">Stable v6.7</span>
     </div>
     <div class="top-actions">
       <button class="icon-btn" id="undoBtn" title="Rückgängig">↶</button>
@@ -136,8 +136,8 @@
             <span id="zoomLabel">100%</span>
             <input id="zoomRange" type="range" min="25" max="160" value="85">
             <button id="fitBtn">Einpassen</button>
-            <button id="panBtn" title="Leertaste + Ziehen funktioniert ebenfalls">✋ Pan</button><button id="openRightDockBtn" title="Rechte Seitenleiste öffnen">⚙</button>
-            <span class="canvas-hint">Shift+Klick = Multi-Select • Ctrl/Cmd+C/V • Ctrl/Cmd+D • Ctrl/Cmd+G • Entf</span>
+            
+            <span class="canvas-hint">Ziehen = Mehrfachauswahl • Ctrl/Cmd+C/V/D • Entf • Rechtsklick = Schnellmenü</span>
           </div>
           <div id="stageViewport" class="stage-viewport">
             <div id="stageShell" class="stage-shell">
@@ -149,7 +149,13 @@
           </div>
         </div>
 
-        <aside class="inspector" id="inspector"><div class="inspector-switch"><button id="openInspectorPanel" class="active" title="Eigenschaften">⚙</button><button id="openLayersPanel2" title="Ebenen">☰</button><span class="dock-label" id="rightDockLabel">Eigenschaften</span><button id="closeRightPanels" title="Schließen">✕</button></div>
+        <aside class="inspector right-dock" id="inspector">
+          <div class="inspector-switch right-dock-tabs">
+            <button id="openInspectorPanel" class="active" title="Eigenschaften">⚙ <span>Eigenschaften</span></button>
+            <button id="openLayersPanel2" title="Ebenen">☰ <span>Ebenen</span></button>
+            <button id="openAnimationPanel" title="Animation">✦ <span>Animation</span></button>
+          </div>
+          <div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div>
           <div class="inspector-empty" id="inspectorEmpty">
             <div class="big-icon">✦</div>
             <strong>Element auswählen</strong>
@@ -165,6 +171,7 @@
             </div>
 
             <div class="control-group" id="textControls">
+              <strong>Text & Schrift</strong>
               <label>Schrift
                 <select id="fontFamily">
                   <option>Inter</option><option>Arial</option><option>Georgia</option>
@@ -193,7 +200,8 @@
               <div class="control-row"><label>Text-Highlight <input id="textBgColor" type="color" value="#fff2a8"></label><label><span>an</span><input id="textBgToggle" type="checkbox"></label></div>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" id="appearanceControls">
+              <strong>Aussehen</strong>
               <div class="control-row">
                 <label>Füllung <input id="fillColor" type="color"></label>
                 <label>Farbe <input id="elementColor" type="color"></label>
@@ -298,7 +306,7 @@
               <button class="soft-btn" id="smoothPathBtn">⌁ Pfad glätten</button>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" id="animationControls">
               <strong>Element-Animation</strong>
               <label>Eingang
                 <select id="animIn">
@@ -324,7 +332,7 @@
               </label>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" id="morphControls">
               <strong>Morph-ID</strong>
               <input id="morphId" readonly>
               <small>Beim Duplizieren bleibt die ID gleich → Morph weiß, welches Element wohin gehört.</small>
@@ -566,8 +574,6 @@
 </div>
 
 <div id="toast" class="toast"></div>
-<script src="app.v6.js?v=6.6.0"></script>
-
 <div id="contextMenu" class="context-menu hidden">
   <button data-cm="duplicate">Duplizieren</button>
   <button data-cm="copy">Kopieren</button>
@@ -593,5 +599,6 @@
   <button data-cm="lock">Sperren / Entsperren</button>
   <button data-cm="delete" class="danger">Entfernen</button>
 </div>
+<script src="app.v67.js?v=6.7.0"></script>
 </body>
 </html>
