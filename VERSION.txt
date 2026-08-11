@@ -1,2 +1,2 @@
-SlideBloom Studio v6.2
-Build: extra-sticker-packs-overview-icon-search
+SlideBloom Studio v6.4
+Build: all-in update compact-ui-more-shapes-timelines-contextmenu

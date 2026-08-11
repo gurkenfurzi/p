@@ -1,7 +1,7 @@
-# SlideBloom v6.2 — Änderungsbericht
-
-- Sticker-Suche ergänzt.
-- Icon-Suche ergänzt.
-- Neue Sticker-Kategorien: Frames, Schule.
-- Viele neue Sticker-Packs ergänzt.
-- Übersichtlicheres Modal-Layout.
+# SlideBloom v6.4 – Änderungsbericht
+- Version auf 6.4 angehoben.
+- Mehr Formen hinzugefügt.
+- Neue Timeline-/Milestone-Sticker hinzugefügt.
+- Kontextmenü gefixt und erweitert.
+- Style-Clipboard hinzugefügt.
+- Compact-UI Styling ergänzt.

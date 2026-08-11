@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>SlideBloom Studio v6.2</title>
-  <link rel="stylesheet" href="styles.v6.css?v=6.2.0" />
+  <title>SlideBloom Studio v6.4</title>
+  <link rel="stylesheet" href="styles.v6.css?v=6.3.0" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo">✦</div>
-      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.2</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>SlideBloom</strong><span class="version-badge">v6.4</span></div><span>Studio · Scrapbook Presentation Lab</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -59,9 +59,9 @@
 
       <section class="toolstrip grouped-tools" id="insertTools">
         <div class="tool-group"><span class="group-label">Text</span><button data-add="title">Tᴴ Titel</button><button data-add="text">T Text</button><button data-add="badge">✦ Badge</button></div>
-        <div class="tool-group"><span class="group-label">Formen</span><button data-add="rect">▭</button><button data-add="circle">○</button><button data-add="triangle">△</button><button data-add="star">★</button><button data-add="line">╱</button><button data-add="arrow">→</button></div>
+        <div class="tool-group"><span class="group-label">Formen</span><button data-add="rect">▭</button><button data-add="circle">○</button><button data-add="triangle">△</button><button data-add="star">★</button><button data-add="diamond">◆</button><button data-add="hexagon">⬡</button><button data-add="heart">♥</button><button data-add="capsule">▱</button><button data-add="pentagon">⬟</button><button data-add="octagon">🛑</button><button data-add="speechbubble">💬</button><button data-add="burst">✹</button><button data-add="line">╱</button><button data-add="arrow">→</button></div>
         <div class="tool-group"><span class="group-label">Inhalt</span><button id="imageBtn">▧ Bild</button><button id="svgBtn">◇ SVG</button><button id="chartBtn">▥ Chart</button><button id="tableBtn">▦ Tabelle</button><button id="iconBtn">☺ Icon</button><button id="stickerBtn">✿ Sticker</button><button id="drawBtn">✎ Pfade</button></div>
-        <div class="tool-group"><span class="group-label">Layouts</span><button id="templateBtn">⊞ Vorlagen</button></div>
+        <div class="tool-group"><span class="group-label">Layouts</span><button id="templateBtn">⊞ Vorlagen</button><button id="quickTimelineBtn">⟷ Zeitstrahl</button><button id="quickMilestoneBtn">◉ Meilenstein</button></div>
         <input id="imageInput" type="file" accept="image/*" hidden>
         <input id="svgInput" type="file" accept=".svg,image/svg+xml" hidden>
       </section>
@@ -190,6 +190,7 @@
               </div>
               <label>Zeilenhöhe <input id="lineHeightRange" type="range" min="0.8" max="2.2" step="0.05"></label>
               <label>Buchstabenabstand <input id="letterSpacingRange" type="range" min="-3" max="20" step="0.5"></label>
+              <div class="control-row"><label>Text-Highlight <input id="textBgColor" type="color" value="#fff2a8"></label><label><span>an</span><input id="textBgToggle" type="checkbox"></label></div>
             </div>
 
             <div class="control-group">
@@ -249,7 +250,7 @@
             </div>
 
             <div class="control-group hidden" id="stickerControls">
-              <strong>Sticker</strong>
+              <strong>Sticker</strong><small>Süßere, flachere Sticker · Rechtsklick für Schnellaktionen</small>
               <label>Text / Beschriftung<input id="stickerTextInput" maxlength="100"></label>
               <button class="soft-btn" id="stickerImageBtn">▧ Bild im Sticker einsetzen</button>
               <label>Sticker-Farbe <input id="stickerColor" type="color" value="#fff8ef"></label>
@@ -535,6 +536,23 @@
 </div>
 
 <div id="toast" class="toast"></div>
-<script src="app.v6.js?v=6.2.0"></script>
+<script src="app.v6.js?v=6.4.0"></script>
+
+<div id="contextMenu" class="context-menu hidden">
+  <button data-cm="duplicate">Duplizieren</button>
+  <button data-cm="copy">Kopieren</button>
+  <button data-cm="paste">Einfügen</button>
+  <button data-cm="copyStyle">Stil kopieren</button>
+  <button data-cm="pasteStyle">Stil einfügen</button>
+  <button data-cm="group">Gruppieren</button>
+  <button data-cm="ungroup">Gruppe lösen</button>
+  <button data-cm="front">In den Vordergrund</button>
+  <button data-cm="back">In den Hintergrund</button>
+  <button data-cm="centerX">Horizontal zentrieren</button>
+  <button data-cm="centerY">Vertikal zentrieren</button>
+  <button data-cm="releaseCompound">Pathfinder lösen</button>
+  <button data-cm="lock">Sperren / Entsperren</button>
+  <button data-cm="delete" class="danger">Entfernen</button>
+</div>
 </body>
 </html>
