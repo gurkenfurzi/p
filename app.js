@@ -1,7 +1,7 @@
 
 (() => {
 'use strict';
-const APP_VERSION='6.7.8';
+const APP_VERSION='6.9.1';
 const W=1280,H=720,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const uid=p=>`${p}_${Math.random().toString(36).slice(2,9)}_${Date.now().toString(36).slice(-5)}`;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),deep=o=>JSON.parse(JSON.stringify(o));
@@ -117,7 +117,7 @@ function timelineStickerHTML(e,vertical=false){
  const Wd=520,y=54,left=42,right=478,gap=(right-left)/(n-1);let svg='';for(let i=0;i<n-1;i++){const x1=left+i*gap,x2=left+(i+1)*gap;svg+=`<line x1="${x1+16}" y1="${y}" x2="${x2-16}" y2="${y}" stroke="${acc}" stroke-width="7" stroke-linecap="round"/>`}for(let i=0;i<n;i++){const x=left+i*gap,label=raw[i]||`${start+i*step} ${unit}`;svg+=`<circle cx="${x}" cy="${y}" r="15" fill="${col}" stroke="${acc}" stroke-width="4"/><text x="${x}" y="95" text-anchor="middle" font-size="13" fill="#5a4a44">${esc(label)}</text>`}return`<div class="sticker-root sticker-timeline-h" style="--sticker-color:${col};--sticker-accent:${acc}"><svg viewBox="0 0 520 125">${svg}</svg></div>`
 }
 function stickerHTML(e){
- const kind=e.stickerKind||'sticky',txt=esc(e.content||''),col=e.stickerColor||e.fill||'#fff8ef',acc=e.stickerAccent||'#e8d7a7',detail=e.stickerDetailColor||'#fef5f9',sw=Math.max(1,+(e.stickerStrokeWidth||6)),notePattern=e.notePattern||'lined',style=`--sticker-color:${col};--sticker-accent:${acc};--sticker-detail:${detail};--sticker-stroke:${sw};--canvas-bg:${activeSlide()?.background||project.theme?.bg||'#fffdf8'};`;
+ const kind=e.stickerKind||'sticky',txt=esc(e.content||''),col=e.stickerColor||e.fill||'#fff8ef',acc=e.stickerAccent||'#e8d7a7',detail=e.stickerDetailColor||'#fef5f9',sw=Math.max(1,+(e.stickerStrokeWidth||6)),notePattern=e.notePattern||'lined',style=`--sticker-color:${col};--sticker-accent:${acc};--sticker-detail:${detail};--sticker-stroke:${sw};--canvas-bg:${activeSlide()?.background||project.theme?.bg||'#fffdf8'};`;const exactMap={title_1:"title-01.png",title_2:"title-02.png",title_3:"title-03.png",title_4:"title-04.png",note_sheet:e.notePattern==="grid"?"notes-02.png":"notes-01.png",notebook:"notes-03.png",note_top_torn:"notes-04.png",note_top_torn_2:"notes-05.png",note_top_torn_3:"notes-06.png",note_top_torn_4:"notes-07.png",window_square:"files-01.png",window_wide:"files-02.png",folder_window:"files-03.png",window_square_2:"files-04.png",window_wide_2:"files-05.png",folder_window_2:"files-06.png",paint_window:"files-06.png",pin:"pins-01.png",pushpin:"pins-02.png"}; if(exactMap[kind]) return `<div class="sticker-root sticker-exact-image kind-${kind}" style="${style}"><img src="exact-stickers/${exactMap[kind]}" alt="" draggable="false"></div>`;
  if(kind==='notebook'){const rings=Array.from({length:5},(_,i)=>`<i style="left:${14+i*17}%"></i>`).join('');const dots=Array.from({length:8},(_,r)=>Array.from({length:7},(_,c)=>`<span style="left:${22+c*9}% ; top:${26+r*8}%"></span>`).join('')).join('');return`<div class="sticker-root sticker-notebook-smart" style="${style}"><div class="book-back"></div><div class="book-front"></div><div class="book-rings">${rings}</div><div class="book-dots">${dots}</div>${txt?`<div class="sticker-text" style="transform:translate(${e.stickerTextX||0}px,${e.stickerTextY||0}px)">${txt}</div>`:''}</div>`;}
  if(kind==='graph')return`<div class="sticker-root sticker-graph" style="${style}"><div class="sticker-text">${txt||'Karo-Zettel'}</div></div>`;
  if(kind==='lined')return`<div class="sticker-root sticker-lined" style="${style}"><div class="sticker-text">${txt||'Linierter Zettel'}</div></div>`;
@@ -312,7 +312,7 @@ function smartGuides(moving){
 }
 function hideGuides(){UI.guideV.classList.add('hidden');UI.guideH.classList.add('hidden')}
 
-function stickerKeepsAspect(e){return e?.type==='sticker'&&['pin','pushpin'].includes(e.stickerKind)}
+function stickerKeepsAspect(e){return e?.type==='sticker'&&['pin','pushpin','title_1','title_2','title_3','title_4','note_sheet','notebook','note_top_torn','note_top_torn_2','note_top_torn_3','note_top_torn_4','window_square','window_wide','folder_window','window_square_2','window_wide_2','folder_window_2','paint_window'].includes(e.stickerKind)}
 function startResize(ev,id,corner){
  ev.preventDefault();ev.stopPropagation();const e=activeSlide().elements.find(x=>x.id===id),p=stagePoint(ev),orig={x:e.x,y:e.y,w:e.w,h:e.h},ratio=e.w/e.h;
  const move=mv=>{const q=stagePoint(mv),dx=q.x-p.x,dy=q.y-p.y;let nx=orig.x,ny=orig.y,nw=orig.w,nh=orig.h;if(corner.includes('r'))nw=orig.w+dx;else{nw=orig.w-dx;nx=orig.x+dx}if(corner.includes('b'))nh=orig.h+dy;else{nh=orig.h-dy;ny=orig.y+dy}const forceAspect=mv.shiftKey||stickerKeepsAspect(e);if(forceAspect){if(Math.abs(dx)>Math.abs(dy)){nh=nw/ratio;if(!corner.includes('b'))ny=orig.y+(orig.h-nh)}else{nw=nh*ratio;if(!corner.includes('r'))nx=orig.x+(orig.w-nw)}}if(nw>30&&nh>24){Object.assign(e,{x:nx,y:ny,w:nw,h:nh});if(e.type==='circle')e.borderRadius=999;if(e.type==='capsule')e.borderRadius=999;updateElementDOM(e);refreshSelectionUI()}};
@@ -394,10 +394,10 @@ function renderInspector(){
  $('#stickerControls')?.classList.toggle('hidden',items.length>1||e.type!=='sticker');
  $('#appearanceControls')?.classList.toggle('hidden',e.type==='sticker');
  $('#milestoneNumberWrap')?.classList.toggle('hidden',items.length>1||e.type!=='sticker'||e.stickerKind!=='milestone_card');
- $('#stickerStrokeWrap')?.classList.toggle('hidden',items.length>1||e.type!=='sticker'||!['title_1','title_2','title_3','title_4','note_sheet','notebook','pin','pushpin','note_top_torn','note_top_torn_2','note_top_torn_3','note_top_torn_4','window_square','window_wide','folder_window','window_square_2','window_wide_2','folder_window_2','paint_window'].includes(e.stickerKind));
- $('#stickerDetailWrap')?.classList.toggle('hidden',items.length>1||e.type!=='sticker'||!['pin','pushpin','notebook','window_square','window_wide','folder_window','window_square_2','window_wide_2','folder_window_2','paint_window'].includes(e.stickerKind));
- $('#notePatternWrap')?.classList.toggle('hidden',items.length>1||e.type!=='sticker'||e.stickerKind!=='note_sheet');
- const noTextStickerKinds=['title_1','title_2','title_3','title_4','pin','pushpin','window_square','window_wide','folder_window','window_square_2','window_wide_2','folder_window_2','paint_window','note_top_torn','note_top_torn_2','note_top_torn_3','note_top_torn_4'];
+ $('#stickerStrokeWrap')?.classList.toggle('hidden',true||items.length>1||e.type!=='sticker'||!['title_1','title_2','title_3','title_4','note_sheet','notebook','pin','pushpin','note_top_torn','note_top_torn_2','note_top_torn_3','note_top_torn_4','window_square','window_wide','folder_window','window_square_2','window_wide_2','folder_window_2','paint_window'].includes(e.stickerKind));
+ $('#stickerDetailWrap')?.classList.toggle('hidden',true||items.length>1||e.type!=='sticker'||!['pin','pushpin','notebook','window_square','window_wide','folder_window','window_square_2','window_wide_2','folder_window_2','paint_window'].includes(e.stickerKind));
+ $('#notePatternWrap')?.classList.toggle('hidden',true||items.length>1||e.type!=='sticker'||e.stickerKind!=='note_sheet');
+ const noTextStickerKinds=['title_1','title_2','title_3','title_4','pin','pushpin','window_square','window_wide','folder_window','window_square_2','window_wide_2','folder_window_2','paint_window','note_top_torn','note_top_torn_2','note_top_torn_3','note_top_torn_4','note_sheet','notebook'];
  const stickerTextLabel=$('#stickerTextInput')?.closest('label'); if(stickerTextLabel) stickerTextLabel.classList.toggle('hidden',items.length>1||e.type!=='sticker'||noTextStickerKinds.includes(e.stickerKind));
  const stickerTextXLabel=$('#stickerTextX')?.closest('label'); if(stickerTextXLabel) stickerTextXLabel.classList.toggle('hidden',items.length>1||e.type!=='sticker'||noTextStickerKinds.includes(e.stickerKind));
  const stickerTextYLabel=$('#stickerTextY')?.closest('label'); if(stickerTextYLabel) stickerTextYLabel.classList.toggle('hidden',items.length>1||e.type!=='sticker'||noTextStickerKinds.includes(e.stickerKind));
@@ -861,7 +861,7 @@ function initInspectorCollapsibles(){
  });
 }
 
-project=normalizeProject(project);if(!projectRegistry[project.id])projectRegistry[project.id]=deep(project);applyUIAccent(uiAccent);renderTemplates();renderIcons();renderStickerGrid('all');renderFeaturedFonts();registerAllCustomFonts();renderAll();initInspectorCollapsibles();setRightDockMode('properties');setScale(scale,false);history=[JSON.stringify(project)];saveProjectRegistry();setTimeout(()=>{fitStage();ensureStageVisible(true)},50);console.info('SlideBloom',APP_VERSION,'Reference sticker fidelity + sticker inspector cleanup v6.7.8');
+project=normalizeProject(project);if(!projectRegistry[project.id])projectRegistry[project.id]=deep(project);applyUIAccent(uiAccent);renderTemplates();renderIcons();renderStickerGrid('all');renderFeaturedFonts();registerAllCustomFonts();renderAll();initInspectorCollapsibles();setRightDockMode('properties');setScale(scale,false);history=[JSON.stringify(project)];saveProjectRegistry();setTimeout(()=>{fitStage();ensureStageVisible(true)},50);console.info('SlideBloom',APP_VERSION,'Exact sticker asset reset v6.9.1');
 
 if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{})}
 if('caches' in window){caches.keys().then(ks=>ks.filter(k=>k.toLowerCase().includes('slidebloom')).forEach(k=>caches.delete(k))).catch(()=>{})}

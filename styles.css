@@ -570,3 +570,9 @@ input[type="range"]{accent-color:var(--accent)}
 
 .sticker-pin-ref{display:grid;place-items:center;background:transparent!important;overflow:visible!important}
 .sticker-pin-ref svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 8px 12px rgba(80,50,64,.08))}
+
+
+/* v6.9.1 exact sticker asset reset */
+.sticker-exact-image{background:transparent!important;overflow:visible!important;display:grid;place-items:center}
+.sticker-exact-image img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none}
+.sticker-exact-image.kind-title_1 img,.sticker-exact-image.kind-title_2 img,.sticker-exact-image.kind-title_3 img,.sticker-exact-image.kind-title_4 img,.sticker-exact-image.kind-window_square img,.sticker-exact-image.kind-window_wide img,.sticker-exact-image.kind-folder_window img,.sticker-exact-image.kind-window_square_2 img,.sticker-exact-image.kind-window_wide_2 img,.sticker-exact-image.kind-folder_window_2 img,.sticker-exact-image.kind-paint_window img,.sticker-exact-image.kind-note_sheet img,.sticker-exact-image.kind-notebook img,.sticker-exact-image.kind-note_top_torn img,.sticker-exact-image.kind-note_top_torn_2 img,.sticker-exact-image.kind-note_top_torn_3 img,.sticker-exact-image.kind-note_top_torn_4 img{filter:drop-shadow(0 8px 12px rgba(80,50,64,.08))}
