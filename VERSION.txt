@@ -1,2 +1,2 @@
-SlideBloom Studio v6.8.1
-Stability Hotfix
+SlideBloom Studio v6.7.2 Complete Stable
+Files stay fixed: index.html, app.js, styles.css
