@@ -1,3 +1,3 @@
-# SlideBloom Studio v6.9.1
+# SlideBloom Studio v6.9.2
 
-Hard reset with exact sticker assets from the provided pack.
+Flat root package so stickers load correctly when opened locally or uploaded to GitHub Pages.
