@@ -639,17 +639,17 @@ input[type="range"]{accent-color:var(--accent)}
 .sticker-ui-browser .cloud,.sticker-ui-browser .cloud::before,.sticker-ui-browser .cloud::after{border-color:var(--sticker-accent)}
 
 
-/* v6.9.7 exact uploaded window sticker, scalable like Cute Browser */
-.sticker-window-exact{position:relative;background:transparent!important;border:0!important;overflow:visible!important;box-shadow:none!important}
-.sticker-window-exact *{box-sizing:border-box}
-.sticker-window-exact .we-back{position:absolute;left:6.8%;top:3.8%;width:87.8%;height:90.2%;border:var(--sticker-stroke,6px) solid var(--sticker-accent,#e778a8);border-radius:calc(20px + 2%);background:var(--sticker-detail,#dea4b7)}
-.sticker-window-exact .we-front{position:absolute;left:4%;top:4%;width:87.8%;height:90.2%;border:var(--sticker-stroke,6px) solid var(--sticker-accent,#e778a8);border-radius:calc(20px + 2%);overflow:hidden;background:transparent}
-.sticker-window-exact .we-header{position:absolute;left:0;top:0;width:100%;height:24%;background:var(--sticker-detail,#dea4b7);border-bottom:var(--sticker-stroke,6px) solid var(--sticker-accent,#e778a8)}
-.sticker-window-exact .we-body{position:absolute;left:0;top:24%;width:100%;height:76%;background:var(--sticker-color,#ddd4d9)}
-.sticker-window-exact .we-buttons{position:absolute;right:4.7%;top:8.8%;width:22%;height:10.8%;display:flex;gap:4%;justify-content:space-between;align-items:stretch}
-.sticker-window-exact .we-buttons i{display:block;position:relative;flex:1 1 0;border:var(--sticker-stroke,6px) solid var(--sticker-accent,#e778a8);border-radius:30%;background:#fff}
-.sticker-window-exact .we-buttons .min::before{content:'';position:absolute;left:26%;right:26%;bottom:30%;height:0;border-top:calc(var(--sticker-stroke,6px) * .72) solid var(--sticker-accent,#e778a8);border-radius:999px}
-.sticker-window-exact .we-buttons .max::before{content:'';position:absolute;left:29%;top:29%;width:42%;height:42%;border:calc(var(--sticker-stroke,6px) * .65) solid var(--sticker-accent,#e778a8);border-radius:22%}
-.sticker-window-exact .we-buttons .close::before,.sticker-window-exact .we-buttons .close::after{content:'';position:absolute;left:50%;top:50%;width:46%;border-top:calc(var(--sticker-stroke,6px) * .65) solid var(--sticker-accent,#e778a8);transform-origin:center}
-.sticker-window-exact .we-buttons .close::before{transform:translate(-50%,-50%) rotate(45deg)}
-.sticker-window-exact .we-buttons .close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+
+
+/* v6.9.8 exact uploaded window sticker with 9-slice scaling */
+.sticker-window-exact9{position:relative;background:transparent!important;border:0!important;overflow:visible!important;box-shadow:none!important}
+.sticker-window-exact9 i{position:absolute;display:block;background-repeat:no-repeat;image-rendering:auto;pointer-events:none}
+.sticker-window-exact9 .tl{left:0;top:0;width:130px;height:245px;background-image:url('exact-window-9slice/tl.png');background-size:100% 100%}
+.sticker-window-exact9 .t{left:130px;right:370px;top:0;height:245px;background-image:url('exact-window-9slice/t.png');background-size:100% 100%}
+.sticker-window-exact9 .tr{right:0;top:0;width:370px;height:245px;background-image:url('exact-window-9slice/tr.png');background-size:100% 100%}
+.sticker-window-exact9 .l{left:0;top:245px;bottom:95px;width:130px;background-image:url('exact-window-9slice/l.png');background-size:100% 100%}
+.sticker-window-exact9 .c{left:130px;right:370px;top:245px;bottom:95px;background-image:url('exact-window-9slice/c.png');background-size:100% 100%}
+.sticker-window-exact9 .r{right:0;top:245px;bottom:95px;width:370px;background-image:url('exact-window-9slice/r.png');background-size:100% 100%}
+.sticker-window-exact9 .bl{left:0;bottom:0;width:130px;height:95px;background-image:url('exact-window-9slice/bl.png');background-size:100% 100%}
+.sticker-window-exact9 .b{left:130px;right:370px;bottom:0;height:95px;background-image:url('exact-window-9slice/b.png');background-size:100% 100%}
+.sticker-window-exact9 .br{right:0;bottom:0;width:370px;height:95px;background-image:url('exact-window-9slice/br.png');background-size:100% 100%}
