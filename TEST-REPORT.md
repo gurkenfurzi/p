@@ -1,7 +1,5 @@
-# TEST REPORT – v6.9.8
+# Test Report
 
-- visible version updated to 6.9.8
-- cute-browser palette applied as default to title/note/notebook/paper-strip/window family stickers
-- detail color control enabled for title/note/window families
-- note lines/grid and notebook rings/dots now use the detail color
-- window stickers restyled to behave visually like Cute Browser
+- Window Exact default size reduced
+- Window Exact slices replaced with scaled source slices
+- Version updated to 6.9.9

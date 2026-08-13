@@ -641,15 +641,15 @@ input[type="range"]{accent-color:var(--accent)}
 
 
 
-/* v6.9.8 exact uploaded window sticker with 9-slice scaling */
+/* v6.9.9 exact uploaded window sticker with saner default size */
 .sticker-window-exact9{position:relative;background:transparent!important;border:0!important;overflow:visible!important;box-shadow:none!important}
 .sticker-window-exact9 i{position:absolute;display:block;background-repeat:no-repeat;image-rendering:auto;pointer-events:none}
-.sticker-window-exact9 .tl{left:0;top:0;width:130px;height:245px;background-image:url('exact-window-9slice/tl.png');background-size:100% 100%}
-.sticker-window-exact9 .t{left:130px;right:370px;top:0;height:245px;background-image:url('exact-window-9slice/t.png');background-size:100% 100%}
-.sticker-window-exact9 .tr{right:0;top:0;width:370px;height:245px;background-image:url('exact-window-9slice/tr.png');background-size:100% 100%}
-.sticker-window-exact9 .l{left:0;top:245px;bottom:95px;width:130px;background-image:url('exact-window-9slice/l.png');background-size:100% 100%}
-.sticker-window-exact9 .c{left:130px;right:370px;top:245px;bottom:95px;background-image:url('exact-window-9slice/c.png');background-size:100% 100%}
-.sticker-window-exact9 .r{right:0;top:245px;bottom:95px;width:370px;background-image:url('exact-window-9slice/r.png');background-size:100% 100%}
-.sticker-window-exact9 .bl{left:0;bottom:0;width:130px;height:95px;background-image:url('exact-window-9slice/bl.png');background-size:100% 100%}
-.sticker-window-exact9 .b{left:130px;right:370px;bottom:0;height:95px;background-image:url('exact-window-9slice/b.png');background-size:100% 100%}
-.sticker-window-exact9 .br{right:0;bottom:0;width:370px;height:95px;background-image:url('exact-window-9slice/br.png');background-size:100% 100%}
+.sticker-window-exact9 .tl{left:0;top:0;width:16px;height:94px;background-image:url('exact-window-9slice/tl.png');background-size:100% 100%}
+.sticker-window-exact9 .t{left:16px;right:200px;top:0;height:94px;background-image:url('exact-window-9slice/t.png');background-size:100% 100%}
+.sticker-window-exact9 .tr{right:0;top:0;width:200px;height:94px;background-image:url('exact-window-9slice/tr.png');background-size:100% 100%}
+.sticker-window-exact9 .l{left:0;top:94px;bottom:22px;width:16px;background-image:url('exact-window-9slice/l.png');background-size:100% 100%}
+.sticker-window-exact9 .c{left:16px;right:200px;top:94px;bottom:22px;background-image:url('exact-window-9slice/c.png');background-size:100% 100%}
+.sticker-window-exact9 .r{right:0;top:94px;bottom:22px;width:200px;background-image:url('exact-window-9slice/r.png');background-size:100% 100%}
+.sticker-window-exact9 .bl{left:0;bottom:0;width:16px;height:22px;background-image:url('exact-window-9slice/bl.png');background-size:100% 100%}
+.sticker-window-exact9 .b{left:16px;right:200px;bottom:0;height:22px;background-image:url('exact-window-9slice/b.png');background-size:100% 100%}
+.sticker-window-exact9 .br{right:0;bottom:0;width:200px;height:22px;background-image:url('exact-window-9slice/br.png');background-size:100% 100%}
