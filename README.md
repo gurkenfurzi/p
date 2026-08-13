@@ -1,23 +1,28 @@
-# SlideBloom Studio v6.7.5
+# SlideBloom Studio v6.7.6
 
-Rebuild based on the uploaded `sticker.zip` references.
+Reference sticker repair based on the uploaded sticker pack and the follow-up screenshots.
 
-Main fixes in this rebuild:
-- Title 1 rebuilt from the uploaded title reference
-- Title 2 rebuilt from the uploaded title reference
-- Note rebuilt closer to the uploaded note reference
-- Cute notebook rebuilt closer to the uploaded notebook reference
-- Pin and pushpin rebuilt closer to the uploaded pins reference
+Main fixes in v6.7.6:
+- pin redraw: fill + contour now follow sticker color / accent color
+- pushpin redraw: clean vector, fill + contour now follow sticker color / accent color
+- note redraw: closer to the reference sheet, better hole layout, better line / grid layout
+- notebook redraw: closer to the dotted spiral notebook reference
+- added missing reference-style stickers from the later screenshots:
+  - Paper Strip
+  - Window Square
+  - Window Wide
+  - Folder Window
+  - Paint
 
-Controls kept / supported:
-- width scaling for Title 1 and Title 2
-- recoloring via sticker color + accent color
-- note resizable
+Existing controls kept:
+- width / resize
+- sticker color
+- accent / contour color
+- contour thickness
 - note lined / grid mode
-- note line / grid opacity = 40% of contour color
-- contour thickness adjustable
+- note line / grid opacity based on contour color
 
-Stable files remain:
+Files unchanged in name:
 - index.html
 - app.js
 - styles.css
