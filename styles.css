@@ -346,3 +346,11 @@ input[type="range"]{accent-color:var(--accent)}
 .sticker-ui-playlist .playlist-title{font:700 22px/1 'Patrick Hand',cursive;color:#7e5e53;text-align:center}.sticker-ui-playlist .playlist-line{height:11px;border-radius:999px;background:color-mix(in srgb,var(--sticker-accent,#efc7c1) 28%,white);border:2px solid #8c5b4e;opacity:.85}.sticker-ui-playlist .playlist-row{display:flex;justify-content:center;gap:18px;color:#7d5e53;font-size:18px}
 .sticker-ui-calendar{border:3px solid #8c5b4e;border-radius:18px;background:var(--sticker-color,#fffaf7)!important;box-shadow:0 8px 18px rgba(72,52,45,.07);overflow:hidden}.sticker-ui-calendar .cal-head{height:34px;background:color-mix(in srgb,var(--sticker-accent,#efc7c1) 42%,white);border-bottom:3px solid #8c5b4e}.sticker-ui-calendar .cal-grid{padding:12px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.sticker-ui-calendar .cal-grid i{display:block;width:100%;aspect-ratio:1;border-radius:999px;background:color-mix(in srgb,var(--sticker-accent,#efc7c1) 18%,white);border:2px solid #8c5b4e;opacity:.9}
 .sticker-notebook .notepad-heart{font-family:'Patrick Hand',cursive}
+
+/* v6.7.4 notes & titles */
+.sticker-title1,.sticker-title2,.sticker-note-sheet{background:transparent!important;overflow:visible}
+.sticker-title1 svg,.sticker-title2 svg,.sticker-note-sheet svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 6px 12px rgba(76,56,47,.08))}
+.sticker-title1 .sticker-text,.sticker-title2 .sticker-text,.sticker-note-sheet .sticker-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--sticker-accent,#c8568e);font-weight:800;pointer-events:none;white-space:pre-wrap;overflow:hidden}
+.sticker-title1 .sticker-text{left:17%;right:17%;top:10%;bottom:31%;font-size:clamp(18px,4.1vw,44px);font-family:'Nunito',sans-serif}
+.sticker-title2 .sticker-text{left:18%;right:18%;top:8%;bottom:34%;font-size:clamp(18px,4vw,42px);font-family:'Nunito',sans-serif}
+.sticker-note-sheet .sticker-text{left:16%;right:8%;top:9%;bottom:9%;align-items:flex-start;justify-content:flex-start;text-align:left;color:#5a4a44;font-size:clamp(16px,2.4vw,29px);line-height:1.35;font-weight:700;font-family:'Nunito',sans-serif;padding:8px 4px 0 0}

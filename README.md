@@ -1,8 +1,21 @@
-# SlideBloom Studio v6.7.3
+# SlideBloom Studio v6.7.4
 
-Cute sticker refresh based on v6.7.2 stable.
+Update based on v6.7.3.
 
-Main updates:
-- cuter pin, foldback clip, push pin, daisy and bow stickers
-- new cute UI / scrapbook stickers: browser panel, search bar, folder, open document, mail, playlist, mini calendar, star bubble
-- filenames stay stable: `index.html`, `app.js`, `styles.css`
+Added from the 3 provided references:
+- Title 1 ribbon sticker (scalable width, recolorable)
+- Title 2 ribbon sticker (scalable width, recolorable)
+- Note sticker (resizable, lined or grid mode)
+
+New controls:
+- sticker color
+- accent / line color
+- contour thickness
+- note style: lined or grid
+
+For the note sticker, the line / grid color uses 40% opacity of the chosen contour color.
+
+Stable filenames remain:
+- index.html
+- app.js
+- styles.css

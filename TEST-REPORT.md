@@ -1,7 +1,7 @@
-# TEST REPORT – v6.7.3
+# TEST REPORT – v6.7.4
 
-Basic check performed:
-- app.js syntax check passed (`node --check`)
-- version strings updated to v6.7.3
-- sticker catalog includes new cute UI stickers
-- existing stable filenames preserved
+Checks:
+- app.js syntax check passed with `node --check`
+- new sticker kinds added: `title_1`, `title_2`, `note_sheet`
+- inspector controls added: `stickerStrokeWidth`, `notePattern`
+- index references updated to v6.7.4
