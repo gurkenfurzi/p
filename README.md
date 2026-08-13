@@ -1,21 +1,23 @@
-# SlideBloom Studio v6.7.4
+# SlideBloom Studio v6.7.5
 
-Update based on v6.7.3.
+Rebuild based on the uploaded `sticker.zip` references.
 
-Added from the 3 provided references:
-- Title 1 ribbon sticker (scalable width, recolorable)
-- Title 2 ribbon sticker (scalable width, recolorable)
-- Note sticker (resizable, lined or grid mode)
+Main fixes in this rebuild:
+- Title 1 rebuilt from the uploaded title reference
+- Title 2 rebuilt from the uploaded title reference
+- Note rebuilt closer to the uploaded note reference
+- Cute notebook rebuilt closer to the uploaded notebook reference
+- Pin and pushpin rebuilt closer to the uploaded pins reference
 
-New controls:
-- sticker color
-- accent / line color
-- contour thickness
-- note style: lined or grid
+Controls kept / supported:
+- width scaling for Title 1 and Title 2
+- recoloring via sticker color + accent color
+- note resizable
+- note lined / grid mode
+- note line / grid opacity = 40% of contour color
+- contour thickness adjustable
 
-For the note sticker, the line / grid color uses 40% opacity of the chosen contour color.
-
-Stable filenames remain:
+Stable files remain:
 - index.html
 - app.js
 - styles.css
