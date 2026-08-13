@@ -1,28 +1,19 @@
-# SlideBloom Studio v6.7.6
+# SlideBloom Studio v6.7.7
 
-Reference sticker repair based on the uploaded sticker pack and the follow-up screenshots.
+Focus of this repair:
+- cleaner Canva / Word style ribbon layout
+- pin and pushpin now have a separate detail / metal color
+- contour thickness stays editable
+- smart resize for delicate reference stickers so they keep their shape better instead of stretching badly
 
-Main fixes in v6.7.6:
-- pin redraw: fill + contour now follow sticker color / accent color
-- pushpin redraw: clean vector, fill + contour now follow sticker color / accent color
-- note redraw: closer to the reference sheet, better hole layout, better line / grid layout
-- notebook redraw: closer to the dotted spiral notebook reference
-- added missing reference-style stickers from the later screenshots:
-  - Paper Strip
-  - Window Square
-  - Window Wide
-  - Folder Window
-  - Paint
+What was changed:
+- added `Detail / Metall` color control for `pin` and `pushpin`
+- pin shaft + pushpin metal middle now use `stickerDetailColor`
+- resize logic keeps aspect ratio automatically for delicate reference stickers (`pin`, `pushpin`, `notebook`, `window_square`, `window_wide`, `folder_window`, `paint_window`)
+- inspector now shows contour width for more reference sticker types
+- ribbon / toolstrip styles were cleaned up to feel more structured and compact
 
-Existing controls kept:
-- width / resize
-- sticker color
-- accent / contour color
-- contour thickness
-- note lined / grid mode
-- note line / grid opacity based on contour color
-
-Files unchanged in name:
+Files kept with the same names:
 - index.html
 - app.js
 - styles.css

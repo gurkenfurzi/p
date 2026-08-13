@@ -1,9 +1,9 @@
-# TEST REPORT – v6.7.6
+# TEST REPORT – v6.7.7
 
 Checks completed:
 - `node --check app.js` passed
-- app version bumped to 6.7.6
-- pin / pushpin renderers rebuilt
-- note / notebook renderers rebuilt
-- new reference-style UI stickers added
-- index asset versions updated to 6.7.6
+- version updated to 6.7.7
+- new `stickerDetailColor` added for pins
+- smart resize hook added
+- inspector visibility updated
+- top ribbon / toolstrip CSS refined
