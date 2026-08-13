@@ -1,3 +1,3 @@
-# SlideBloom Studio v6.9.3
+# SlideBloom Studio v6.9.5
 
-Exact sticker PNGs are embedded directly inside app.js as data URLs. No external sticker path is required.
+Sticker polish update: cute-browser palette defaults, cleaner window behavior, editable detail colors for notes/titles/windows, and version correction.
