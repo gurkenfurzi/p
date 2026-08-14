@@ -1,5 +1,7 @@
-# SlideBloom Studio v6.9.9 - Window Size Fix
+# SlideBloom Studio v6.9.10 - Window Exact Controls
 
-- Window Exact standardmäßig kleiner
-- Exaktes Window nutzt neu geslicetes PNG für saubereres Skalieren
-- Minus-Icon / Buttons bleiben sauberer
+- Window Exact now uses a smart HTML/CSS build instead of raster 9-slices.
+- Adjustable colors: main fill, contour/accent, inner fill.
+- Adjustable contour thickness.
+- Smaller default size for insertion.
+- Resizes cleanly like the cute window style without the old oversized default.

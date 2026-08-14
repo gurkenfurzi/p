@@ -653,3 +653,19 @@ input[type="range"]{accent-color:var(--accent)}
 .sticker-window-exact9 .bl{left:0;bottom:0;width:16px;height:22px;background-image:url('exact-window-9slice/bl.png');background-size:100% 100%}
 .sticker-window-exact9 .b{left:16px;right:200px;bottom:0;height:22px;background-image:url('exact-window-9slice/b.png');background-size:100% 100%}
 .sticker-window-exact9 .br{right:0;bottom:0;width:200px;height:22px;background-image:url('exact-window-9slice/br.png');background-size:100% 100%}
+
+
+.sticker-window-exact-smart{position:relative;background:transparent!important;border:0!important;overflow:visible!important;box-shadow:none!important}
+.sticker-window-exact-smart .we-back,.sticker-window-exact-smart .we-front{position:absolute;box-sizing:border-box;border-style:solid;border-color:var(--sticker-accent);border-width:var(--sticker-stroke);border-radius:calc(16px + var(--sticker-stroke)*1px);overflow:hidden}
+.sticker-window-exact-smart .we-back{left:5%;top:4%;width:93%;height:93%;background:color-mix(in srgb,var(--sticker-color) 78%, white)}
+.sticker-window-exact-smart .we-front{left:1%;top:1%;width:93%;height:91%;background:var(--sticker-detail)}
+.sticker-window-exact-smart .we-header{position:absolute;left:0;right:0;top:0;height:31%;background:var(--sticker-color);border-bottom:var(--sticker-stroke) solid var(--sticker-accent)}
+.sticker-window-exact-smart .we-body{position:absolute;left:0;right:0;bottom:0;top:31%;background:var(--sticker-detail)}
+.sticker-window-exact-smart .we-btns{position:absolute;top:11%;right:4.5%;display:flex;gap:2.7%;width:24%;height:18%;align-items:center;justify-content:flex-end}
+.sticker-window-exact-smart .we-btns i{position:relative;display:block;flex:0 0 29%;height:100%;background:var(--sticker-detail);border:var(--sticker-stroke) solid var(--sticker-accent);border-radius:clamp(8px,1.2vw,14px);box-sizing:border-box}
+.sticker-window-exact-smart .we-btns i::before,.sticker-window-exact-smart .we-btns i::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--sticker-accent);border-radius:99px}
+.sticker-window-exact-smart .we-btns .min::before{width:42%;height:max(2px,calc(var(--sticker-stroke)*0.7px))}
+.sticker-window-exact-smart .we-btns .max::before{width:38%;height:38%;background:transparent;border:var(--sticker-stroke) solid var(--sticker-accent);box-sizing:border-box;border-radius:6px}
+.sticker-window-exact-smart .we-btns .close::before,.sticker-window-exact-smart .we-btns .close::after{width:42%;height:max(2px,calc(var(--sticker-stroke)*0.7px));transform:translate(-50%,-50%) rotate(45deg)}
+.sticker-window-exact-smart .we-btns .close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+
