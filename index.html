@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v7.0 Power Suite</title>
-  <link rel="stylesheet" href="styles.css?v=7.0.0" />
+  <title>Flora Deck v6.9.10 Cozy Ribbon</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.10" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v7.0</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.10</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -54,7 +54,7 @@
         <button class="ribbon-tab" data-panel="animate">Übergänge</button>
         <button class="ribbon-tab" data-panel="styles">Animationen</button>
         <button class="ribbon-tab" data-panel="arrange">Ansicht</button>
-        <button class="ribbon-tab" data-panel="review">Review</button>
+        <button class="ribbon-tab" data-panel="templates">Vorlagen</button>
         <button class="ribbon-tab" data-panel="notes">Notizen</button>
       </nav>
 
@@ -102,6 +102,8 @@
         <input id="videoInput" type="file" accept="video/*,image/gif" hidden>
         <input id="audioInput" type="file" accept="audio/*" hidden>
       </section>
+
+      <section class="toolstrip hidden grouped-tools" id="templatesTools"></section>
 
       <section class="toolstrip hidden" id="reviewTools">
         <button id="addCommentBtn">💬 Kommentar</button>
@@ -591,6 +593,9 @@
   <button data-cm="pasteStyle">Stil einfügen</button>
   <button data-cm="fontUp">Text größer</button>
   <button data-cm="fontDown">Text kleiner</button>
+  <button data-cm="alignLeft">Text links</button>
+  <button data-cm="alignCenter">Text zentriert</button>
+  <button data-cm="alignRight">Text rechts</button>
   <div id="contextTextTools" class="context-text-tools hidden">
     <select id="contextFont"><option>Nunito</option><option>Quicksand</option><option>Inter</option><option>Arial</option><option>Patrick Hand</option><option>Caveat</option></select>
     <input id="contextFontSize" type="number" min="8" max="220" value="28" title="Textgröße">
@@ -608,7 +613,7 @@
   <button data-cm="lock">Sperren / Entsperren</button>
   <button data-cm="delete" class="danger">Entfernen</button>
 </div>
-<script src="pptxgen.bundle.js?v=7.0.0"></script>
-<script src="app.js?v=7.0.0"></script>
+<script src="pptxgen.bundle.js?v=6.9.10"></script>
+<script src="app.js?v=6.9.10"></script>
 </body>
 </html>
