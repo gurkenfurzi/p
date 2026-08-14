@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.19 Polished Charts & Design</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.19" />
+  <title>Flora Deck v6.9.21 Story Rail, Timeline & School Math Fix</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.21" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.19</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.21</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -289,6 +289,7 @@
 
             <div class="control-group hidden" id="timelineStickerControls"><strong>Zeitstrahl bearbeiten</strong>
               <label>Punkte <input id="timelinePoints" type="range" min="2" max="12" value="4"></label>
+              <div class="control-row"><label>Breite <input id="timelineWidth" type="number" min="240" max="2200" step="20" value="980"></label><label>Höhe <input id="timelineHeight" type="number" min="90" max="1200" step="10" value="230"></label></div>
               <div class="control-row"><label>Start <input id="timelineStart" type="number" value="0"></label><label>Schritt <input id="timelineStep" type="number" value="1"></label></div>
               <label>Einheit <input id="timelineUnit" value="Jahre" placeholder="Jahre / Min / Schritte"></label>
               <label>Beschriftungen <textarea id="timelineLabels" rows="4" placeholder="Eine Beschriftung pro Zeile"></textarea></label>
@@ -551,14 +552,15 @@
 
 <div class="modal hidden" id="storyRailModal">
   <div class="modal-card cute-modal">
-    <div class="modal-head"><div><strong>✦ Story Rail</strong><small>Nur Symbole an der Seite. Der Kreis wandert beim nächsten Slide zum aktiven Symbol.</small></div><button class="icon-btn modal-close">×</button></div>
+    <div class="modal-head"><div><strong>✦ Story Rail</strong><small>Interaktives Morph-Seitenmenü: der aktive Menüpunkt fährt zur nächsten Station und öffnet sich als Label.</small></div><button class="icon-btn modal-close">×</button></div>
     <div class="rail-style-grid" id="railStyleGrid">
-      <button type="button" data-rail-style="icons" class="active"><span class="rs-icons">●<i>⌂</i>⌕<i>▤</i></span><b>Icon Rail</b><small>Minimal + Morph-Kreis</small></button>
-      <button type="button" data-rail-style="dots"><span class="rs-dots">•<i>•</i>•<i>•</i></span><b>Dot Rail</b><small>Sehr minimal</small></button>
-      <button type="button" data-rail-style="pill"><span class="rs-pill"><i>⌂ Start</i><i>⌕ Thema</i><i>✓ Ende</i></span><b>Pill Menu</b><small>Aktive Station als Pill</small></button>
-      <button type="button" data-rail-style="panel"><span class="rs-panel"><i>⌂</i><i>⌕</i><i>▤</i></span><b>Morph Panel</b><small>Sliding Side-Menu Stil</small></button>
+      <button type="button" data-rail-style="drawer" class="active"><span class="rs-drawer"><i>☰</i><em>⌂ Start</em><em class="active">▤ Thema</em><em>✓ Ende</em></span><b>Sliding Drawer</b><small>Breites Seitenmenü + gleitender aktiver Balken</small></button>
+      <button type="button" data-rail-style="peek"><span class="rs-peek"><i>⌂</i><i class="active">▤ THEMA</i><i>✓</i></span><b>Slide-out Menu</b><small>Schmale Icon-Leiste, aktiver Punkt fährt heraus</small></button>
+      <button type="button" data-rail-style="tabs"><span class="rs-edge-tabs"><i>01</i><i class="active">02 THEMA</i><i>03</i></span><b>Edge Tabs</b><small>Seitliche Morph-Tabs mit aktivem langen Tab</small></button>
+      <button type="button" data-rail-style="icons"><span class="rs-icons">●<i>⌂</i>⌕<i>▤</i></span><b>Icon Rail</b><small>Nur Symbole + aktiver Morph-Kreis</small></button>
+      <button type="button" data-rail-style="dots"><span class="rs-dots">•<i>•</i>•<i>•</i></span><b>Dot Rail</b><small>Minimaler Fortschritts-Rail</small></button>
     </div>
-    <div class="rail-preview"><div class="mini-rail"><span class="active">⌂</span><span>⌕</span><span>▤</span><span>☼</span><span>✓</span></div><p>Der aktive Marker besitzt auf jeder Folie dieselbe Morph-ID. Die Symbole sind im Präsentationsmodus direkt anklickbar.</p></div>
+    <div class="rail-preview"><div class="mini-rail video-like"><span>☰</span><span>⌂</span><span class="active">▤ <b>Thema</b></span><span>✓</span></div><p>Die Video-Stile arbeiten wie ein klickbares Morph-Seitenmenü: gleiche IDs auf allen Folien, ein aktiver Marker gleitet zur nächsten Station und kann sich dabei aufklappen.</p></div>
     <div class="control-row"><label>Seite<select id="railSide"><option value="left">Links</option><option value="right">Rechts</option></select></label><label>Farbe<input id="railAccent" type="color" value="#ef9e9c"></label></div>
     <label>Anzahl Symbole <input id="railCount" type="number" min="2" max="12" value="5"></label>
     <label>Text / Emoji / Unicode (mit Komma)<input id="railIcons" value="⌂,⌕,▤,☼,✓"></label>
@@ -643,6 +645,6 @@
 </div>
 
 <script src="pptxgen.bundle.js?v=6.9.16"></script>
-<script src="app.js?v=6.9.19"></script>
+<script src="app.js?v=6.9.21"></script>
 </body>
 </html>
