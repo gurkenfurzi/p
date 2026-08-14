@@ -1,10 +1,8 @@
-# Flora Deck v6.9.21 – Change/Test Notes
+# Flora Deck v6.9.22 – Change/Test Notes
 
-- Timeline default enlarged and direct width/height controls bound to actual element dimensions.
-- Added original expandable notes 01/02 and original expandable title banners 01–04.
-- Story Rail rebuilt with Drawer, Slide-out, Edge Tabs, Icon Rail and Dot Rail variants.
-- Formula renderer improved for nested fraction/root examples.
-- Graph/formula modal enlarged and restyled toward the school/Stundenplan editor.
-- Pattern preview color is tied to selected pattern color.
-- App viewport, bottom status bar and slide list use min-height/flex constraints; slide wheel scrolling forced.
-- Slide thumbnail right-click menu retained.
+- Exact sticker insertion sizes corrected to original PNG aspect ratios.
+- Exact sticker border slices refined so holes, torn edges and window chrome are not cut through.
+- Formula editor is button-first: no formula syntax typing required; values are edited in the visual preview.
+- Formula elements retain structured visual rendering on the slide and reopen on double click.
+- Graph editor is button-first: choose function family and edit coefficients/parameters; no expression typing required.
+- Existing legacy graph settings remain renderable.

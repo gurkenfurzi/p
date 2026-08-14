@@ -1,2 +1,2 @@
-Flora Deck v6.9.21
-Build: storyrail-timeline-schoolmath-viewport-fix
+Flora Deck v6.9.22
+Build: visual-math-sticker-proportions
