@@ -1,8 +1,7 @@
-# Flora Deck v6.9.10 Cozy Ribbon
+# Flora Deck v6.9.15 Final Ribbon
 
-- Zurück auf die kompaktere 6.9.10-/6.9.13-Logik
-- V7-Funktionen behalten: Story Rail, Übergänge, Animationen, PPTX, Vorlagen
-- Start-Ribbon gestrafft: keine Folien-Gruppe im Startbereich, Fokus auf Schrift, Absatz, Einfügen, Aussehen, Anordnen
-- Neuer Tab „Vorlagen“
-- Hintergrund-Dialog mit Karo-Muster
-- Rechtsklick um Text links/zentriert/rechts auszurichten
+Final compact presentation-editor layout based on the Flora Deck reference design.
+
+Main ribbon: Start · Einfügen · Design · Übergänge · Animationen.
+Right sidebar: Eigenschaften · Ebenen.
+Includes Story Rail, scalable stickers, text formats, custom bullets, formulas/graphs, background patterns, transitions, animations, bottom notes and zoom.

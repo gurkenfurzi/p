@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.10 Cozy Ribbon</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.10" />
+  <title>Flora Deck v6.9.15 Final Ribbon</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.15" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.10</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.15</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -53,9 +53,6 @@
         <button class="ribbon-tab" data-panel="design">Design</button>
         <button class="ribbon-tab" data-panel="animate">Übergänge</button>
         <button class="ribbon-tab" data-panel="styles">Animationen</button>
-        <button class="ribbon-tab" data-panel="arrange">Ansicht</button>
-        <button class="ribbon-tab" data-panel="templates">Vorlagen</button>
-        <button class="ribbon-tab" data-panel="notes">Notizen</button>
       </nav>
 
       <section class="toolstrip grouped-tools" id="insertTools">
@@ -144,7 +141,7 @@
           </div>
         </div>
 
-        <aside class="inspector right-dock" id="inspector"><div class="inspector-switch"><button id="openInspectorPanel" class="active" title="Design">Design</button><button id="openLayersPanel2" title="Hintergrund">Hintergrund</button><button id="openAnimationPanel" title="Größe">Größe</button><span class="dock-label" id="rightDockLabel">Design</span><button id="closeRightPanels" title="Seitenleiste einklappen">‹</button></div><div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div>
+        <aside class="inspector right-dock" id="inspector"><div class="inspector-switch final-side-tabs"><button id="openInspectorPanel" class="active" title="Eigenschaften">✦ Eigenschaften</button><button id="openLayersPanel2" title="Ebenen">☰ Ebenen</button><button id="openAnimationPanel" class="hidden" aria-hidden="true" tabindex="-1">Animation</button><span class="dock-label" id="rightDockLabel">Eigenschaften</span><button id="closeRightPanels" title="Seitenleiste einklappen">‹</button></div><div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div>
           <div class="inspector-empty" id="inspectorEmpty">
             <div class="big-icon">✦</div>
             <strong>Element auswählen</strong>
@@ -593,9 +590,12 @@
   <button data-cm="pasteStyle">Stil einfügen</button>
   <button data-cm="fontUp">Text größer</button>
   <button data-cm="fontDown">Text kleiner</button>
-  <button data-cm="alignLeft">Text links</button>
-  <button data-cm="alignCenter">Text zentriert</button>
-  <button data-cm="alignRight">Text rechts</button>
+  <button data-cm="alignMenu" class="has-submenu">Ausrichten <span>›</span></button>
+  <div id="contextAlignSubmenu" class="context-submenu hidden">
+    <button data-cm-sub="left">Links</button><button data-cm-sub="centerX">Horizontal mittig</button><button data-cm-sub="right">Rechts</button>
+    <button data-cm-sub="top">Oben</button><button data-cm-sub="centerY">Vertikal mittig</button><button data-cm-sub="bottom">Unten</button>
+    <button data-cm-sub="distributeH">Horizontal verteilen</button><button data-cm-sub="distributeV">Vertikal verteilen</button>
+  </div>
   <div id="contextTextTools" class="context-text-tools hidden">
     <select id="contextFont"><option>Nunito</option><option>Quicksand</option><option>Inter</option><option>Arial</option><option>Patrick Hand</option><option>Caveat</option></select>
     <input id="contextFontSize" type="number" min="8" max="220" value="28" title="Textgröße">
@@ -613,7 +613,7 @@
   <button data-cm="lock">Sperren / Entsperren</button>
   <button data-cm="delete" class="danger">Entfernen</button>
 </div>
-<script src="pptxgen.bundle.js?v=6.9.10"></script>
-<script src="app.js?v=6.9.10"></script>
+<script src="pptxgen.bundle.js?v=6.9.15"></script>
+<script src="app.js?v=6.9.15"></script>
 </body>
 </html>
