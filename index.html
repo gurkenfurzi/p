@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.16 Compact Dock Fix</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.16" />
+  <title>Flora Deck v6.9.17 Polished Charts & Design</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.17" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.16</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.17</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -159,16 +159,16 @@
             <div class="control-group" id="textControls">
               <label>Schrift
                 <select id="fontFamily">
-                  <option>Inter</option><option>Arial</option><option>Georgia</option>
-                  <option>Trebuchet MS</option><option>Times New Roman</option>
-                  <option>Courier New</option><option>Verdana</option><option>Impact</option>
                   <option value="Nunito">Nunito</option>
                   <option value="Quicksand">Quicksand</option>
+                  <option value="Inter">Inter</option>
+                  <option value="Lato">Lato</option>
+                  <option value="Arial">Arial</option>
+                  <option value="Verdana">Verdana</option>
+                  <option value="Trebuchet MS">Trebuchet MS</option>
+                  <option value="Impact">Impact</option>
                   <option value="Patrick Hand">Patrick Hand</option>
                   <option value="Caveat">Caveat</option>
-                  <option value="Dancing Script">Dancing Script</option>
-                  <option value="Playfair Display">Playfair Display</option>
-                  <option value="Cormorant Garamond">Cormorant Garamond</option>
                 </select>
               </label>
               <div class="control-row">
@@ -178,7 +178,7 @@
                 <button class="mini-btn" id="underlineBtn"><u>U</u></button>
               </div>
               <div class="segmented">
-                <button data-align="left">≡</button><button data-align="center">≡</button><button data-align="right">≡</button>
+                <button data-align="left" title="Links">≡</button><button data-align="center" title="Zentriert">≡</button><button data-align="right" title="Rechts">≡</button><button data-align="justify" title="Blocksatz">☰</button>
               </div>
               <label>Zeilenhöhe <input id="lineHeightRange" type="range" min="0.8" max="2.2" step="0.05"></label>
               <label>Buchstabenabstand <input id="letterSpacingRange" type="range" min="-3" max="20" step="0.5"></label>
@@ -214,6 +214,17 @@
               <label>Rahmen <input id="borderRange" type="range" min="0" max="20"></label>
             </div>
 
+
+            <div class="control-group hidden" id="chartControls">
+              <strong>Diagramm</strong>
+              <label>Typ<select id="chartInspectorType"><option value="bar">Balken</option><option value="line">Linie</option><option value="pie">Kreis</option><option value="donut">Donut</option></select></label>
+              <label>Werte<input id="chartInspectorValues" placeholder="35, 72, 48, 90"></label>
+              <label>Beschriftungen<input id="chartInspectorLabels" placeholder="A, B, C, D"></label>
+              <div class="chart-color-grid" id="chartInspectorColors"></div>
+              <div class="control-row chart-toggle-row"><label><span>Werte anzeigen</span><input id="chartInspectorShowValues" type="checkbox"></label><label><span>Legende</span><input id="chartInspectorShowLegend" type="checkbox"></label></div>
+              <label id="chartInspectorLeaderWrap"><span>Strahlen / Führungslinien</span><input id="chartInspectorLeader" type="checkbox"></label>
+              <label id="chartInspectorValueModeWrap">Zahlenformat<select id="chartInspectorValueMode"><option value="number">Zahl</option><option value="percent">Prozent</option></select></label>
+            </div>
             <div class="control-group">
               <strong>Position & Größe</strong>
               <div class="quad-grid">
@@ -369,11 +380,17 @@
 </div>
 
 <div class="modal hidden" id="chartModal">
-  <div class="modal-card">
+  <div class="modal-card chart-modal-card">
     <div class="modal-head"><strong>Diagramm</strong><button class="icon-btn modal-close">×</button></div>
-    <label>Typ<select id="chartType"><option value="bar">Balken</option><option value="line">Linie</option><option value="pie">Kreis</option><option value="donut">Donut</option></select></label>
+    <div class="chart-modal-grid">
+      <label>Typ<select id="chartType"><option value="bar">Balken</option><option value="line">Linie</option><option value="pie">Kreis</option><option value="donut">Donut</option></select></label>
+      <label>Zahlenformat<select id="chartValueMode"><option value="number">Zahl</option><option value="percent">Prozent</option></select></label>
+    </div>
     <label>Werte<input id="chartValues" value="35,72,48,90"></label>
     <label>Labels<input id="chartLabels" value="A,B,C,D"></label>
+    <div><small class="chart-helper">Farben je Datenpunkt</small><div class="chart-color-grid" id="chartModalColors"></div></div>
+    <div class="chart-option-grid"><label><span>Werte anzeigen</span><input id="chartShowValues" type="checkbox" checked></label><label><span>Legende</span><input id="chartShowLegend" type="checkbox"></label><label><span>Strahlen bei Kreis</span><input id="chartLeaderLines" type="checkbox" checked></label></div>
+    <div class="chart-modal-preview" id="chartModalPreview"></div>
     <button class="primary-btn" id="insertChartBtn">Einfügen</button>
   </div>
 </div>
@@ -618,6 +635,6 @@
 </div>
 
 <script src="pptxgen.bundle.js?v=6.9.16"></script>
-<script src="app.js?v=6.9.16"></script>
+<script src="app.js?v=6.9.17"></script>
 </body>
 </html>

@@ -1,3 +1,3 @@
-# Flora Deck v6.9.16 – Compact Dock Fix
+# Flora Deck v6.9.17
 
-This build keeps the presentation editor and sticker system while fixing the compact ribbon, right-side Properties/Layers/Animations dock, table dragging, timeline handles, Story Rail ordering/images/count, direct Design background patterns, and richer school-style formula/graph editors.
+Polished presentation editor update: chart colors + value labels/leader lines, visual background patterns with density controls, gradient controls, sans-serif UI/fonts, font hover preview, rotation snapping, and stabilized right-side Properties/Layers/Animations tabs.
