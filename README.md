@@ -1,7 +1,3 @@
-# SlideBloom Studio v6.9.10 - Window Exact Controls
+# SlideBloom Studio v6.9.11 - Exact Mask Window
 
-- Window Exact now uses a smart HTML/CSS build instead of raster 9-slices.
-- Adjustable colors: main fill, contour/accent, inner fill.
-- Adjustable contour thickness.
-- Smaller default size for insertion.
-- Resizes cleanly like the cute window style without the old oversized default.
+Window Exact uses masks generated from the original supplied sticker image. The original geometry is preserved while the middle sections stretch like a smart/cute window. Three source colors are independently editable. Contour thickness is adjustable from the original line weight upward.

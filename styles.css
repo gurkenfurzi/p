@@ -669,3 +669,55 @@ input[type="range"]{accent-color:var(--accent)}
 .sticker-window-exact-smart .we-btns .close::before,.sticker-window-exact-smart .we-btns .close::after{width:42%;height:max(2px,calc(var(--sticker-stroke)*0.7px));transform:translate(-50%,-50%) rotate(45deg)}
 .sticker-window-exact-smart .we-btns .close::after{transform:translate(-50%,-50%) rotate(-45deg)}
 
+
+
+/* v6.9.11 Window Exact — generated from original sticker masks */
+.sticker-window-exact-mask{
+  --wx-l:min(24px,8%);--wx-r:min(112px,37%);--wx-t:min(70px,25%);--wx-b:min(32px,12%);
+  position:relative;background:transparent!important;border:0!important;overflow:visible!important;box-shadow:none!important
+}
+.sticker-window-exact-mask .piece{position:absolute;display:block;pointer-events:none;overflow:visible}
+.sticker-window-exact-mask .piece.tl{left:0;top:0;width:var(--wx-l);height:var(--wx-t)}
+.sticker-window-exact-mask .piece.t{left:var(--wx-l);right:var(--wx-r);top:0;height:var(--wx-t)}
+.sticker-window-exact-mask .piece.tr{right:0;top:0;width:var(--wx-r);height:var(--wx-t)}
+.sticker-window-exact-mask .piece.l{left:0;top:var(--wx-t);bottom:var(--wx-b);width:var(--wx-l)}
+.sticker-window-exact-mask .piece.c{left:var(--wx-l);right:var(--wx-r);top:var(--wx-t);bottom:var(--wx-b)}
+.sticker-window-exact-mask .piece.r{right:0;top:var(--wx-t);bottom:var(--wx-b);width:var(--wx-r)}
+.sticker-window-exact-mask .piece.bl{left:0;bottom:0;width:var(--wx-l);height:var(--wx-b)}
+.sticker-window-exact-mask .piece.b{left:var(--wx-l);right:var(--wx-r);bottom:0;height:var(--wx-b)}
+.sticker-window-exact-mask .piece.br{right:0;bottom:0;width:var(--wx-r);height:var(--wx-b)}
+.sticker-window-exact-mask .layer{position:absolute;inset:0;display:block;pointer-events:none;background-repeat:no-repeat;background-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+.sticker-window-exact-mask .layer.fill{background:var(--sticker-color)}
+.sticker-window-exact-mask .layer.light{background:var(--sticker-detail)}
+.sticker-window-exact-mask .layer.accent{background:var(--sticker-accent);z-index:3;filter:
+  drop-shadow(var(--stroke-grow) 0 0 var(--sticker-accent))
+  drop-shadow(calc(-1 * var(--stroke-grow)) 0 0 var(--sticker-accent))
+  drop-shadow(0 var(--stroke-grow) 0 var(--sticker-accent))
+  drop-shadow(0 calc(-1 * var(--stroke-grow)) 0 var(--sticker-accent))}
+.sticker-window-exact-mask .tl .fill{-webkit-mask-image:url('window-exact-masks/tl-fill.png');mask-image:url('window-exact-masks/tl-fill.png')}
+.sticker-window-exact-mask .tl .light{-webkit-mask-image:url('window-exact-masks/tl-light.png');mask-image:url('window-exact-masks/tl-light.png')}
+.sticker-window-exact-mask .tl .accent{-webkit-mask-image:url('window-exact-masks/tl-accent.png');mask-image:url('window-exact-masks/tl-accent.png')}
+.sticker-window-exact-mask .t .fill{-webkit-mask-image:url('window-exact-masks/t-fill.png');mask-image:url('window-exact-masks/t-fill.png')}
+.sticker-window-exact-mask .t .light{-webkit-mask-image:url('window-exact-masks/t-light.png');mask-image:url('window-exact-masks/t-light.png')}
+.sticker-window-exact-mask .t .accent{-webkit-mask-image:url('window-exact-masks/t-accent.png');mask-image:url('window-exact-masks/t-accent.png')}
+.sticker-window-exact-mask .tr .fill{-webkit-mask-image:url('window-exact-masks/tr-fill.png');mask-image:url('window-exact-masks/tr-fill.png')}
+.sticker-window-exact-mask .tr .light{-webkit-mask-image:url('window-exact-masks/tr-light.png');mask-image:url('window-exact-masks/tr-light.png')}
+.sticker-window-exact-mask .tr .accent{-webkit-mask-image:url('window-exact-masks/tr-accent.png');mask-image:url('window-exact-masks/tr-accent.png')}
+.sticker-window-exact-mask .l .fill{-webkit-mask-image:url('window-exact-masks/l-fill.png');mask-image:url('window-exact-masks/l-fill.png')}
+.sticker-window-exact-mask .l .light{-webkit-mask-image:url('window-exact-masks/l-light.png');mask-image:url('window-exact-masks/l-light.png')}
+.sticker-window-exact-mask .l .accent{-webkit-mask-image:url('window-exact-masks/l-accent.png');mask-image:url('window-exact-masks/l-accent.png')}
+.sticker-window-exact-mask .c .fill{-webkit-mask-image:url('window-exact-masks/c-fill.png');mask-image:url('window-exact-masks/c-fill.png')}
+.sticker-window-exact-mask .c .light{-webkit-mask-image:url('window-exact-masks/c-light.png');mask-image:url('window-exact-masks/c-light.png')}
+.sticker-window-exact-mask .c .accent{-webkit-mask-image:url('window-exact-masks/c-accent.png');mask-image:url('window-exact-masks/c-accent.png')}
+.sticker-window-exact-mask .r .fill{-webkit-mask-image:url('window-exact-masks/r-fill.png');mask-image:url('window-exact-masks/r-fill.png')}
+.sticker-window-exact-mask .r .light{-webkit-mask-image:url('window-exact-masks/r-light.png');mask-image:url('window-exact-masks/r-light.png')}
+.sticker-window-exact-mask .r .accent{-webkit-mask-image:url('window-exact-masks/r-accent.png');mask-image:url('window-exact-masks/r-accent.png')}
+.sticker-window-exact-mask .bl .fill{-webkit-mask-image:url('window-exact-masks/bl-fill.png');mask-image:url('window-exact-masks/bl-fill.png')}
+.sticker-window-exact-mask .bl .light{-webkit-mask-image:url('window-exact-masks/bl-light.png');mask-image:url('window-exact-masks/bl-light.png')}
+.sticker-window-exact-mask .bl .accent{-webkit-mask-image:url('window-exact-masks/bl-accent.png');mask-image:url('window-exact-masks/bl-accent.png')}
+.sticker-window-exact-mask .b .fill{-webkit-mask-image:url('window-exact-masks/b-fill.png');mask-image:url('window-exact-masks/b-fill.png')}
+.sticker-window-exact-mask .b .light{-webkit-mask-image:url('window-exact-masks/b-light.png');mask-image:url('window-exact-masks/b-light.png')}
+.sticker-window-exact-mask .b .accent{-webkit-mask-image:url('window-exact-masks/b-accent.png');mask-image:url('window-exact-masks/b-accent.png')}
+.sticker-window-exact-mask .br .fill{-webkit-mask-image:url('window-exact-masks/br-fill.png');mask-image:url('window-exact-masks/br-fill.png')}
+.sticker-window-exact-mask .br .light{-webkit-mask-image:url('window-exact-masks/br-light.png');mask-image:url('window-exact-masks/br-light.png')}
+.sticker-window-exact-mask .br .accent{-webkit-mask-image:url('window-exact-masks/br-accent.png');mask-image:url('window-exact-masks/br-accent.png')}

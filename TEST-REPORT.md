@@ -1,7 +1,7 @@
-# Test Report
+# Test Report – v6.9.11
 
-- Version updated to 6.9.10
-- Window Exact insert size reduced
-- Window Exact colors now respond to Sticker-Farbe, Akzent/Linie and Detail/Innenfläche
-- Window Exact contour thickness now responds to Kontur-Dicke
-- Window Exact uses scalable HTML/CSS structure instead of raster 9-slice images
+- Window Exact rebuilt from masks extracted from the original supplied PNG
+- Original canonical colors: #F4ACC5, #EE7BA7, #FEF5F9
+- 9-slice smart resizing uses preserved corners/buttons and stretchable center
+- Existing Window Exact stickers migrate to the new renderer
+- Width/height remain editable through Position & Größe and drag handles
