@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.17 Polished Charts & Design</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.17" />
+  <title>Flora Deck v6.9.18 Polished Charts & Design</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.18" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.17</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.18</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -222,6 +222,7 @@
               <label>Beschriftungen<input id="chartInspectorLabels" placeholder="A, B, C, D"></label>
               <div class="chart-color-grid" id="chartInspectorColors"></div>
               <div class="control-row chart-toggle-row"><label><span>Werte anzeigen</span><input id="chartInspectorShowValues" type="checkbox"></label><label><span>Legende</span><input id="chartInspectorShowLegend" type="checkbox"></label></div>
+              <label id="chartInspectorScaleWrap" class="chart-switch-line"><span>Maßstab & Raster</span><input id="chartInspectorShowScale" type="checkbox" checked></label>
               <label id="chartInspectorLeaderWrap"><span>Strahlen / Führungslinien</span><input id="chartInspectorLeader" type="checkbox"></label>
               <label id="chartInspectorValueModeWrap">Zahlenformat<select id="chartInspectorValueMode"><option value="number">Zahl</option><option value="percent">Prozent</option></select></label>
             </div>
@@ -389,7 +390,7 @@
     <label>Werte<input id="chartValues" value="35,72,48,90"></label>
     <label>Labels<input id="chartLabels" value="A,B,C,D"></label>
     <div><small class="chart-helper">Farben je Datenpunkt</small><div class="chart-color-grid" id="chartModalColors"></div></div>
-    <div class="chart-option-grid"><label><span>Werte anzeigen</span><input id="chartShowValues" type="checkbox" checked></label><label><span>Legende</span><input id="chartShowLegend" type="checkbox"></label><label><span>Strahlen bei Kreis</span><input id="chartLeaderLines" type="checkbox" checked></label></div>
+    <div class="chart-option-grid"><label><span>Werte anzeigen</span><input id="chartShowValues" type="checkbox" checked></label><label><span>Legende</span><input id="chartShowLegend" type="checkbox"></label><label><span>Maßstab & Raster</span><input id="chartShowScale" type="checkbox" checked></label><label><span>Strahlen bei Kreis</span><input id="chartLeaderLines" type="checkbox" checked></label></div>
     <div class="chart-modal-preview" id="chartModalPreview"></div>
     <button class="primary-btn" id="insertChartBtn">Einfügen</button>
   </div>
@@ -635,6 +636,6 @@
 </div>
 
 <script src="pptxgen.bundle.js?v=6.9.16"></script>
-<script src="app.js?v=6.9.17"></script>
+<script src="app.js?v=6.9.18"></script>
 </body>
 </html>

@@ -1,3 +1,8 @@
-# Flora Deck v6.9.17
+# Flora Deck v6.9.18
 
-Polished presentation editor update: chart colors + value labels/leader lines, visual background patterns with density controls, gradient controls, sans-serif UI/fonts, font hover preview, rotation snapping, and stabilized right-side Properties/Layers/Animations tabs.
+- Ansicht + Zoom unten am Rand
+- Folienhintergrund sichtbar auf der echten Folie (auch Verlauf/Muster)
+- ästhetischere Standardfarben für Diagramme
+- optionaler Maßstab + Raster für Balken- und Liniendiagramme
+- stabilisierte rechte Tabs Eigenschaften / Ebenen / Animationen
+- übersichtlichere Eigenschaften und runderer Flora-Look

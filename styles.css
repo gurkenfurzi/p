@@ -887,7 +887,7 @@ body:not(.laser-mode) .el .content[contenteditable="true"]{cursor:text!important
 .context-section-label{padding:5px 8px 3px;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b29890}.context-sep{height:1px;background:#efe1dc;margin:4px 2px}.context-text-tools{display:grid!important;grid-template-columns:minmax(0,1fr) 56px 34px;gap:5px;padding:5px 3px}.context-text-tools.hidden{display:none!important}.context-text-tools select,.context-text-tools input{min-height:29px!important;border-radius:8px!important;border:1px solid #e8d8d2!important;background:#fff!important}
 
 
-/* ===== v6.9.17 polished reference UI ===== */
+/* ===== v6.9.18 polished reference UI ===== */
 html,body,#app,button,input,select,textarea{font-family:Nunito,Inter,Lato,Arial,sans-serif!important}
 .brandcopy strong,.project-title input,.modal-head strong,.slides-panel .panel-head strong{font-family:Quicksand,Nunito,Inter,sans-serif!important;font-weight:700!important}
 .topbar{height:76px!important;background:#fffaf8!important;border-bottom:1px solid #eee2dc!important}
@@ -912,3 +912,33 @@ html,body,#app,button,input,select,textarea{font-family:Nunito,Inter,Lato,Arial,
 @media(max-width:1100px){.toolstrip{height:84px!important;min-height:84px!important}.power-ribbon-group{height:72px!important}.design-base-group{grid-template-columns:48px 48px 78px 88px 88px!important}.design-pattern-picker{grid-template-columns:170px 42px 80px 70px 70px!important}}
 
 .math-live-preview,.math-block-grid button b{font-family:Nunito,Inter,Arial,sans-serif!important}.font-pair strong{font-family:Quicksand,Nunito,sans-serif!important}
+
+
+/* ===== v6.9.18 bottom zoom + background + stable dock polish ===== */
+.stage{background:var(--slide-background,#fffaf8)!important}
+/* Zoom / Ansicht lives only at the lower edge now. */
+.canvas-toolbar #zoomLabel,.canvas-toolbar #zoomRange,.canvas-toolbar #fitBtn{display:none!important}
+.power-status-bar{height:36px!important;min-height:36px!important;flex:0 0 36px!important;padding:0 12px!important;gap:7px!important;background:#fffaf8!important;border-top:1px solid #eaded8!important;font:10px Nunito,sans-serif!important;color:#95817a!important}
+.power-status-bar .status-spacer{flex:1!important}.power-status-bar .status-view-label,.power-status-bar .status-zoom-label{font-size:9px;color:#b09c95;margin-left:4px}
+.power-status-bar button{height:25px!important;min-width:28px!important;border:1px solid transparent!important;border-radius:9px!important;padding:0 7px!important;background:transparent!important;color:#826e67!important}
+.power-status-bar button:hover{background:#fff0ed!important;border-color:#efd3ce!important}.power-status-bar #powerFitStatus{background:#fff!important;border-color:#eadbd5!important;font-weight:700;font-size:9px}
+.power-status-bar input[type=range]{width:112px!important;height:5px!important;accent-color:#d99c99!important}.power-status-bar #powerZoomPercent{min-width:38px!important;text-align:right!important;font-weight:800;color:#806c65}
+
+/* Stable, predictable three-tab right dock. */
+.inspector.right-dock{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important;background:#fffaf8!important;border-left:1px solid #eaded8!important;padding:0 12px 12px!important}
+.final-side-tabs{position:relative!important;top:auto!important;flex:0 0 auto!important;display:grid!important;grid-template-columns:1.15fr .85fr 1fr 30px!important;gap:5px!important;padding:9px 0!important;margin:0!important;background:#fffaf8!important;border-bottom:1px solid #eee2dd!important}
+.final-side-tabs button{height:34px!important;border-radius:11px!important;padding:0 7px!important;font:800 10px Nunito,sans-serif!important;color:#8b7770!important;background:#fff!important;border:1px solid #eadbd5!important}
+.final-side-tabs button.active{background:#f6e1de!important;border-color:#eabdb7!important;color:#745b53!important}
+#inspectorContent,#inspectorEmpty,#rightDockLayerHost,#rightDockAnimationHost{flex:1 1 auto!important;height:auto!important;min-height:0!important;overflow:auto!important;padding:9px 3px 18px 0!important}
+#rightDockLayerHost.hidden,#rightDockAnimationHost.hidden,#inspectorContent.hidden,#inspectorEmpty.hidden{display:none!important}
+.inspector-title{position:static!important;background:transparent!important;padding:4px 2px 10px!important;margin:0!important}.inspector-title strong{font:800 15px Nunito,sans-serif!important;color:#6f5b54!important}
+.control-group{border:1px solid #eee2dc!important;border-radius:15px!important;padding:11px!important;margin:7px 0!important;background:#fff!important;box-shadow:none!important;gap:8px!important}.control-group>.group-head{min-height:24px!important}.control-group>.group-head strong,.control-group>strong{font:800 12px Nunito,sans-serif!important;color:#715d55!important}.control-group label{font:600 10px Nunito,sans-serif!important;color:#97837b!important}.control-group input,.control-group select,.control-group textarea{min-height:31px!important;border-radius:10px!important;border:1px solid #e8d9d3!important;background:#fffdfc!important;padding:6px 8px!important;font:600 11px Nunito,sans-serif!important;color:#705d56!important}
+.quad-grid,.control-row{gap:7px!important}.segmented{gap:5px!important}.segmented button,.mini-btn{border-radius:9px!important;background:#fffaf8!important;border:1px solid #eadbd5!important}
+.right-dock-layer-host .layers-list,.animation-dock-list{display:grid!important;gap:7px!important}.animation-dock-row{border-radius:14px!important;border-color:#eadbd5!important}.animation-dock-head{background:#fffaf8!important}
+
+/* Softer chart editor + aesthetic defaults. */
+.chart-svg{overflow:visible}.chart-modal-card,.chart-modal-preview{border-radius:18px!important}.chart-color-grid{gap:7px!important}.chart-color-dot{border-radius:12px!important;background:#fffaf8!important}.chart-switch-line{display:flex!important;align-items:center!important;justify-content:space-between!important;grid-template-columns:1fr auto!important;padding:7px 9px!important;border:1px solid #eee0da!important;border-radius:11px!important;background:#fffaf8!important}.chart-switch-line input{width:auto!important;min-height:auto!important}
+
+/* Extra cute global polish, still compact. */
+.toolstrip{background:#fffaf8!important;border-bottom-color:#eaded8!important}.power-ribbon-group{border-radius:13px!important}.power-ribbon-group button,.power-ribbon-group select,.power-ribbon-group input{border-radius:9px!important}.ribbon-tab{border-radius:10px 10px 0 0!important}.slide-thumb{border-radius:17px!important}.modal-card{border-radius:22px!important}.stage-shell{border-radius:5px!important;overflow:visible!important}
+@media(max-width:850px){.power-status-bar .status-view-label,.power-status-bar .status-zoom-label{display:none!important}.power-status-bar #powerFitStatus{padding:0 5px!important}.power-status-bar input[type=range]{width:68px!important}}

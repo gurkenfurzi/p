@@ -1,2 +1,2 @@
-Flora Deck v6.9.17
-Build: polished-charts-design
+Flora Deck v6.9.18
+Build: bottom-zoom-background-dock-chart-scale
