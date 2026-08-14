@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.15 Final Ribbon</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.15" />
+  <title>Flora Deck v6.9.16 Compact Dock Fix</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.16" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.15</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.16</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -37,12 +37,12 @@
       <div class="panel-head">
         <strong>Präsentation</strong><button class="icon-btn" id="closeSlides">×</button>
       </div>
-      <button class="primary-btn full" id="addSlideBtn">＋ Neue Folie</button>
       <div id="slideList" class="slide-list"></div>
-      <div class="slides-footer">
-        <button class="soft-btn full" id="duplicateSlideBtn">⧉ Duplizieren</button>
-        <button class="soft-btn full" id="hideSlideBtn">◉ Ausblenden</button>
-        <button class="danger-btn full" id="deleteSlideBtn">Löschen</button>
+      <div class="slides-footer compact-slide-footer">
+        <button class="soft-btn" id="addSlideBtn" title="Folie hinzufügen">＋</button>
+        <button class="soft-btn" id="duplicateSlideBtn" title="Duplizieren">⧉</button>
+        <button class="soft-btn" id="hideSlideBtn" title="Ausblenden">◉</button>
+        <button class="danger-btn" id="deleteSlideBtn" title="Löschen">⌫</button>
       </div>
     </aside>
 
@@ -141,7 +141,7 @@
           </div>
         </div>
 
-        <aside class="inspector right-dock" id="inspector"><div class="inspector-switch final-side-tabs"><button id="openInspectorPanel" class="active" title="Eigenschaften">✦ Eigenschaften</button><button id="openLayersPanel2" title="Ebenen">☰ Ebenen</button><button id="openAnimationPanel" class="hidden" aria-hidden="true" tabindex="-1">Animation</button><span class="dock-label" id="rightDockLabel">Eigenschaften</span><button id="closeRightPanels" title="Seitenleiste einklappen">‹</button></div><div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div>
+        <aside class="inspector right-dock" id="inspector"><div class="inspector-switch final-side-tabs"><button id="openInspectorPanel" class="active" title="Eigenschaften">✦ Eigenschaften</button><button id="openLayersPanel2" title="Ebenen">☰ Ebenen</button><button id="openAnimationPanel" title="Animationen">◌ Animationen</button><span class="dock-label" id="rightDockLabel">Eigenschaften</span><button id="closeRightPanels" title="Seitenleiste einklappen">‹</button></div><div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div><div id="rightDockAnimationHost" class="right-dock-animation-host hidden"></div>
           <div class="inspector-empty" id="inspectorEmpty">
             <div class="big-icon">✦</div>
             <strong>Element auswählen</strong>
@@ -535,11 +535,11 @@
     <div class="modal-head"><div><strong>✦ Story Rail</strong><small>Nur Symbole an der Seite. Der Kreis wandert beim nächsten Slide zum aktiven Symbol.</small></div><button class="icon-btn modal-close">×</button></div>
     <div class="rail-preview"><div class="mini-rail"><span class="active">⌂</span><span>⌕</span><span>▤</span><span>☼</span><span>✓</span></div><p>Der aktive Kreis hat auf jeder Folie dieselbe Morph-ID und bewegt sich beim Morph zur nächsten Station.</p></div>
     <div class="control-row"><label>Seite<select id="railSide"><option value="left">Links</option><option value="right">Rechts</option></select></label><label>Farbe<input id="railAccent" type="color" value="#ef9e9c"></label></div>
-    <label>Anzahl Symbole <input id="railCount" type="range" min="2" max="8" value="5"></label>
+    <label>Anzahl Symbole <input id="railCount" type="number" min="2" max="12" value="5"></label>
     <label>Text / Emoji / Unicode (mit Komma)<input id="railIcons" value="⌂,⌕,▤,☼,✓"></label>
     <label>Eigene Bilder / SVGs<input id="railImageInput" type="file" accept="image/*,.svg,.png,.jpg,.jpeg,.webp,.gif,.ai" multiple></label>
     <small class="hint">PNG, JPG, WebP, GIF und SVG funktionieren direkt. Illustrator-.ai kann ein Browser nicht nativ rendern; dafür bitte als SVG/PNG exportieren.</small>
-    <div id="railUploadList" class="storyrail-upload-list"></div>
+    <div class="storyrail-order-head"><strong>Reihenfolge & Symbole</strong><small>Mit ↑/↓ sortieren. Text direkt bearbeiten oder Bilder/SVGs hinzufügen.</small></div><div id="railUploadList" class="storyrail-upload-list"></div>
     <div class="control-row"><button class="danger-btn" id="clearStoryRailBtn" type="button">Story Rail löschen</button><button class="primary-btn" id="confirmStoryRailBtn" type="button">Story Rail anwenden</button></div>
   </div>
 </div>
@@ -583,37 +583,41 @@
 <div id="toast" class="toast"></div>
 
 <div id="contextMenu" class="context-menu hidden">
-  <button data-cm="duplicate">Duplizieren</button>
+  <div class="context-section-label">Bearbeiten</div>
+  <button data-cm="cut">Ausschneiden</button>
   <button data-cm="copy">Kopieren</button>
+  <button data-cm="duplicate">Duplizieren</button>
   <button data-cm="paste">Einfügen</button>
-  <button data-cm="copyStyle">Stil kopieren</button>
-  <button data-cm="pasteStyle">Stil einfügen</button>
+  <div class="context-sep"></div>
+  <button data-cm="copyStyle">Format kopieren</button>
+  <button data-cm="pasteStyle">Format anwenden</button>
+  <div id="contextTextTools" class="context-text-tools hidden">
+    <select id="contextFont"><option>Nunito</option><option>Quicksand</option><option>Inter</option><option>Arial</option><option>Patrick Hand</option><option>Caveat</option></select>
+    <input id="contextFontSize" type="number" min="8" max="220" value="28" title="Textgröße">
+    <input id="contextTextColor" type="color" value="#3c312d" title="Textfarbe">
+  </div>
   <button data-cm="fontUp">Text größer</button>
   <button data-cm="fontDown">Text kleiner</button>
+  <button data-cm="toggleBold">Fett umschalten</button>
+  <div class="context-sep"></div>
   <button data-cm="alignMenu" class="has-submenu">Ausrichten <span>›</span></button>
   <div id="contextAlignSubmenu" class="context-submenu hidden">
     <button data-cm-sub="left">Links</button><button data-cm-sub="centerX">Horizontal mittig</button><button data-cm-sub="right">Rechts</button>
     <button data-cm-sub="top">Oben</button><button data-cm-sub="centerY">Vertikal mittig</button><button data-cm-sub="bottom">Unten</button>
     <button data-cm-sub="distributeH">Horizontal verteilen</button><button data-cm-sub="distributeV">Vertikal verteilen</button>
   </div>
-  <div id="contextTextTools" class="context-text-tools hidden">
-    <select id="contextFont"><option>Nunito</option><option>Quicksand</option><option>Inter</option><option>Arial</option><option>Patrick Hand</option><option>Caveat</option></select>
-    <input id="contextFontSize" type="number" min="8" max="220" value="28" title="Textgröße">
-    <input id="contextTextColor" type="color" value="#3c312d" title="Textfarbe">
-  </div>
-  <button data-cm="toggleBold">Fett umschalten</button>
-  <button data-cm="editTimeline" id="contextTimelineEdit">Zeitstrahl bearbeiten</button>
   <button data-cm="group">Gruppieren</button>
   <button data-cm="ungroup">Gruppe lösen</button>
-  <button data-cm="front">In den Vordergrund</button>
-  <button data-cm="back">In den Hintergrund</button>
-  <button data-cm="centerX">Horizontal zentrieren</button>
-  <button data-cm="centerY">Vertikal zentrieren</button>
+  <button data-cm="front">Ganz nach vorne</button>
+  <button data-cm="back">Ganz nach hinten</button>
+  <button data-cm="editTimeline" id="contextTimelineEdit">Zeitstrahl bearbeiten</button>
   <button data-cm="releaseCompound">Pathfinder lösen</button>
   <button data-cm="lock">Sperren / Entsperren</button>
+  <div class="context-sep"></div>
   <button data-cm="delete" class="danger">Entfernen</button>
 </div>
-<script src="pptxgen.bundle.js?v=6.9.15"></script>
-<script src="app.js?v=6.9.15"></script>
+
+<script src="pptxgen.bundle.js?v=6.9.16"></script>
+<script src="app.js?v=6.9.16"></script>
 </body>
 </html>
