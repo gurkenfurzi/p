@@ -887,7 +887,7 @@ body:not(.laser-mode) .el .content[contenteditable="true"]{cursor:text!important
 .context-section-label{padding:5px 8px 3px;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b29890}.context-sep{height:1px;background:#efe1dc;margin:4px 2px}.context-text-tools{display:grid!important;grid-template-columns:minmax(0,1fr) 56px 34px;gap:5px;padding:5px 3px}.context-text-tools.hidden{display:none!important}.context-text-tools select,.context-text-tools input{min-height:29px!important;border-radius:8px!important;border:1px solid #e8d8d2!important;background:#fff!important}
 
 
-/* ===== v6.9.18 polished reference UI ===== */
+/* ===== v6.9.19 polished reference UI ===== */
 html,body,#app,button,input,select,textarea{font-family:Nunito,Inter,Lato,Arial,sans-serif!important}
 .brandcopy strong,.project-title input,.modal-head strong,.slides-panel .panel-head strong{font-family:Quicksand,Nunito,Inter,sans-serif!important;font-weight:700!important}
 .topbar{height:76px!important;background:#fffaf8!important;border-bottom:1px solid #eee2dc!important}
@@ -914,7 +914,7 @@ html,body,#app,button,input,select,textarea{font-family:Nunito,Inter,Lato,Arial,
 .math-live-preview,.math-block-grid button b{font-family:Nunito,Inter,Arial,sans-serif!important}.font-pair strong{font-family:Quicksand,Nunito,sans-serif!important}
 
 
-/* ===== v6.9.18 bottom zoom + background + stable dock polish ===== */
+/* ===== v6.9.19 bottom zoom + background + stable dock polish ===== */
 .stage{background:var(--slide-background,#fffaf8)!important}
 /* Zoom / Ansicht lives only at the lower edge now. */
 .canvas-toolbar #zoomLabel,.canvas-toolbar #zoomRange,.canvas-toolbar #fitBtn{display:none!important}
@@ -942,3 +942,27 @@ html,body,#app,button,input,select,textarea{font-family:Nunito,Inter,Lato,Arial,
 /* Extra cute global polish, still compact. */
 .toolstrip{background:#fffaf8!important;border-bottom-color:#eaded8!important}.power-ribbon-group{border-radius:13px!important}.power-ribbon-group button,.power-ribbon-group select,.power-ribbon-group input{border-radius:9px!important}.ribbon-tab{border-radius:10px 10px 0 0!important}.slide-thumb{border-radius:17px!important}.modal-card{border-radius:22px!important}.stage-shell{border-radius:5px!important;overflow:visible!important}
 @media(max-width:850px){.power-status-bar .status-view-label,.power-status-bar .status-zoom-label{display:none!important}.power-status-bar #powerFitStatus{padding:0 5px!important}.power-status-bar input[type=range]{width:68px!important}}
+
+
+/* ===== v6.9.19 continuity + slide picker + Story Rail styles ===== */
+html,body,#app{overflow:hidden!important}
+.editor,.editor-row,.canvas-area,.stage-viewport{min-width:0!important;min-height:0!important}
+.editor-row{grid-template-columns:minmax(0,1fr) 318px!important;overflow:hidden!important}
+.canvas-area{overflow:hidden!important}.stage-viewport{overflow:auto!important;padding:20px 22px 34px!important}
+.toolstrip{overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:thin;scrollbar-color:#e2b7b0 transparent;flex-wrap:nowrap!important}
+.toolstrip>*{flex:0 0 auto!important}.power-ribbon-group{min-width:max-content!important}
+.inspector{min-width:0!important;width:318px!important;overflow:hidden!important}.final-side-tabs{grid-template-columns:1fr 1fr 1fr 32px!important;gap:5px!important}.final-side-tabs button{min-width:0!important;padding-inline:7px!important;font-size:10px!important}.dock-label{display:none!important}
+
+.slide-add-main{margin:8px 8px 12px;width:calc(100% - 16px);min-height:58px;border:1px solid #ead8d1;background:linear-gradient(180deg,#fffdfc,#fff6f4);border-radius:16px;color:#755f57;display:grid;grid-template-columns:30px 1fr;grid-template-rows:auto auto;align-items:center;text-align:left;padding:9px 12px;box-shadow:0 7px 18px rgba(108,83,73,.05)}
+.slide-add-main span{grid-row:1/3;width:28px;height:28px;border-radius:10px;background:#f1b7b2;color:#fff;display:grid;place-items:center;font-size:18px}.slide-add-main b{font-size:12px}.slide-add-main small{font-size:9px;color:#aa9289}.slide-add-main:hover{border-color:#e9b8b3;background:#fff1ef}.legacy-add-slide{display:none!important}.slides-footer.compact-slide-footer{grid-template-columns:repeat(3,1fr)!important}
+
+.slide-picker-head{display:flex;justify-content:space-between;gap:14px;align-items:end;margin-bottom:18px;padding:2px 2px 14px;border-bottom:1px solid #efe0db}.slide-picker-head span{font-size:9px;letter-spacing:.18em;font-weight:900;color:#c08f88}.slide-picker-head h3{margin:3px 0 3px;font:700 22px/1.1 Quicksand,Nunito,sans-serif;color:#6f5952}.slide-picker-head p{margin:0;font-size:10px;color:#9d8880}.slide-picker-head .primary-btn{width:auto!important;min-width:130px}.slide-picker-section{margin:14px 0}.slide-picker-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}.slide-picker-title b{font-size:12px;color:#765f57}.slide-picker-title small{font-size:9px;color:#ad9890}.slide-layout-visual{grid-template-columns:repeat(3,minmax(130px,1fr))!important;gap:10px!important}.slide-layout-visual .power-layout-card{min-height:118px!important;border-radius:15px!important;background:#fff!important;padding:8px!important}.slide-layout-visual .layout-preview{height:66px!important;border-radius:10px!important;background-color:#fffaf8!important;border:1px solid #eadbd5!important}.slide-layout-visual .power-layout-card b{font-size:10px!important}.slide-layout-visual .power-layout-card small{font-size:8px;color:#b09b93}.slide-template-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.slide-template-actions button{height:44px;border-radius:13px!important}
+
+.rail-style-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:4px 0 12px}.rail-style-grid button{min-height:96px;border:1px solid #ead8d1;background:#fff;border-radius:15px;padding:7px;display:grid;gap:3px;place-items:center;color:#78645c}.rail-style-grid button.active{border-color:#e8a8a4;background:#fff1ef;box-shadow:0 0 0 3px #fae1de}.rail-style-grid button>b{font-size:10px}.rail-style-grid button>small{font-size:7px;color:#aa958d}.rail-style-grid button>span{height:40px;width:70px;display:flex;align-items:center;justify-content:center;gap:5px;color:#d89996}.rs-icons i{width:20px;height:20px;border:2px solid currentColor;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:8px}.rs-dots{font-size:22px}.rs-dots i{font-size:12px;font-style:normal}.rs-pill{display:grid!important;gap:2px!important}.rs-pill i{font-style:normal;font-size:6px;border:1px solid #e7b3ae;border-radius:999px;padding:2px 5px}.rs-panel{background:#fff7f5;border:1px solid #efd3ce;border-radius:9px;padding:4px;gap:4px!important}.rs-panel i{font-style:normal;font-size:9px}.storyrail-fields{display:grid;gap:4px;min-width:0}.storyrail-fields input{min-width:0!important}.storyrail-upload-item.ordered{grid-template-columns:42px minmax(0,1fr) auto!important}
+
+.school-math-exact h3,.school-graph-exact h3{margin:0;font:800 24px/1.1 Quicksand,Nunito,sans-serif;color:#66524c}.school-math-exact,.school-graph-exact{gap:12px!important}.school-math-exact .math-live-preview{min-height:150px;border-radius:24px!important;background:#fff!important;border:2px solid #e9b8b3!important;box-shadow:0 0 0 7px #faece9!important}.school-math-exact .math-block-grid{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}.school-math-exact .math-block-grid button{height:82px!important;border-radius:18px!important}.school-math-exact textarea{font-size:18px!important;min-height:58px!important}.school-graph-exact .graph-live-preview{min-height:250px!important;border-radius:24px!important;box-shadow:0 0 0 7px #faece9!important}.school-graph-exact .graph-live-preview svg{height:250px!important}
+
+/* smoother overall continuity */
+.ribbon,.toolstrip,.canvas-toolbar,.power-status-bar,.slides-panel,.inspector{border-color:#eee0db!important}.ribbon{background:#fffaf8!important}.toolstrip{background:#fffdfb!important}.canvas-toolbar{background:#faf5f2!important}.stage-shell{border-radius:12px!important;overflow:hidden!important}.slide-thumb{border-radius:15px!important}.power-dialog .modal-card,.modal-card{border-radius:22px!important}.power-card-grid button,.power-pattern-grid button,.power-transition-gallery button,.power-animation-gallery button{border-radius:14px!important}
+
+@media(max-width:1100px){.editor-row{grid-template-columns:minmax(0,1fr) 288px!important}.inspector{width:288px!important}.slide-layout-visual{grid-template-columns:repeat(2,minmax(120px,1fr))!important}.rail-style-grid{grid-template-columns:repeat(2,1fr)!important}}

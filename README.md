@@ -1,8 +1,9 @@
-# Flora Deck v6.9.18
+# Flora Deck v6.9.19
 
-- Ansicht + Zoom unten am Rand
-- Folienhintergrund sichtbar auf der echten Folie (auch Verlauf/Muster)
-- ästhetischere Standardfarben für Diagramme
-- optionaler Maßstab + Raster für Balken- und Liniendiagramme
-- stabilisierte rechte Tabs Eigenschaften / Ebenen / Animationen
-- übersichtlichere Eigenschaften und runderer Flora-Look
+- Vollbreiter „Folie hinzufügen“-Button unter Präsentation
+- Visueller Layout-/Vorlagen-Picker
+- Story Rail: Icon Rail, Dot Rail, Pill Menu und Morph Panel
+- Story-Rail-Symbole sind in der Präsentation anklickbar und können auf Folien springen
+- Story-Rail-Reihenfolge, Labels und PNG/SVG-Symbole bearbeitbar
+- Formel- und Graph-Editor im Schul-App-Stil verdichtet
+- UI-Clipping/Abschneiden durch flexiblere Editor-/Ribbon-Layouts reduziert

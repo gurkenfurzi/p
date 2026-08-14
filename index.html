@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.18 Polished Charts & Design</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.18" />
+  <title>Flora Deck v6.9.19 Polished Charts & Design</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.19" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.18</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.19</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -37,9 +37,10 @@
       <div class="panel-head">
         <strong>Präsentation</strong><button class="icon-btn" id="closeSlides">×</button>
       </div>
+      <button class="slide-add-main" id="addSlideVisualBtn" type="button"><span>＋</span><b>Folie hinzufügen</b><small>Layout oder Vorlage wählen</small></button>
       <div id="slideList" class="slide-list"></div>
       <div class="slides-footer compact-slide-footer">
-        <button class="soft-btn" id="addSlideBtn" title="Folie hinzufügen">＋</button>
+        <button class="soft-btn legacy-add-slide" id="addSlideBtn" title="Folie hinzufügen">＋</button>
         <button class="soft-btn" id="duplicateSlideBtn" title="Duplizieren">⧉</button>
         <button class="soft-btn" id="hideSlideBtn" title="Ausblenden">◉</button>
         <button class="danger-btn" id="deleteSlideBtn" title="Löschen">⌫</button>
@@ -551,13 +552,19 @@
 <div class="modal hidden" id="storyRailModal">
   <div class="modal-card cute-modal">
     <div class="modal-head"><div><strong>✦ Story Rail</strong><small>Nur Symbole an der Seite. Der Kreis wandert beim nächsten Slide zum aktiven Symbol.</small></div><button class="icon-btn modal-close">×</button></div>
-    <div class="rail-preview"><div class="mini-rail"><span class="active">⌂</span><span>⌕</span><span>▤</span><span>☼</span><span>✓</span></div><p>Der aktive Kreis hat auf jeder Folie dieselbe Morph-ID und bewegt sich beim Morph zur nächsten Station.</p></div>
+    <div class="rail-style-grid" id="railStyleGrid">
+      <button type="button" data-rail-style="icons" class="active"><span class="rs-icons">●<i>⌂</i>⌕<i>▤</i></span><b>Icon Rail</b><small>Minimal + Morph-Kreis</small></button>
+      <button type="button" data-rail-style="dots"><span class="rs-dots">•<i>•</i>•<i>•</i></span><b>Dot Rail</b><small>Sehr minimal</small></button>
+      <button type="button" data-rail-style="pill"><span class="rs-pill"><i>⌂ Start</i><i>⌕ Thema</i><i>✓ Ende</i></span><b>Pill Menu</b><small>Aktive Station als Pill</small></button>
+      <button type="button" data-rail-style="panel"><span class="rs-panel"><i>⌂</i><i>⌕</i><i>▤</i></span><b>Morph Panel</b><small>Sliding Side-Menu Stil</small></button>
+    </div>
+    <div class="rail-preview"><div class="mini-rail"><span class="active">⌂</span><span>⌕</span><span>▤</span><span>☼</span><span>✓</span></div><p>Der aktive Marker besitzt auf jeder Folie dieselbe Morph-ID. Die Symbole sind im Präsentationsmodus direkt anklickbar.</p></div>
     <div class="control-row"><label>Seite<select id="railSide"><option value="left">Links</option><option value="right">Rechts</option></select></label><label>Farbe<input id="railAccent" type="color" value="#ef9e9c"></label></div>
     <label>Anzahl Symbole <input id="railCount" type="number" min="2" max="12" value="5"></label>
     <label>Text / Emoji / Unicode (mit Komma)<input id="railIcons" value="⌂,⌕,▤,☼,✓"></label>
     <label>Eigene Bilder / SVGs<input id="railImageInput" type="file" accept="image/*,.svg,.png,.jpg,.jpeg,.webp,.gif,.ai" multiple></label>
     <small class="hint">PNG, JPG, WebP, GIF und SVG funktionieren direkt. Illustrator-.ai kann ein Browser nicht nativ rendern; dafür bitte als SVG/PNG exportieren.</small>
-    <div class="storyrail-order-head"><strong>Reihenfolge & Symbole</strong><small>Mit ↑/↓ sortieren. Text direkt bearbeiten oder Bilder/SVGs hinzufügen.</small></div><div id="railUploadList" class="storyrail-upload-list"></div>
+    <div class="storyrail-order-head"><strong>Reihenfolge & Symbole</strong><small>Mit ↑/↓ sortieren. Symbol und Bezeichnung bearbeiten; PNG/SVG als Symbol möglich.</small></div><div id="railUploadList" class="storyrail-upload-list"></div>
     <div class="control-row"><button class="danger-btn" id="clearStoryRailBtn" type="button">Story Rail löschen</button><button class="primary-btn" id="confirmStoryRailBtn" type="button">Story Rail anwenden</button></div>
   </div>
 </div>
@@ -636,6 +643,6 @@
 </div>
 
 <script src="pptxgen.bundle.js?v=6.9.16"></script>
-<script src="app.js?v=6.9.18"></script>
+<script src="app.js?v=6.9.19"></script>
 </body>
 </html>

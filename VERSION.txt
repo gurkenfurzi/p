@@ -1,2 +1,2 @@
-Flora Deck v6.9.18
-Build: bottom-zoom-background-dock-chart-scale
+Flora Deck v6.9.19
+Build: slide-picker-storyrail-styles
