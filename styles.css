@@ -723,7 +723,7 @@ input[type="range"]{accent-color:var(--accent)}
 .sticker-window-exact-mask .br .accent{-webkit-mask-image:url('window-exact-masks/br-accent.png');mask-image:url('window-exact-masks/br-accent.png')}
 
 
-/* ===== v6.9.12 Flora redesign ===== */
+/* ===== v6.9.13 Flora exact redesign ===== */
 :root{
   --bg:#f5efeb;
   --panel:#fffaf8;
@@ -762,4 +762,19 @@ body{background:linear-gradient(180deg,#f9f5f2 0%,#f3ece8 100%)}
   .topbar{height:74px;padding:0 14px}
   .project-title input{font-size:18px}
   .editor-row{grid-template-columns:minmax(0,1fr)}
+}
+
+.share-btn{background:#f0b1ae;border:1px solid #ebb0ae;color:#fff;font-weight:700}
+.project-title{display:flex;flex-direction:column;align-items:flex-start;gap:4px}.project-title input{font-family:"Playfair Display",Georgia,serif}
+.slides-panel .panel-head strong{font-family:"Playfair Display",Georgia,serif;font-size:18px}
+.slide-thumb{background:#fffaf8}.slide-mini-toolbar button{border-radius:10px}
+.inspector-switch{display:grid;grid-template-columns:1fr 1fr 1fr}.inspector-switch button{padding:10px 8px}
+.control-hint{font-size:11px;color:#aa938a;line-height:1.35;margin-top:-6px;margin-bottom:4px}
+#saveStatus{font-size:12px;color:#a38f87}
+.canvas-toolbar{gap:10px}.canvas-toolbar #fitBtn,.canvas-toolbar #panBtn{border-radius:999px}
+.tool-group{min-height:58px}
+@media (min-width:981px){
+  .topbar{grid-template-columns:270px minmax(240px,1fr) auto}
+  .slides-panel{border-right:1px solid #ecdfda}
+  .inspector{border-left:1px solid #ecdfda}
 }

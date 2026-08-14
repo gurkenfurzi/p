@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>SlideBloom Studio v6.9.12 Flora Redesign</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.12" />
+  <title>SlideBloom Studio v6.9.13 Flora Exact</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.13" />
 </head>
 <body>
 <div id="app">
@@ -17,16 +17,17 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.12</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.13</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
-      <span id="saveStatus">Gespeichert</span>
+      <span id="saveStatus">◌ Gespeichert · Alle Änderungen gespeichert</span>
     </div>
     <div class="top-actions">
       <button class="icon-btn" id="undoBtn" title="Rückgängig">↶</button>
       <button class="icon-btn" id="redoBtn" title="Wiederholen">↷</button>
-      <button class="icon-btn" id="appSettingsBtn" title="App-Einstellungen">⚙</button><button class="soft-btn" id="exportBtn">Speichern</button>
+      <button class="icon-btn" id="appSettingsBtn" title="App-Einstellungen">⚙</button><button class="soft-btn" id="exportBtn">☁ Speichern</button>
+      <button class="soft-btn share-btn" id="shareBtn">Teilen</button>
       <button class="primary-btn" id="presentBtn">▶ Präsentieren</button>
     </div>
   </header>
@@ -34,7 +35,7 @@
   <div class="workspace">
     <aside class="slides-panel" id="slidesPanel">
       <div class="panel-head">
-        <strong>Folien</strong><button class="icon-btn" id="closeSlides">×</button>
+        <strong>Präsentation</strong><button class="icon-btn" id="closeSlides">×</button>
       </div>
       <button class="primary-btn full" id="addSlideBtn">＋ Neue Folie</button>
       <div id="slideList" class="slide-list"></div>
@@ -48,11 +49,11 @@
     <main class="editor">
       <nav class="ribbon">
         <button class="ribbon-tab active" data-panel="insert">Start</button>
-        <button class="ribbon-tab" data-panel="design">Design</button>
-        <button class="ribbon-tab" data-panel="styles">Text</button>
-        <button class="ribbon-tab" data-panel="animate">Übergänge</button>
-        <button class="ribbon-tab" data-panel="arrange">Anordnen</button>
         <button class="ribbon-tab" data-panel="media">Einfügen</button>
+        <button class="ribbon-tab" data-panel="design">Design</button>
+        <button class="ribbon-tab" data-panel="animate">Übergänge</button>
+        <button class="ribbon-tab" data-panel="styles">Animationen</button>
+        <button class="ribbon-tab" data-panel="arrange">Ansicht</button>
         <button class="ribbon-tab" data-panel="review">Review</button>
         <button class="ribbon-tab" data-panel="notes">Notizen</button>
       </nav>
@@ -141,7 +142,7 @@
           </div>
         </div>
 
-        <aside class="inspector right-dock" id="inspector"><div class="inspector-switch"><button id="openInspectorPanel" class="active" title="Design">Design</button><button id="openLayersPanel2" title="Ebenen">Ebenen</button><button id="openAnimationPanel" title="Animation">Animation</button><span class="dock-label" id="rightDockLabel">Design</span><button id="closeRightPanels" title="Seitenleiste einklappen">‹</button></div><div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div>
+        <aside class="inspector right-dock" id="inspector"><div class="inspector-switch"><button id="openInspectorPanel" class="active" title="Design">Design</button><button id="openLayersPanel2" title="Hintergrund">Hintergrund</button><button id="openAnimationPanel" title="Größe">Größe</button><span class="dock-label" id="rightDockLabel">Design</span><button id="closeRightPanels" title="Seitenleiste einklappen">‹</button></div><div id="rightDockLayerHost" class="right-dock-layer-host hidden"></div>
           <div class="inspector-empty" id="inspectorEmpty">
             <div class="big-icon">✦</div>
             <strong>Element auswählen</strong>
@@ -269,7 +270,7 @@
               <label>Text / Beschriftung<input id="stickerTextInput" maxlength="100"></label>
               <button class="soft-btn" id="stickerImageBtn">▧ Bild im Sticker einsetzen</button>
               <label>Fläche / Pink <input id="stickerColor" type="color" value="#fff8ef"></label>
-              <label>Kontur-Farbe <input id="stickerAccentColor" type="color" value="#e8d7a7"></label><label id="stickerDetailWrap" class="hidden">Innenfläche / Hell <input id="stickerDetailColor" type="color" value="#d9dde6"></label><label id="stickerStrokeWrap" class="hidden">Kontur-Dicke <input id="stickerStrokeWidth" type="range" min="1" max="20" value="6"></label><label id="stickerScaleWrap" class="hidden">Gesamtgröße <input id="stickerOverallScale" type="range" min="40" max="300" value="100"></label><label id="notePatternWrap" class="hidden">Note-Stil <select id="notePattern"><option value="lined">Liniert</option><option value="grid">Karo</option></select></label><label id="milestoneNumberWrap" class="hidden">Meilenstein-Zahl <input id="milestoneNumber" value="01" maxlength="6"></label>
+              <label>Kontur-Farbe <input id="stickerAccentColor" type="color" value="#e8d7a7"></label><label id="stickerDetailWrap" class="hidden">Innenfläche / Hell <input id="stickerDetailColor" type="color" value="#d9dde6"></label><label id="stickerStrokeWrap" class="hidden">Kontur-Dicke <input id="stickerStrokeWidth" type="range" min="1" max="20" value="6"></label><label id="stickerScaleWrap" class="hidden">Sticker-Größe <input id="stickerOverallScale" type="range" min="40" max="300" value="100"></label><div class="control-hint" id="stickerScaleHint">Ändert die echte Größe des Stickers (Breite/Höhe), nicht nur eine optische Skalierung.</div><label id="notePatternWrap" class="hidden">Note-Stil <select id="notePattern"><option value="lined">Liniert</option><option value="grid">Karo</option></select></label><label id="milestoneNumberWrap" class="hidden">Meilenstein-Zahl <input id="milestoneNumber" value="01" maxlength="6"></label>
               <div class="control-row"><label>Text X <input id="stickerTextX" type="range" min="-80" max="80" value="0"></label><label>Text Y <input id="stickerTextY" type="range" min="-80" max="80" value="0"></label></div>
               <input id="stickerImageInput" type="file" accept="image/*" hidden>
             </div>
@@ -521,8 +522,8 @@
     <label>Standard-Folienfarbe <input id="settingsDefaultBg" type="color" value="#f7f0ec"></label>
     <div class="settings-subtitle">Window-Sticker Standard</div>
     <div class="settings-inline-grid">
-      <label>Breite <input id="settingsWindowDefaultW" type="number" min="120" max="900" step="1" value="260"></label>
-      <label>Höhe <input id="settingsWindowDefaultH" type="number" min="120" max="900" step="1" value="241"></label>
+      <label>Standard-Breite <input id="settingsWindowDefaultW" type="number" min="120" max="900" step="1" value="220"></label>
+      <label>Standard-Höhe <input id="settingsWindowDefaultH" type="number" min="120" max="900" step="1" value="204"></label>
     </div>
     <label>Standard-Kontur-Dicke (Window) <input id="settingsWindowDefaultStroke" type="range" min="1" max="20" value="1"></label>
     <div class="settings-presets"><button type="button" data-settings-accent="#e9a9a7">Flora</button><button type="button" data-settings-accent="#d6b8ad">Sand</button><button type="button" data-settings-accent="#aab98d">Sage</button><button type="button" data-settings-accent="#c5a9d6">Lilac</button></div>
@@ -607,6 +608,6 @@
   <button data-cm="lock">Sperren / Entsperren</button>
   <button data-cm="delete" class="danger">Entfernen</button>
 </div>
-<script src="app.js?v=6.9.12"></script>
+<script src="app.js?v=6.9.13"></script>
 </body>
 </html>
