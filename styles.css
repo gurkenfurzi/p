@@ -1028,7 +1028,7 @@ body{display:block!important}
 @media(max-width:720px){.visual-formula-toolbar{grid-template-columns:repeat(3,minmax(0,1fr))}.graph-param-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.visual-formula-toolbar button{height:66px}.formula-slot{font-size:21px}}
 
 /* ===== v6.9.23 smart exact sticker slicing ===== */
-.exact-smart{position:relative!important;width:100%!important;height:100%!important;background:transparent!important;border:0!important;box-shadow:none!important;filter:none!important;overflow:visible!important}
+.exact-smart{position:relative!important;width:100%!important;height:100%!important;background:transparent!important;border:0!important;box-shadow:none!important;filter:none!important;overflow:visible!important;container-type:size}
 .exact-smart .xs{position:absolute;display:block;background-repeat:no-repeat;background-position:center;background-size:100% 100%;pointer-events:none}
 /* File/windows: keep left edge, top bar and button cluster intact. Stretch only the clean middle. */
 .exact-smart-file{--xl:clamp(38px,14%,64px);--xr:clamp(82px,27%,118px);--yt:clamp(48px,24%,92px);--yb:clamp(28px,12%,50px)}
@@ -1065,3 +1065,20 @@ body{display:block!important}
 .true-graph-editor{gap:13px!important}.graph-equation-live{min-height:92px;border:2px solid #e8b6b1;border-radius:22px;background:#fff;box-shadow:0 0 0 6px #faece9;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;padding:15px 18px;color:#5e4d47;font:800 30px/1.2 Nunito,Inter,sans-serif}.graph-eq-input{width:58px;border:1px dashed #e1a6a1!important;border-radius:9px!important;background:#fff3f1!important;padding:3px 5px!important;text-align:center!important;font:800 22px Nunito,Inter,sans-serif!important;color:#5d4c46!important}.graph-eq-input.small{width:48px!important}.graph-eq-input:focus{background:#fff!important;border-style:solid!important;box-shadow:0 0 0 4px #fae6e3!important}.graph-plus{margin-left:3px}.graph-root{display:inline-flex;align-items:flex-start}.graph-root>b{font-size:1.35em;line-height:.9}.graph-root>span{border-top:3px solid currentColor;padding:4px 5px 0}.graph-frac{display:inline-grid;grid-template-rows:auto 2px auto;text-align:center;min-width:80px}.graph-frac>i{height:2px;background:currentColor}.graph-equation-live sup{display:inline-flex;align-items:flex-start;font-size:.65em}.true-graph-editor .school-graph-preview{min-height:290px!important}
 
 @media(max-width:720px){.true-formula-toolbar{grid-template-columns:repeat(3,minmax(0,1fr))}.true-formula-canvas{font-size:38px!important;min-height:190px!important}.math-inline-input{font-size:22px!important;width:60px}.graph-equation-live{font-size:24px}.graph-eq-input{font-size:19px!important}.exact-smart-file{--xl:clamp(28px,14%,52px);--xr:clamp(68px,27%,100px)}}
+
+
+/* v6.9.24: exact sticker geometry follows element HEIGHT rather than width.
+   This keeps buttons, tabs, corners and outlines from becoming stretched when a file is widened. */
+@supports (width: 1cqh){
+  .exact-kind-exact_file_01{--xl:15.09cqh;--xr:29.10cqh;--yt:24.00cqh;--yb:12.00cqh}
+  .exact-kind-exact_file_02{--xl:24.34cqh;--xr:46.98cqh;--yt:24.00cqh;--yb:12.00cqh}
+  .exact-kind-exact_file_03{--xl:16.65cqh;--xr:32.13cqh;--yt:24.00cqh;--yb:12.00cqh}
+  .exact-kind-exact_file_04{--xl:15.11cqh;--xr:29.14cqh;--yt:24.00cqh;--yb:12.00cqh}
+  .exact-kind-exact_file_05{--xl:24.03cqh;--xr:46.34cqh;--yt:24.00cqh;--yb:12.01cqh}
+  .exact-kind-exact_file_06{--xl:16.69cqh;--xr:32.19cqh;--yt:24.00cqh;--yb:12.01cqh}
+  .exact-kind-exact_note_03{--xl:10.17cqh;--xr:10.17cqh;--yt:22.01cqh;--yb:10.00cqh}
+}
+/* Note 03 has a fixed ring count. Never tile/repeat the ring row. */
+.exact-kind-exact_note_03 .t{background-repeat:no-repeat!important;background-size:100% 100%!important}
+/* Notes 04/05 intentionally have no punched holes anymore. */
+.exact-kind-exact_note_04 .t,.exact-kind-exact_note_05 .t{background-repeat:repeat-x!important;background-size:auto 100%!important}

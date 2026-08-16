@@ -1,7 +1,7 @@
-# v6.9.23 Checks
+# v6.9.24 checks
 
-- app.js: Node syntax check passed.
-- 17 Exact-Sticker-Slice-Sets generated from the original PNG assets.
-- Formula builder stores a structural tree and edits values directly in preview fields.
-- Selection-aware wrappers implemented for root, fraction, exponent, sin/cos/tan, abs and parentheses.
-- Graph equation parameters are edited inside the visible equation preview.
+- Removed requested duplicate sticker catalog entries.
+- Exact Note 04/05 source + slices regenerated without holes.
+- Exact Note 03 no longer tiles its ring row.
+- Exact File smart-slice cap proportions tied to height using container query units.
+- exact-slices contains fewer than 100 files.

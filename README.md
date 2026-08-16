@@ -1,8 +1,9 @@
-# Flora Deck v6.9.23 – True Visual Math & Smart Stickers
+# FloraDeck v6.9.24 — Sticker Cleanup Fix
 
-- Formel-Editor: direkte Bearbeitung in der Vorschau, keine sichtbaren sqrt-/Formelcodes.
-- Markierter Text in einem Formel-Feld kann per Wurzel/Bruch/Exponent/Funktion direkt umschlossen werden.
-- Graph-Editor: Funktionsart per Knopf, Parameter direkt in der Gleichungsvorschau editieren; kein Formel-Textfeld.
-- Graphen per Doppelklick wieder editierbar.
-- Exact-Sticker verwenden echte Smart-Slices statt generischem Border-Image-Stretching.
-- Fenster-Knöpfe, Lochungen, Ringe, gerissene Kanten und Banner-Enden bleiben beim Verbreitern deutlich stabiler.
+- Exact Note 03: ring row no longer repeats.
+- Exact Note 04/05: punched holes removed; torn edges preserved.
+- Exact Note 06/07 removed from sticker picker (duplicates).
+- Exact Title 03/04 removed (duplicates).
+- Old non-exact Title 1–4 removed from sticker picker.
+- Cute File 01/03/04/06 use height-proportional smart slices so buttons/tabs/corners stay proportional while widening.
+- Exact title slices are embedded, reducing exact-slices below GitHub's 100-file web-upload limit.
