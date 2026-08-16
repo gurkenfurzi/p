@@ -1,8 +1,7 @@
-# Flora Deck v6.9.22 – Change/Test Notes
+# v6.9.23 Checks
 
-- Exact sticker insertion sizes corrected to original PNG aspect ratios.
-- Exact sticker border slices refined so holes, torn edges and window chrome are not cut through.
-- Formula editor is button-first: no formula syntax typing required; values are edited in the visual preview.
-- Formula elements retain structured visual rendering on the slide and reopen on double click.
-- Graph editor is button-first: choose function family and edit coefficients/parameters; no expression typing required.
-- Existing legacy graph settings remain renderable.
+- app.js: Node syntax check passed.
+- 17 Exact-Sticker-Slice-Sets generated from the original PNG assets.
+- Formula builder stores a structural tree and edits values directly in preview fields.
+- Selection-aware wrappers implemented for root, fraction, exponent, sin/cos/tan, abs and parentheses.
+- Graph equation parameters are edited inside the visible equation preview.

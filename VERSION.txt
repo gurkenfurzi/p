@@ -1,2 +1,1 @@
-Flora Deck v6.9.22
-Build: visual-math-sticker-proportions
+v6.9.23 True Visual Math & Smart Stickers
