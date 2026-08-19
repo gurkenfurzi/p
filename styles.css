@@ -1165,3 +1165,121 @@ body{display:block!important}
   .brand{min-width:145px!important}.brandcopy>span{display:none!important}
   .top-actions .share-btn{display:none!important}
 }
+
+
+/* ===== v6.9.26 REAL slides + compact ribbon fix ===== */
+/* The old 850/900px tablet breakpoints could hide the slide rail on Windows laptops
+   when browser/display scaling reduced the CSS viewport. Desktop now starts at 560px. */
+@media (min-width:561px), (any-pointer:fine) {
+  html.flora-force-desktop,html.flora-force-desktop body,html.flora-force-desktop #app{
+    width:100%!important;height:100dvh!important;min-height:0!important;overflow:hidden!important;
+  }
+  html.flora-force-desktop #app{display:flex!important;flex-direction:column!important}
+  html.flora-force-desktop .topbar{
+    flex:0 0 48px!important;height:48px!important;min-height:48px!important;
+    padding:0 10px!important;gap:8px!important;overflow:hidden!important;
+  }
+  html.flora-force-desktop .workspace{
+    display:grid!important;
+    grid-template-columns:clamp(154px,15.5vw,190px) minmax(0,1fr)!important;
+    flex:1 1 0!important;height:auto!important;min-height:0!important;overflow:hidden!important;
+  }
+  html.flora-force-desktop #slidesPanel.slides-panel{
+    position:relative!important;inset:auto!important;transform:none!important;
+    display:grid!important;grid-template-rows:auto auto minmax(120px,1fr) auto!important;
+    visibility:visible!important;opacity:1!important;
+    width:auto!important;min-width:0!important;max-width:none!important;height:100%!important;min-height:0!important;
+    overflow:hidden!important;padding:7px 8px!important;box-shadow:none!important;z-index:20!important;
+    background:#fffdfa!important;border-right:1px solid #eee3dc!important;
+  }
+  html.flora-force-desktop #slidesPanel .panel-head{margin:0 2px 5px!important;min-height:20px!important}
+  html.flora-force-desktop #slidesPanel .panel-head strong{font-size:10px!important;letter-spacing:.09em!important}
+  html.flora-force-desktop #slidesPanel .panel-head .icon-btn{display:none!important}
+  html.flora-force-desktop #slidesPanel .slide-add-main{
+    width:100%!important;min-height:38px!important;margin:0 0 6px!important;padding:5px 7px!important;
+    border-radius:11px!important;grid-template-columns:22px minmax(0,1fr)!important;
+  }
+  html.flora-force-desktop #slidesPanel .slide-add-main span{width:21px!important;height:21px!important;border-radius:7px!important;font-size:14px!important}
+  html.flora-force-desktop #slidesPanel .slide-add-main b{font-size:9.5px!important}
+  html.flora-force-desktop #slidesPanel .slide-add-main small{font-size:7.5px!important}
+  html.flora-force-desktop #slideList.slide-list{
+    display:flex!important;flex-direction:column!important;visibility:visible!important;opacity:1!important;
+    width:100%!important;height:100%!important;min-height:120px!important;max-height:none!important;
+    overflow-y:auto!important;overflow-x:hidden!important;padding:4px 4px 12px 1px!important;gap:7px!important;
+    scrollbar-width:thin!important;overscroll-behavior:contain!important;
+  }
+  html.flora-force-desktop #slideList .slide-thumb-row{
+    display:grid!important;grid-template-columns:20px minmax(0,1fr)!important;gap:4px!important;flex:0 0 auto!important;
+  }
+  html.flora-force-desktop #slideList .slide-thumb{
+    display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;
+    aspect-ratio:16/9!important;border-radius:11px!important;overflow:hidden!important;
+  }
+  html.flora-force-desktop #slideList .slide-num{font-size:8.5px!important;padding-top:2px!important}
+  html.flora-force-desktop #slidesPanel .slides-footer{display:grid!important;grid-template-columns:repeat(4,1fr)!important;padding-top:5px!important;gap:4px!important}
+  html.flora-force-desktop #slidesPanel .slides-footer button{height:25px!important;min-height:25px!important;padding:0!important;border-radius:8px!important;font-size:9px!important}
+
+  /* Very compact top chrome. */
+  html.flora-force-desktop .brand{min-width:145px!important;gap:6px!important}
+  html.flora-force-desktop .logo{width:29px!important;height:29px!important;border-radius:9px!important;font-size:12px!important}
+  html.flora-force-desktop .brandcopy strong{font-size:14px!important}
+  html.flora-force-desktop .brandcopy>span{font-size:6.5px!important;letter-spacing:.14em!important}
+  html.flora-force-desktop .version-badge{font-size:6.5px!important;padding:1px 4px!important}
+  html.flora-force-desktop .project-title{min-width:0!important;gap:0!important}
+  html.flora-force-desktop .project-title input{font-size:14px!important;line-height:1!important}
+  html.flora-force-desktop .project-title span{font-size:7px!important}
+  html.flora-force-desktop .top-actions{gap:4px!important}
+  html.flora-force-desktop .top-actions button{height:28px!important;min-height:28px!important;padding:0 8px!important;border-radius:9px!important;font-size:8.5px!important}
+  html.flora-force-desktop .top-actions .icon-btn{width:28px!important;min-width:28px!important;padding:0!important}
+
+  html.flora-force-desktop .editor{height:100%!important;min-height:0!important;min-width:0!important;overflow:hidden!important}
+  html.flora-force-desktop .ribbon{
+    flex:0 0 27px!important;height:27px!important;min-height:27px!important;
+    padding:0 8px!important;gap:1px!important;overflow-x:auto!important;overflow-y:hidden!important;
+    scrollbar-width:none!important;
+  }
+  html.flora-force-desktop .ribbon::-webkit-scrollbar,html.flora-force-desktop .toolstrip::-webkit-scrollbar{display:none!important}
+  html.flora-force-desktop .ribbon-tab{
+    height:27px!important;min-height:27px!important;padding:0 9px!important;font-size:9px!important;border-radius:8px 8px 0 0!important;
+  }
+  html.flora-force-desktop .toolstrip:not(.hidden){
+    flex:0 0 46px!important;height:46px!important;min-height:46px!important;
+    padding:2px 6px!important;gap:3px!important;overflow-x:auto!important;overflow-y:hidden!important;flex-wrap:nowrap!important;
+    scrollbar-width:none!important;
+  }
+  html.flora-force-desktop .power-ribbon-group{
+    height:42px!important;min-height:42px!important;min-width:auto!important;
+    padding:1px 5px 10px!important;gap:2px!important;border-radius:9px!important;
+  }
+  html.flora-force-desktop .power-ribbon-group>small{bottom:0!important;font-size:5.8px!important;letter-spacing:.02em!important}
+  html.flora-force-desktop .power-ribbon-group button,
+  html.flora-force-desktop .power-ribbon-group select,
+  html.flora-force-desktop .power-ribbon-group input{
+    min-height:18px!important;height:18px!important;font-size:7.7px!important;border-radius:6px!important;padding:1px 4px!important;
+  }
+  html.flora-force-desktop .power-font-group{grid-template-columns:96px 36px!important;gap:2px!important}
+  html.flora-force-desktop .power-font-group #powerFontSelect{width:96px!important}
+  html.flora-force-desktop .power-font-group #powerFontSize{width:36px!important}
+  html.flora-force-desktop .power-button-row{gap:1px!important}
+  html.flora-force-desktop .power-clipboard-icons button,
+  html.flora-force-desktop .power-quick-insert button{width:22px!important;min-width:22px!important;padding:0!important}
+  html.flora-force-desktop .power-appearance-near-font button{padding-inline:4px!important}
+  html.flora-force-desktop .power-insert-icons button{min-width:38px!important;height:32px!important;font-size:10px!important;gap:0!important}
+  html.flora-force-desktop .power-insert-icons button span{font-size:6px!important}
+
+  html.flora-force-desktop .editor-row{
+    flex:1 1 0!important;min-height:0!important;overflow:hidden!important;
+    grid-template-columns:minmax(0,1fr) clamp(220px,23vw,275px)!important;
+  }
+  html.flora-force-desktop .inspector{width:auto!important;min-width:0!important;padding:9px!important}
+  html.flora-force-desktop .canvas-toolbar{height:25px!important;min-height:25px!important;padding:2px 8px!important;font-size:8px!important}
+  html.flora-force-desktop .stage-viewport{padding:10px 12px 14px!important}
+  html.flora-force-desktop #powerNotesBar{min-height:27px!important;height:27px!important}
+  html.flora-force-desktop #powerStatusBar{min-height:25px!important;height:25px!important}
+}
+
+/* Actual phones: drawer behaviour only here. */
+@media (max-width:560px) and (any-pointer:coarse){
+  #slidesPanel.slides-panel{position:fixed!important;left:0!important;top:60px!important;bottom:0!important;width:min(280px,84vw)!important;transform:translateX(-105%)!important;z-index:180!important}
+  #slidesPanel.slides-panel.open{transform:none!important}
+}

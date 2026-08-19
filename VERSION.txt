@@ -1,1 +1,2 @@
-6.9.25
+Flora Deck v6.9.26
+Build: real-slides-ribbon-fix

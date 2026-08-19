@@ -1,7 +1,8 @@
-# v6.9.24 checks
+# v6.9.26 repair notes
 
-- Removed requested duplicate sticker catalog entries.
-- Exact Note 04/05 source + slices regenerated without holes.
-- Exact Note 03 no longer tiles its ring row.
-- Exact File smart-slice cap proportions tied to height using container query units.
-- exact-slices contains fewer than 100 files.
+- Desktop slide rail is forced visible from 561 CSS px and also on fine-pointer devices.
+- Slide rail uses an explicit four-row CSS grid so the thumbnail list cannot collapse to zero height.
+- Thumbnail list has its own vertical scrolling region.
+- Ribbon was reduced to 27 px and the active command strip to 46 px.
+- Added repeated layout repair after startup to defeat older mobile breakpoint transforms.
+- app.js syntax checked with Node.
