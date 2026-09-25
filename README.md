@@ -1,7 +1,8 @@
-# Flora Deck v6.9.25 – Slides & Compact Ribbon Fix
+# Flora Deck v6.9.28 — Exact Sticker Repair
 
-- Folienleiste auf Desktop wieder dauerhaft sichtbar
-- Folienliste scrollt normal und kollabiert nicht mehr auf 0 px
-- obere App-Leiste niedriger und kompakter
-- Ribbon und Funktionsleiste deutlich kürzer
-- bestehende Sticker-, Math-, Story-Rail- und Präsentationsfunktionen bleiben erhalten
+This build fixes the structural JavaScript scope break that stopped normal initialization.
+
+- Slides render again.
+- Slide rail is visible and scrollable on desktop.
+- Late-added sticker, visual-math, graph and layout helpers now run inside the same application scope as the editor core.
+- Compact ribbon behavior from v6.9.26 remains.

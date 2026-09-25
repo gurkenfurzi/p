@@ -1,21 +1,14 @@
-# Flora Deck v6.9.22 – Change/Test Notes
+# v6.9.27 smoke test
 
-- Exact sticker insertion sizes corrected to original PNG aspect ratios.
-- Exact sticker border slices refined so holes, torn edges and window chrome are not cut through.
-- Formula editor is button-first: no formula syntax typing required; values are edited in the visual preview.
-- Formula elements retain structured visual rendering on the slide and reopen on double click.
-- Graph editor is button-first: choose function family and edit coefficients/parameters; no expression typing required.
-- Existing legacy graph settings remain renderable.
+Tested in headless Chromium at 1440×900 with the real app script injected.
 
+- Runtime errors: 0
+- Slide rail visible: yes
+- Initial slide thumbnails rendered: 2
+- Slide panel: 190×852 px
+- Slide list: 173×695 px
+- Ribbon height: 27 px
+- Active toolstrip height: 46 px
+- Desktop layout class applied: yes
 
-## v6.9.23 verification
-- `node --check app.js`: passed.
-- Chromium/CDP interaction smoke test: passed.
-- Formula modal opens from Insert > Formula and the preview is contenteditable.
-- Visual root inserted around selected x; visual fraction nested inside the root successfully.
-- Saved formula renders on the stage without live contenteditable slots.
-- Graph modal opens from Insert > Graph; default curve renders.
-- Function editor opens visually; direct `2x + 1` input updates the graph preview live.
-- Saved graph renders on the stage and reopens on double-click.
-- Window Exact nine-slice was composited at a wide aspect ratio and preserves the original top bar, 3 buttons, outline and back shadow without seams.
-- Exact Notes 01, 02, 04, 05, 06, 07 were not changed.
+Root cause fixed: late-added sticker/math/graph/layout helpers were outside the main app closure and could not access shared editor constants/state. This stopped initialization before slide thumbnails were rendered.
