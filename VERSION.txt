@@ -1,2 +1,2 @@
-Flora Deck v6.9.26
-Build: real-slides-ribbon-fix
+Flora Deck v6.9.23
+Build: exact-sticker-nine-slice-schoolbloom-visual-math
