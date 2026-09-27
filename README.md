@@ -1,8 +1,20 @@
-# Flora Deck v6.9.28 — Exact Sticker Repair
+# Flora Deck v7.0.0 — Reference Edition
 
-This build fixes the structural JavaScript scope break that stopped normal initialization.
+GitHub-Pages-fähige Präsentations-App auf Basis der bestehenden Flora-Deck-Version.
 
-- Slides render again.
-- Slide rail is visible and scrollable on desktop.
-- Late-added sticker, visual-math, graph and layout helpers now run inside the same application scope as the editor core.
-- Compact ribbon behavior from v6.9.26 remains.
+## v7.0.0
+- Oberfläche als kompakte Flora-Deck-Reference-Edition überarbeitet.
+- Fünf Haupttabs: Start, Einfügen, Design, Übergänge, Animationen.
+- Kompaktes Start-Ribbon mit Textformatierung, Blocksatz, Listen und Objekt-Ausrichtung.
+- Folienbereich mit visueller Layout-Auswahl und erweitertem Kontextmenü.
+- Suche und „Neu“ im Header funktionieren.
+- Design-Ribbon inkl. sichtbarer Checker-/Graph-Paper-Muster.
+- Übergänge und Animationen visuell und kompakt überarbeitet.
+- Ebenen- und Animationspanel verbessert, inkl. Drag-Reihenfolge.
+- Shift-Mehrfachauswahl repariert.
+- Untere Status-/Zoomleiste aktualisiert.
+- Bestehende Formel-, Graph-, Tabellen-, Diagramm-, Sticker-, Story-Rail-, Timeline-, Morph- und Speicherlogik bleibt erhalten.
+- Bestehende localStorage-Schlüssel bleiben kompatibel.
+
+## Start
+Die Dateien können direkt auf GitHub Pages gehostet werden. `index.html` liegt im ZIP-Stamm.

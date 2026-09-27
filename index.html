@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.28 True Visual Math & Smart Stickers</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.28" />
+  <title>Flora Deck v7.0.0 Reference Edition</title>
+  <link rel="stylesheet" href="styles.css?v=7.0.0" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="icon-btn home-btn" id="homeProjectsBtn" title="Meine Präsentationen">⌂</button>
       <div class="logo flora-logo">❀</div>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.28</span></div><span>PRÄSENTATIONEN</span></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v7.0.0</span></div><span>PRÄSENTATIONEN</span></div>
     </div>
     <div class="project-title">
       <input id="projectName" value="Meine Präsentation" aria-label="Projektname">
@@ -26,6 +26,8 @@
     <div class="top-actions">
       <button class="icon-btn" id="undoBtn" title="Rückgängig">↶</button>
       <button class="icon-btn" id="redoBtn" title="Wiederholen">↷</button>
+      <button class="icon-btn" id="topSearchBtn" title="Suchen">⌕</button>
+      <button class="soft-btn top-new-btn" id="topNewBtn" title="Neue Präsentation">＋ Neu</button>
       <button class="icon-btn" id="appSettingsBtn" title="App-Einstellungen">⚙</button><button class="soft-btn" id="exportBtn">☁ Speichern</button>
       <button class="soft-btn share-btn" id="shareBtn">Teilen</button>
       <button class="primary-btn" id="presentBtn">▶ Präsentieren</button>
@@ -35,10 +37,10 @@
   <div class="workspace">
     <aside class="slides-panel" id="slidesPanel">
       <div class="panel-head">
-        <strong>Präsentation</strong><button class="icon-btn" id="closeSlides">×</button>
+        <strong>Folien</strong><button class="icon-btn" id="closeSlides">×</button>
       </div>
-      <button class="slide-add-main" id="addSlideVisualBtn" type="button"><span>＋</span><b>Folie hinzufügen</b><small>Layout oder Vorlage wählen</small></button>
       <div id="slideList" class="slide-list"></div>
+      <button class="slide-add-main" id="addSlideVisualBtn" type="button"><span>＋</span><b>Folie hinzufügen</b><small>Layout oder Vorlage wählen</small></button>
       <div class="slides-footer compact-slide-footer">
         <button class="soft-btn legacy-add-slide" id="addSlideBtn" title="Folie hinzufügen">＋</button>
         <button class="soft-btn" id="duplicateSlideBtn" title="Duplizieren">⧉</button>
@@ -645,6 +647,6 @@
 </div>
 
 <script src="pptxgen.bundle.js?v=6.9.16"></script>
-<script src="app.js?v=6.9.28"></script>
+<script src="app.js?v=7.0.0"></script>
 </body>
 </html>

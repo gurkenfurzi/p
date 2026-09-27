@@ -1,14 +1,42 @@
-# v6.9.27 smoke test
+# Flora Deck v7.0.0 — Test Report
 
-Tested in headless Chromium at 1440×900 with the real app script injected.
+Getestet wurde der gebaute lokale Stand mit Node-Syntaxprüfung und automatisierten Headless-Chromium-UI-Smoke-Tests.
 
-- Runtime errors: 0
-- Slide rail visible: yes
-- Initial slide thumbnails rendered: 2
-- Slide panel: 190×852 px
-- Slide list: 173×695 px
-- Ribbon height: 27 px
-- Active toolstrip height: 46 px
-- Desktop layout class applied: yes
+## Bestanden
+- `app.js`: Node-Syntaxprüfung
+- App-Start ohne Page-/Console-Runtime-Fehler im Testlauf
+- v7.0.0 sichtbar
+- Folien rendern und Folienliste scrollt
+- exakt fünf Haupttabs
+- Start-Ribbon und Suche
+- visuelles „Folie hinzufügen“-Popup
+- Folien-Kontextmenü inkl. Kopieren
+- Folie duplizieren / löschen
+- Undo / Redo
+- Autosave und Reload-Persistenz
+- Formel-Editor öffnen + Formel einfügen
+- Graph-Editor öffnen + Graph einfügen
+- Tabelle und Diagramm einfügen
+- Stickerbibliothek laden + Sticker einfügen
+- Timeline einfügen
+- Story Rail öffnen und anwenden
+- Graph-Paper-Hintergrund anwenden
+- Übergangsoptionen inkl. Morph sichtbar
+- Animationsoptionen und Animationspanel
+- Ebenenpanel mit Elementen
+- Text auf Blocksatz stellen
+- Objekt per Tastatur und Maus bewegen
+- Resize-Handle verändert Objektgröße
+- Shift-Mehrfachauswahl
+- Ausrichten bei Mehrfachauswahl
+- Objekt Copy/Paste per Shortcut
+- Bottom-Zoom aktualisiert sofort
+- Präsentationsmodus öffnen/schließen
 
-Root cause fixed: late-added sticker/math/graph/layout helpers were outside the main app closure and could not access shared editor constants/state. This stopped initialization before slide thumbnails were rendered.
+## Automatisierte Ergebnisse
+- Haupt-UI-Smoke-Test: alle Checks bestanden
+- Insertions-/Feature-Test: 13/13 bestanden
+- Objektinteraktions-Test: 10/10 bestanden
+- Reload-Persistenz-Test: bestanden
+
+Hinweis: Automatisierte Smoke-Tests ersetzen keine vollständige manuelle Prüfung jedes möglichen Browser-/Touch-/Import-Edge-Cases.
