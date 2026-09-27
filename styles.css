@@ -1510,3 +1510,32 @@ html.flora-force-desktop .flora-reference-header .power-profile{width:39px!impor
 .exact-nine>.tl{grid-column:1;grid-row:1}.exact-nine>.t{grid-column:2;grid-row:1}.exact-nine>.tr{grid-column:3;grid-row:1}
 .exact-nine>.l{grid-column:1;grid-row:2}.exact-nine>.c{grid-column:2;grid-row:2}.exact-nine>.r{grid-column:3;grid-row:2}
 .exact-nine>.bl{grid-column:1;grid-row:3}.exact-nine>.b{grid-column:2;grid-row:3}.exact-nine>.br{grid-column:3;grid-row:3}
+
+/* ===== v6.9.30 CRITICAL HEADER LAYOUT REPAIR =====
+   The legacy .topbar grid rule had higher specificity/!important and pushed
+   the project title + action buttons into a second row underneath the 62px header. */
+html.flora-force-desktop .flora-reference-header{
+  display:flex!important;
+  grid-template-columns:none!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+}
+html.flora-force-desktop .flora-reference-header .brand{
+  flex:0 0 auto!important;
+  width:auto!important;
+}
+html.flora-force-desktop .flora-reference-header .project-title{
+  flex:1 1 auto!important;
+  width:auto!important;
+  justify-self:auto!important;
+  align-self:center!important;
+  padding-left:0!important;
+}
+html.flora-force-desktop .flora-reference-header .top-actions{
+  margin-left:auto!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  align-self:center!important;
+}

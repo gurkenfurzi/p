@@ -1,32 +1,34 @@
-# Flora Deck v6.9.29 — Test Report
+# Flora Deck v6.9.30 – Repair Test Report
 
-## Tatsächlich ausgeführte Prüfungen
+This build repairs the v6.9.29 startup failure without replacing the existing presentation engine.
 
-Alle folgenden automatisierten statischen/strukturellen Checks wurden auf dem finalen Arbeitsstand ausgeführt und bestanden:
+## Root cause fixed
+- `EXACT_SLICE_METRICS` was accessed during startup before the `const` had been initialized.
+- That threw `Cannot access 'EXACT_SLICE_METRICS' before initialization` and stopped initialization before slide thumbnails and the stage could render.
+- The header also inherited an older `display:grid !important` rule, which forced title/actions into a second row outside the 62px header.
 
-1. `node --check app.js` — JavaScript-Syntax gültig.
-2. HTML geparst — 341 IDs geprüft, keine doppelten statischen IDs.
-3. Genau fünf permanente Haupttabs gefunden: Start, Einfügen, Design, Übergänge, Animationen.
-4. Kritische Header-, Folien-, Inspector-, Durchstreichen- und Bild-Ersetzen-Controls vorhanden.
-5. Handler/Implementierungen für Header, Start-Ribbon, Einfügen, Design, Übergänge und Animationen vorhanden.
-6. Visueller Formel-Editor und visueller Graph-Editor vorhanden.
-7. Story Rail, Zeitstrahl, Diagramme und Morph-bezogene Funktionen weiterhin im App-Code vorhanden.
-8. Ebenen-Funktionen für Sichtbarkeit, Sperren, Umbenennen und Drag & Drop vorhanden.
-9. Folien-Kontextmenü enthält Neu danach, Duplizieren, Layout ändern und Als Vorlage speichern.
-10. A4 Hochformat und A4 Querformat vorhanden.
-11. Exact Notes/Files nutzen die vorhandenen `exact-slices`-9-Slice-Dateien.
-12. Alle 99 benötigten 9-Slice-Teilbilder für Notes/Files vorhanden.
-13. Bestehende Folien-Schriften werden nicht global in eine UI-Schrift umgeschrieben.
-14. Keine doppelten `function`-Deklarationen im finalen `app.js`.
-15. CSS-Klammerstruktur ausgeglichen.
-16. Versionsnummer in HTML, JavaScript und `VERSION.txt` konsistent auf v6.9.29.
-17. Alle lokal aus `index.html` referenzierten CSS/JS-Ressourcen vorhanden.
-18. 142 bestehende Exact-Sticker-/Slice-/Window-Mask-Assetdateien byte-identisch mit dem gelieferten v6.9.28-ZIP verglichen; keine Assetdatei verändert oder verloren.
+## Verified in Chromium (headless, 1664×960 and 1920×1080)
+- JavaScript syntax check passes.
+- App initializes with no page-level runtime exception.
+- Existing slide thumbnails render.
+- Active slide renders on the stage with its elements.
+- Header brand, project title and action controls remain inside a single 62px row.
+- Duplicate slide executes and updates the thumbnail rail.
+- Undo restores the slide count.
+- “Folie hinzufügen” opens the visual picker.
+- Blank slide creation works.
+- Start / Einfügen / Design / Übergänge / Animationen switch their toolbars.
+- Visible Start-ribbon Diagramm, Tabelle and Symbole controls open their dialogs.
+- Einfügen-ribbon Sticker opens its dialog.
+- Visual Formel and Graph editors open.
+- Überschrift insertion adds an element to the stage.
+- Start-ribbon Fett, Durchstreichen and Blocksatz actions execute on a selected text element without runtime errors.
+- Properties / Layers / Animations dock switching works.
+- Present mode opens and closes.
 
-Der zusammengefasste Feature-/Struktur-Test lief mit **27/27 PASS**.
+## Preservation
+- The build is based directly on v6.9.29 / v6.9.28 project files.
+- Existing presentation storage keys and project normalization remain unchanged.
+- Exact sticker assets and existing feature files are retained.
 
-## Browser-Interaktionstest
-
-Ein echter automatisierter Render-/Klicktest konnte in dieser Ausführungsumgebung **nicht zuverlässig ausgeführt werden**: das verfügbare Chromium startet hier nicht bis zu einer verwendbaren Seite und blockiert/hängt selbst bei einer leeren Testnavigation. Deshalb werden keine erfundenen Aussagen wie „Drag & Drop im Browser getestet“ oder „0 Runtime Errors im Browser“ gemacht.
-
-Die ZIP-Struktur und Integrität werden nach dem Packen zusätzlich mit `unzip -t` und Root-Datei-Prüfungen kontrolliert.
+The automated checks above are browser-runtime checks; they are not a substitute for manually validating every drag gesture and every browser-specific file picker on the deployed GitHub Pages site.
