@@ -2314,3 +2314,32 @@ html.flora-force-desktop #powerZoomPercent{min-width:34px!important}
 @media (min-width:1181px){
   html.flora-force-desktop .stage-shell{margin:0!important}
 }
+
+
+/* v6.9.35 exact-ref polish */
+html.flora-force-desktop .brand strong{font-family:'Playfair Display',serif!important;font-size:25px!important;font-weight:700!important;color:#211714!important}
+html.flora-force-desktop .version-badge{background:#f7d8d4!important;color:#b16d69!important;border:none!important;border-radius:999px!important;padding:2px 6px!important;font-size:10px!important;font-weight:700!important}
+html.flora-force-desktop .window-dots i{width:12px!important;height:12px!important}
+html.flora-force-desktop .topbar{grid-template-columns:auto auto 1px 1fr auto!important;column-gap:18px!important}
+html.flora-force-desktop .project-title{align-self:center!important}
+html.flora-force-desktop .project-title-line input{font-size:17px!important;font-weight:700!important}
+html.flora-force-desktop .project-title-line .favorite-star{font-size:20px!important;color:#8d7f79!important}
+html.flora-force-desktop .top-actions{gap:10px!important}
+html.flora-force-desktop .icon-btn{font-size:16px!important;color:#5d504b!important}
+html.flora-force-desktop .slides-panel{border-right:1px solid var(--ref-line)!important}
+html.flora-force-desktop .slide-add-main{height:52px!important}
+html.flora-force-desktop .slide-thumb-row{padding:8px 10px 8px 26px!important}
+html.flora-force-desktop .slide-thumb-row .slide-thumb{border-radius:14px!important;background:#fff!important;border:1px solid #ecdeda!important}
+html.flora-force-desktop .slide-thumb-row.active .slide-thumb, html.flora-force-desktop .slide-thumb.active{border-color:#f18986!important;box-shadow:0 0 0 2px rgba(241,137,134,.18)!important}
+html.flora-force-desktop .editor{background:#f6f1ef!important}
+html.flora-force-desktop .stage{border-radius:18px!important;overflow:hidden!important;background:#fff!important}
+html.flora-force-desktop .power-ribbon-group button, html.flora-force-desktop .power-ribbon-group select, html.flora-force-desktop .power-ribbon-group input{font-family:Inter,system-ui,sans-serif!important}
+html.flora-force-desktop .ref-start-insert button, html.flora-force-desktop .ref-font-actions button, html.flora-force-desktop .ref-paragraph-group .power-button-row button{color:#544844!important}
+html.flora-force-desktop .ref-start-insert button{font-size:15px!important}
+html.flora-force-desktop .ref-start-insert button span{font-size:11px!important}
+html.flora-force-desktop .inspector-switch{padding:0 12px!important;gap:24px!important}
+html.flora-force-desktop .inspector-switch button{border:none!important;background:transparent!important;border-bottom:2px solid transparent!important;border-radius:0!important;height:40px!important;padding:0!important;font-size:13px!important;font-weight:600!important;color:#7f706a!important}
+html.flora-force-desktop .inspector-switch button.active{color:#4c3f3a!important;border-bottom-color:#ef8f8a!important}
+html.flora-force-desktop .dock-label,html.flora-force-desktop #closeRightPanels{display:none!important}
+html.flora-force-desktop .slide-prop-card-head b{font-size:14px!important}
+html.flora-force-desktop .power-status-bar{font-size:12px!important}
