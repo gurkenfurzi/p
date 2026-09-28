@@ -1872,3 +1872,445 @@ html.flora-force-desktop .flora-reference-header .top-actions{
   html.flora-force-desktop .ref-arrange-group button{width:31px!important;min-width:31px!important}
   html.flora-force-desktop .ref-start-insert button{width:62px!important;min-width:62px!important}
 }
+
+/* === Reference-match refinement pass v6.9.32 === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+html.flora-force-desktop{
+  --ref-bg:#f7f1ef;
+  --ref-panel:#fbf7f5;
+  --ref-line:#e9dfdb;
+  --ref-line-2:#efe6e2;
+  --ref-text:#4d3f3b;
+  --ref-soft:#8e7e79;
+  --ref-accent:#f1b4b0;
+  --ref-accent-strong:#ea9995;
+  --ref-shadow:0 12px 24px rgba(97,75,67,.06);
+}
+html.flora-force-desktop body,
+html.flora-force-desktop .app-shell{background:var(--ref-bg)!important;color:var(--ref-text)!important}
+html.flora-force-desktop .topbar{
+  height:64px!important;
+  min-height:64px!important;
+  background:rgba(251,247,245,.95)!important;
+  border-bottom:1px solid var(--ref-line)!important;
+  padding:0 18px!important;
+}
+html.flora-force-desktop .brand strong{font-size:17px!important;letter-spacing:-.02em!important}
+html.flora-force-desktop .project-name{font-size:22px!important;font-weight:700!important;color:var(--ref-text)!important}
+html.flora-force-desktop .project-sub{font-size:11px!important;color:#a1938d!important}
+html.flora-force-desktop .top-actions button,
+html.flora-force-desktop .top-actions .primary,
+html.flora-force-desktop .top-actions .share,
+html.flora-force-desktop .top-actions .notes-pill{
+  height:38px!important;border-radius:12px!important;border:1px solid var(--ref-line)!important;background:#fffdfa!important;
+  box-shadow:none!important;font-size:13px!important;padding:0 14px!important
+}
+html.flora-force-desktop .top-actions .share{background:#efb2ae!important;color:#fff!important;border-color:#efb2ae!important}
+html.flora-force-desktop .ribbon{
+  height:44px!important;min-height:44px!important;background:#faf6f4!important;border-bottom:1px solid var(--ref-line)!important;
+  display:flex!important;align-items:flex-end!important;padding:0 18px!important;gap:2px!important
+}
+html.flora-force-desktop .ribbon-tab{
+  height:42px!important;padding:0 16px!important;border:none!important;border-bottom:2px solid transparent!important;background:transparent!important;
+  border-radius:0!important;color:#695a55!important;font-size:13px!important;font-weight:600!important
+}
+html.flora-force-desktop .ribbon-tab.active{color:#de7f79!important;border-bottom-color:#de7f79!important;background:transparent!important}
+html.flora-force-desktop .ribbon-spacer{flex:1 1 auto}
+html.flora-force-desktop .ribbon-extras{display:flex!important;align-items:center!important;gap:10px!important;margin-left:auto!important;padding:0 0 5px!important}
+html.flora-force-desktop .ribbon-search,
+html.flora-force-desktop .ribbon-notes{
+  display:inline-flex!important;align-items:center!important;gap:8px!important;height:34px!important;border-radius:17px!important;
+  background:#fffdfa!important;border:1px solid var(--ref-line)!important;padding:0 14px!important;color:#6b5c57!important;font-size:12px!important
+}
+html.flora-force-desktop .ribbon-search small{color:#ab9b95!important;font-size:11px!important}
+html.flora-force-desktop .toolstrip{
+  min-height:112px!important;height:112px!important;padding:11px 18px!important;gap:14px!important;
+  background:#fbf8f6!important;border-bottom:1px solid var(--ref-line)!important;align-items:stretch!important;overflow:hidden!important
+}
+html.flora-force-desktop .panel{height:100%!important;display:flex!important;align-items:stretch!important;gap:14px!important}
+html.flora-force-desktop .panel.active{display:flex!important}
+html.flora-force-desktop .power-ribbon-group{
+  min-height:88px!important;height:88px!important;background:#fbf8f6!important;border:1px solid var(--ref-line)!important;border-radius:18px!important;
+  padding:10px 12px 22px!important;position:relative!important;justify-content:flex-start!important;box-shadow:none!important
+}
+html.flora-force-desktop .power-ribbon-group>small{
+  position:absolute!important;left:0!important;right:0!important;bottom:6px!important;text-align:center!important;
+  font-size:11px!important;color:#9a8b84!important
+}
+html.flora-force-desktop .ref-clipboard-group{min-width:188px!important;width:188px!important}
+html.flora-force-desktop .ref-font-group{min-width:290px!important;width:290px!important}
+html.flora-force-desktop .ref-paragraph-group{min-width:196px!important;width:196px!important}
+html.flora-force-desktop .ref-start-insert{min-width:470px!important;width:470px!important}
+html.flora-force-desktop .ref-clipboard{height:100%!important;gap:10px!important;align-items:stretch!important}
+html.flora-force-desktop .ref-paste{
+  min-width:74px!important;width:74px!important;height:60px!important;border-radius:14px!important;display:flex!important;flex-direction:column!important;
+  justify-content:center!important;align-items:center!important;gap:4px!important;font-size:12px!important;font-weight:700!important
+}
+html.flora-force-desktop .ref-paste b{font-size:22px!important;line-height:1!important}
+html.flora-force-desktop .ref-clipboard-side{display:flex!important;flex-direction:column!important;gap:6px!important;flex:1!important}
+html.flora-force-desktop .ref-clipboard-side button{
+  justify-content:flex-start!important;padding:0 10px!important;height:17px!important;min-height:17px!important;border-radius:9px!important;font-size:11px!important
+}
+html.flora-force-desktop .ref-font-top{display:flex!important;gap:8px!important;align-items:center!important;margin-bottom:8px!important}
+html.flora-force-desktop .ref-font-top select{flex:1!important;min-width:0!important}
+html.flora-force-desktop .ref-font-top select,
+html.flora-force-desktop .ref-font-top input,
+html.flora-force-desktop .ref-font-top button,
+html.flora-force-desktop .power-ribbon-group button,
+html.flora-force-desktop .power-ribbon-group select{
+  border:1px solid var(--ref-line)!important;background:#fffdfa!important;border-radius:12px!important;color:#5f514d!important;
+  box-shadow:none!important
+}
+html.flora-force-desktop .ref-font-top input{width:62px!important;text-align:center!important}
+html.flora-force-desktop .ref-font-actions,
+html.flora-force-desktop .ref-paragraph-group .power-button-row{gap:6px!important;flex-wrap:wrap!important}
+html.flora-force-desktop .ref-font-actions button,
+html.flora-force-desktop .ref-paragraph-group .power-button-row button{
+  width:34px!important;min-width:34px!important;height:30px!important;min-height:30px!important;border-radius:10px!important;font-size:13px!important
+}
+html.flora-force-desktop .ref-start-insert{display:grid!important;grid-template-columns:repeat(8,1fr)!important;gap:8px!important;align-content:start!important}
+html.flora-force-desktop .ref-start-insert button{
+  width:auto!important;min-width:0!important;height:52px!important;min-height:52px!important;border-radius:14px!important;
+  display:flex!important;flex-direction:column!important;gap:4px!important;justify-content:center!important;font-size:16px!important
+}
+html.flora-force-desktop .ref-start-insert button span{font-size:10.5px!important;font-weight:600!important}
+
+html.flora-force-desktop .workspace{
+  grid-template-columns:190px 1fr 280px!important;
+  background:var(--ref-bg)!important
+}
+html.flora-force-desktop .leftbar,
+html.flora-force-desktop .sidebar-right{
+  background:var(--ref-panel)!important;border-right:1px solid var(--ref-line)!important
+}
+html.flora-force-desktop .sidebar-right{border-right:none!important;border-left:1px solid var(--ref-line)!important}
+html.flora-force-desktop .leftbar{padding-top:12px!important}
+html.flora-force-desktop .thumb-head{
+  padding:0 14px 10px!important;font-size:12px!important;letter-spacing:.08em!important;color:#8e7f79!important;font-weight:800!important
+}
+html.flora-force-desktop .slide-thumb-row{margin:0 10px 12px!important;padding:10px 10px 10px 24px!important;border-radius:18px!important;background:#fffdfb!important;border:1px solid #eaded9!important;box-shadow:none!important}
+html.flora-force-desktop .slide-thumb-row.active{outline:none!important;border-color:#ef8b86!important;box-shadow:0 0 0 2px rgba(239,139,134,.18)!important}
+html.flora-force-desktop .slide-thumb-index{left:8px!important;top:10px!important;font-size:11px!important;color:#9b8d88!important}
+html.flora-force-desktop .add-slide-btn{
+  margin:6px 10px 12px!important;height:46px!important;border-radius:14px!important;background:linear-gradient(180deg,#f7a6a0,#ef8d89)!important;
+  color:#fff!important;border:none!important;font-weight:700!important;font-size:13px!important;box-shadow:none!important
+}
+html.flora-force-desktop .center-stage,
+html.flora-force-desktop .viewport{background:#f5efed!important}
+html.flora-force-desktop .viewport{padding:28px 26px!important}
+html.flora-force-desktop .stage-wrap{padding:10px!important}
+html.flora-force-desktop .stage{
+  background:#fffdfa!important;border:1px solid #eadfdb!important;box-shadow:0 18px 36px rgba(97,75,67,.07)!important;border-radius:2px!important
+}
+html.flora-force-desktop .canvas-toolbar,
+html.flora-force-desktop .quick-dock,
+html.flora-force-desktop .stage-ruler-top,
+html.flora-force-desktop .stage-ruler-left{display:none!important}
+html.flora-force-desktop #powerNotesBar{display:none!important}
+
+html.flora-force-desktop .sidebar-right{padding-top:10px!important}
+html.flora-force-desktop .inspector-tabs{height:40px!important;padding:0 10px!important;border-bottom:1px solid var(--ref-line)!important;background:#faf7f5!important}
+html.flora-force-desktop .inspector-tab{font-size:12px!important;font-weight:600!important;color:#7b6c67!important}
+html.flora-force-desktop .inspector-tab.active{color:#4d3f3b!important}
+html.flora-force-desktop .inspector-content{padding:14px!important}
+html.flora-force-desktop .reference-slide-properties{gap:12px!important}
+html.flora-force-desktop .slide-prop-card{
+  background:#fffdfa!important;border:1px solid #ebe0dc!important;border-radius:16px!important;padding:12px!important;box-shadow:none!important
+}
+html.flora-force-desktop .slide-prop-card-head{margin-bottom:9px!important}
+html.flora-force-desktop .slide-prop-card-head b{font-size:12px!important;color:#61534f!important}
+html.flora-force-desktop .slide-prop-wide,
+html.flora-force-desktop .background-swatch-row{
+  min-height:34px!important;height:34px!important;border-radius:11px!important;border:1px solid var(--ref-line)!important;background:#fff!important;
+  padding:0 10px!important;font-size:11px!important;color:#7a6c66!important
+}
+html.flora-force-desktop .background-swatch-row span{width:20px!important;height:20px!important;border-radius:7px!important}
+html.flora-force-desktop .power-status-bar{
+  height:34px!important;min-height:34px!important;flex:0 0 34px!important;background:#fbf8f6!important;border-top:1px solid var(--ref-line)!important;
+  padding:0 14px!important;font-size:11px!important;color:#8b7c76!important
+}
+html.flora-force-desktop .power-status-bar button{
+  height:24px!important;min-width:24px!important;border:none!important;background:transparent!important;border-radius:8px!important;color:#81726d!important
+}
+html.flora-force-desktop .power-status-bar input[type=range]{width:124px!important}
+html.flora-force-desktop #powerZoomPercent{min-width:34px!important}
+
+/* =====================================================================
+   v6.9.33 — STRICT REFERENCE SHELL
+   Final override: geometry and hierarchy are matched to the supplied
+   1728×918 Flora Deck reference. Existing editor/data behavior is kept.
+   ===================================================================== */
+@media (min-width:1181px){
+  html.flora-force-desktop{
+    --exact-header:70px;
+    --exact-tabs:54px;
+    --exact-ribbon:106px;
+    --exact-top-reserve:160px;
+    --exact-status:36px;
+    --exact-left:254px;
+    --exact-right:345px;
+    --exact-bg:#f6f0ee;
+    --exact-panel:#fbf7f5;
+    --exact-paper:#fffdfb;
+    --exact-line:#eadfda;
+    --exact-line-soft:#f0e7e3;
+    --exact-text:#463936;
+    --exact-muted:#958680;
+    --exact-pink:#efaaa7;
+    --exact-pink-strong:#ef6d70;
+  }
+
+  html.flora-force-desktop,
+  html.flora-force-desktop body,
+  html.flora-force-desktop #app{
+    background:#fbf7f5!important;
+    color:var(--exact-text)!important;
+    font-family:Inter,Manrope,"Nunito Sans",Nunito,Arial,sans-serif!important;
+  }
+
+  /* Header */
+  html.flora-force-desktop .flora-reference-header{
+    position:relative!important;
+    z-index:90!important;
+    display:flex!important;
+    align-items:center!important;
+    width:100%!important;
+    height:var(--exact-header)!important;
+    min-height:var(--exact-header)!important;
+    flex:0 0 var(--exact-header)!important;
+    padding:0 24px 0 30px!important;
+    gap:14px!important;
+    background:#fffaf8!important;
+    border-bottom:1px solid var(--exact-line)!important;
+    box-shadow:none!important;
+  }
+  html.flora-force-desktop .flora-reference-header .window-dots{
+    display:flex!important;align-items:center!important;gap:8px!important;
+    width:54px!important;min-width:54px!important;margin:0 2px 0 0!important;
+  }
+  html.flora-force-desktop .flora-reference-header .window-dots i{width:13px!important;height:13px!important}
+  html.flora-force-desktop .flora-reference-header .brand{
+    flex:0 0 auto!important;min-width:208px!important;width:auto!important;gap:10px!important;
+  }
+  html.flora-force-desktop .flora-reference-header .flora-brandmark{
+    width:42px!important;height:42px!important;min-width:42px!important;
+  }
+  html.flora-force-desktop .flora-reference-header .flora-brandmark .leaf{width:14px!important;height:24px!important;left:13px!important;top:6px!important}
+  html.flora-force-desktop .flora-reference-header .flora-brandmark .leaf-c{width:10px!important;height:16px!important;left:16px!important;top:18px!important}
+  html.flora-force-desktop .flora-reference-header .brandcopy strong{
+    font-family:"Playfair Display",Georgia,serif!important;
+    font-size:27px!important;line-height:1!important;font-weight:700!important;
+    letter-spacing:-.045em!important;color:#241f1e!important;
+  }
+  html.flora-force-desktop .flora-reference-header .version-badge{display:none!important}
+  html.flora-force-desktop .top-divider{height:38px!important;background:#ece2de!important;margin:0 2px!important}
+  html.flora-force-desktop .flora-reference-header .project-title{
+    flex:1 1 330px!important;min-width:260px!important;max-width:470px!important;
+    padding:0 0 0 8px!important;gap:3px!important;text-align:left!important;
+  }
+  html.flora-force-desktop .flora-reference-header .project-title input{
+    width:100%!important;max-width:440px!important;min-width:180px!important;
+    font-size:14px!important;line-height:1.2!important;font-weight:650!important;color:#473b37!important;
+  }
+  html.flora-force-desktop .flora-reference-header #saveStatus{font-size:10.5px!important;color:#9aa6a0!important;line-height:1.2!important}
+  html.flora-force-desktop .favorite-star{font-size:19px!important;color:#78716e!important}
+  html.flora-force-desktop .flora-reference-header .top-actions{
+    margin-left:auto!important;display:flex!important;align-items:center!important;gap:10px!important;overflow:visible!important;flex-wrap:nowrap!important;
+  }
+  html.flora-force-desktop .flora-reference-header .top-actions button,
+  html.flora-force-desktop .flora-reference-header .top-actions .soft-btn{
+    height:42px!important;min-height:42px!important;min-width:42px!important;
+    padding:0 15px!important;border:1px solid #e9e0dc!important;border-radius:11px!important;
+    background:#fff!important;color:#393230!important;font-size:12.5px!important;font-weight:600!important;
+    box-shadow:0 2px 8px rgba(71,51,44,.025)!important;gap:7px!important;transform:none!important;
+  }
+  html.flora-force-desktop .flora-reference-header .top-actions .icon-btn{
+    width:42px!important;min-width:42px!important;padding:0!important;border-color:transparent!important;background:transparent!important;box-shadow:none!important;font-size:21px!important;
+  }
+  html.flora-force-desktop .flora-reference-header .top-actions .share-btn{
+    min-width:126px!important;padding:0 20px!important;background:#ef7b7d!important;color:#fff!important;border-color:#ef7b7d!important;box-shadow:none!important;
+  }
+  html.flora-force-desktop .flora-reference-header .notes-header-btn{display:none!important}
+  html.flora-force-desktop .flora-reference-header .power-profile{
+    order:10!important;width:43px!important;height:43px!important;min-width:43px!important;padding:0!important;border-radius:50%!important;background:#fff0ed!important;border-color:#f0ded9!important;color:#5d4a45!important;font-weight:800!important;
+  }
+  html.flora-force-desktop .flora-reference-header #appSettingsBtn{
+    order:11!important;width:24px!important;min-width:24px!important;padding:0!important;background:transparent!important;border-color:transparent!important;font-size:0!important;
+  }
+  html.flora-force-desktop .flora-reference-header #appSettingsBtn::after{content:"⌄";font-size:15px;color:#675d59}
+
+  /* Tabs row */
+  html.flora-force-desktop .ribbon{
+    position:fixed!important;z-index:86!important;top:var(--exact-header)!important;left:0!important;right:0!important;
+    width:100vw!important;height:var(--exact-tabs)!important;min-height:var(--exact-tabs)!important;
+    padding:0 34px!important;display:flex!important;align-items:stretch!important;gap:9px!important;
+    background:#fffaf8!important;border:0!important;border-bottom:1px solid #f1e8e4!important;box-shadow:none!important;overflow:hidden!important;
+  }
+  html.flora-force-desktop .ribbon-tab{
+    position:relative!important;height:var(--exact-tabs)!important;min-height:var(--exact-tabs)!important;
+    padding:0 15px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+    color:#4f4541!important;font-size:13px!important;font-weight:600!important;
+  }
+  html.flora-force-desktop .ribbon-tab.active{color:#ef5f64!important;background:transparent!important}
+  html.flora-force-desktop .ribbon-tab.active::after{content:"";position:absolute;left:8px;right:8px;bottom:0;height:2.5px;border-radius:999px;background:#f15f65}
+  html.flora-force-desktop .ribbon-spacer{flex:1!important}
+  html.flora-force-desktop .ribbon-extras{display:flex!important;align-items:center!important;gap:12px!important;margin-left:auto!important}
+  html.flora-force-desktop .ribbon-extras button{
+    height:36px!important;min-height:36px!important;border:1px solid #ebe2de!important;border-radius:13px!important;background:#fff!important;color:#5d514d!important;box-shadow:none!important;font-size:12px!important;font-weight:500!important;padding:0 13px!important;display:inline-flex!important;align-items:center!important;gap:8px!important;transform:none!important;
+  }
+  html.flora-force-desktop .ribbon-search{width:176px!important;justify-content:flex-start!important}
+  html.flora-force-desktop .ribbon-search small{margin-left:auto!important;color:#9e918c!important;font-size:10.5px!important;font-weight:500!important}
+  html.flora-force-desktop .ribbon-notes{min-width:102px!important}
+
+  /* Start ribbon — one large rounded panel, not separate cards */
+  html.flora-force-desktop .toolstrip:not(.hidden){
+    position:fixed!important;z-index:85!important;top:calc(var(--exact-header) + var(--exact-tabs))!important;left:15px!important;right:15px!important;
+    width:auto!important;height:var(--exact-ribbon)!important;min-height:var(--exact-ribbon)!important;
+    padding:8px 12px!important;margin:0!important;display:flex!important;align-items:stretch!important;gap:0!important;flex-wrap:nowrap!important;
+    background:#fffdfc!important;border:1px solid #eee5e1!important;border-radius:18px!important;box-shadow:0 6px 18px rgba(78,55,47,.045)!important;overflow-x:auto!important;overflow-y:hidden!important;
+  }
+  html.flora-force-desktop .power-ribbon-group{
+    position:relative!important;display:flex!important;align-items:center!important;align-content:center!important;justify-content:flex-start!important;
+    height:88px!important;min-height:88px!important;margin:0!important;padding:6px 15px 21px!important;gap:7px!important;
+    background:transparent!important;border:0!important;border-right:1px solid #eee4df!important;border-radius:0!important;box-shadow:none!important;
+  }
+  html.flora-force-desktop .power-ribbon-group:last-child{border-right:0!important}
+  html.flora-force-desktop .power-ribbon-group>small{
+    position:absolute!important;left:8px!important;right:8px!important;bottom:2px!important;text-align:center!important;
+    color:#91837e!important;font-size:10px!important;line-height:14px!important;font-weight:500!important;letter-spacing:0!important;
+  }
+  html.flora-force-desktop .power-ribbon-group button,
+  html.flora-force-desktop .power-ribbon-group select,
+  html.flora-force-desktop .power-ribbon-group input{
+    border:1px solid #eae0dc!important;background:#fff!important;color:#4e4440!important;box-shadow:none!important;transform:none!important;font-size:11.5px!important;
+  }
+  html.flora-force-desktop .ref-clipboard-group{flex:0 0 380px!important;width:380px!important;min-width:380px!important}
+  html.flora-force-desktop .ref-font-group{flex:0 0 305px!important;width:305px!important;min-width:305px!important;display:grid!important;align-content:center!important}
+  html.flora-force-desktop .ref-paragraph-group{flex:0 0 292px!important;width:292px!important;min-width:292px!important;display:grid!important;align-content:center!important}
+  html.flora-force-desktop .ref-start-insert{flex:1 0 610px!important;min-width:610px!important}
+
+  html.flora-force-desktop .ref-clipboard{width:100%!important;height:61px!important;display:grid!important;grid-template-columns:86px 1fr!important;gap:10px!important;align-items:center!important}
+  html.flora-force-desktop .ref-paste{height:61px!important;min-height:61px!important;border:0!important;background:transparent!important;border-radius:10px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:4px!important}
+  html.flora-force-desktop .ref-paste b{font-size:27px!important;line-height:1!important;font-weight:500!important}
+  html.flora-force-desktop .ref-paste span{font-size:10.5px!important}
+  html.flora-force-desktop .ref-clipboard-side{display:grid!important;grid-template-rows:repeat(3,1fr)!important;gap:3px!important;height:60px!important}
+  html.flora-force-desktop .ref-clipboard-side button{height:18px!important;min-height:18px!important;border:0!important;background:transparent!important;border-radius:7px!important;padding:0 5px!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:7px!important;font-size:10.5px!important}
+
+  html.flora-force-desktop .ref-font-top{display:grid!important;grid-template-columns:minmax(0,1fr) 58px 36px!important;gap:7px!important;margin-bottom:6px!important}
+  html.flora-force-desktop .ref-font-top select{width:100%!important;height:32px!important;min-height:32px!important;border-radius:8px!important;padding:0 9px!important}
+  html.flora-force-desktop .ref-font-top input{width:58px!important;height:32px!important;min-height:32px!important;border-radius:8px!important;text-align:center!important;padding:0 4px!important}
+  html.flora-force-desktop .ref-font-top button{width:36px!important;min-width:36px!important;height:32px!important;min-height:32px!important;border-radius:8px!important;padding:0!important}
+  html.flora-force-desktop .ref-font-actions{display:flex!important;gap:4px!important;align-items:center!important}
+  html.flora-force-desktop .ref-font-actions button{width:31px!important;min-width:31px!important;height:30px!important;min-height:30px!important;border:0!important;background:transparent!important;border-radius:7px!important;padding:0!important;font-size:15px!important}
+  html.flora-force-desktop .ref-font-actions button:hover{background:#fff0ed!important}
+
+  html.flora-force-desktop .ref-paragraph-group .power-button-row{display:flex!important;gap:5px!important;align-items:center!important;justify-content:flex-start!important}
+  html.flora-force-desktop .ref-paragraph-group .power-button-row + .power-button-row{margin-top:4px!important}
+  html.flora-force-desktop .ref-paragraph-group button{width:33px!important;min-width:33px!important;height:30px!important;min-height:30px!important;border:0!important;background:transparent!important;border-radius:7px!important;padding:0!important;font-size:14px!important}
+  html.flora-force-desktop .ref-paragraph-group button:hover{background:#fff0ed!important}
+
+  html.flora-force-desktop .ref-start-insert{display:grid!important;grid-template-columns:repeat(8,minmax(62px,1fr))!important;gap:4px!important;align-items:center!important}
+  html.flora-force-desktop .ref-start-insert button{height:64px!important;min-height:64px!important;width:auto!important;min-width:0!important;padding:5px 3px!important;border:0!important;background:transparent!important;border-radius:10px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:4px!important;font-size:21px!important;position:relative!important}
+  html.flora-force-desktop .ref-start-insert button:hover{background:#fff1ee!important}
+  html.flora-force-desktop .ref-start-insert button span{font-size:10px!important;line-height:1.05!important;font-weight:500!important;color:#5a4e49!important}
+  html.flora-force-desktop .ref-start-insert button .insert-glyph{font-size:22px!important;line-height:1!important;color:#5b514d!important}
+  html.flora-force-desktop .ref-start-insert button i{font-style:normal!important;font-size:8px!important;line-height:1!important;color:#8f817b!important}
+
+  /* Main workspace */
+  html.flora-force-desktop .workspace{
+    position:relative!important;margin-top:var(--exact-top-reserve)!important;
+    width:100%!important;height:calc(100dvh - var(--exact-header) - var(--exact-top-reserve) - var(--exact-status))!important;min-height:0!important;
+    display:grid!important;grid-template-columns:var(--exact-left) minmax(0,1fr)!important;overflow:hidden!important;background:var(--exact-bg)!important;
+  }
+  html.flora-force-desktop #slidesPanel.slides-panel{
+    position:relative!important;width:var(--exact-left)!important;min-width:var(--exact-left)!important;max-width:var(--exact-left)!important;height:100%!important;
+    padding:8px 16px 12px!important;background:#fffaf8!important;border-right:1px solid #eee3de!important;display:flex!important;flex-direction:column!important;
+  }
+  html.flora-force-desktop #slidesPanel .slides-reference-head{display:none!important}
+  html.flora-force-desktop #slidesPanel .slide-list{flex:1!important;min-height:0!important;overflow:auto!important;padding:8px 3px 14px 0!important;gap:12px!important}
+  html.flora-force-desktop #slideList .slide-thumb-row{grid-template-columns:26px minmax(0,1fr)!important;gap:7px!important;align-items:start!important}
+  html.flora-force-desktop #slideList .slide-num{padding-top:5px!important;font-size:12px!important;color:#6f625d!important}
+  html.flora-force-desktop #slideList .slide-thumb{border-radius:10px!important;border:1px solid #e7ddd8!important;background:#fff!important;box-shadow:0 3px 10px rgba(65,44,38,.045)!important}
+  html.flora-force-desktop #slideList .slide-thumb.active{outline:2px solid #f06065!important;outline-offset:0!important;border-color:#f06065!important;box-shadow:0 0 0 2px #ffe5e1!important}
+  html.flora-force-desktop #slidesPanel .slide-add-main{order:3!important;height:43px!important;min-height:43px!important;margin:7px 0 0!important;width:100%!important;border:0!important;border-radius:10px!important;background:#f06f73!important;color:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;box-shadow:none!important}
+  html.flora-force-desktop #slidesPanel .slide-add-main span{width:auto!important;height:auto!important;background:transparent!important;color:#fff!important;font-size:19px!important}
+  html.flora-force-desktop #slidesPanel .slide-add-main b{font-size:11px!important;color:#fff!important}
+  html.flora-force-desktop #slidesPanel .slide-add-main small{display:none!important}
+  html.flora-force-desktop #slidesPanel .slides-footer{display:none!important}
+
+  html.flora-force-desktop .editor{height:100%!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;background:var(--exact-bg)!important}
+  html.flora-force-desktop .editor-row{flex:1!important;min-height:0!important;height:100%!important;display:grid!important;grid-template-columns:minmax(0,1fr) var(--exact-right)!important;overflow:hidden!important;background:var(--exact-bg)!important}
+  html.flora-force-desktop .canvas-area{min-width:0!important;min-height:0!important;height:100%!important;background:#f5efed!important;overflow:hidden!important}
+  html.flora-force-desktop .canvas-toolbar,
+  html.flora-force-desktop .quick-dock{display:none!important}
+  html.flora-force-desktop .stage-viewport{height:100%!important;min-height:0!important;display:grid!important;place-items:center!important;padding:18px 20px!important;background:#f5efed!important;overflow:auto!important}
+  html.flora-force-desktop .stage-shell{border-radius:9px!important;box-shadow:0 14px 34px rgba(68,45,39,.12)!important}
+  html.flora-force-desktop .stage{border-radius:9px!important;box-shadow:inset 0 0 0 1px rgba(232,219,213,.95)!important}
+  html.flora-force-desktop .stage-ruler-top,
+  html.flora-force-desktop .stage-ruler-left{display:none!important}
+  html.flora-force-desktop #powerNotesBar{display:none!important}
+
+  /* Right inspector */
+  html.flora-force-desktop .inspector.right-dock{
+    position:relative!important;width:var(--exact-right)!important;min-width:var(--exact-right)!important;max-width:var(--exact-right)!important;height:100%!important;
+    padding:0 13px 14px!important;background:#fffaf8!important;border-left:1px solid #eee3de!important;overflow:auto!important;
+  }
+  html.flora-force-desktop .final-side-tabs{
+    position:sticky!important;top:0!important;z-index:9!important;height:51px!important;min-height:51px!important;margin:0 -13px 10px!important;padding:0 9px!important;
+    display:grid!important;grid-template-columns:1.18fr .82fr 1fr!important;gap:0!important;align-items:stretch!important;background:#fffaf8!important;border-bottom:1px solid #eee3de!important;
+  }
+  html.flora-force-desktop .final-side-tabs>button:not(#closeRightPanels){position:relative!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:0 8px!important;font-size:11.5px!important;font-weight:600!important;color:#5f534e!important;transform:none!important}
+  html.flora-force-desktop .final-side-tabs>button.active{color:#ef5f64!important;background:transparent!important}
+  html.flora-force-desktop .final-side-tabs>button.active::after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:#ef5f64;border-radius:999px}
+  html.flora-force-desktop .final-side-tabs .dock-label,
+  html.flora-force-desktop .final-side-tabs #closeRightPanels{display:none!important}
+  html.flora-force-desktop .reference-slide-properties{width:100%!important;display:grid!important;gap:10px!important;padding:0 0 10px!important}
+  html.flora-force-desktop .slide-prop-card{width:100%!important;margin:0!important;padding:10px!important;border:1px solid #ece1dc!important;border-radius:13px!important;background:#fffdfb!important;box-shadow:none!important}
+  html.flora-force-desktop .slide-prop-card-head{margin-bottom:8px!important}
+  html.flora-force-desktop .slide-prop-card-head b{font-size:11.5px!important;color:#4d423e!important}
+  html.flora-force-desktop .background-swatch-row,
+  html.flora-force-desktop .slide-prop-wide{width:100%!important;min-height:38px!important;border:1px solid #eee2dd!important;border-radius:9px!important;background:#fff!important;padding:4px 8px!important;box-shadow:none!important;font-size:10.5px!important;color:#5f514c!important}
+  html.flora-force-desktop .background-swatch-row{display:grid!important;grid-template-columns:34px 1fr auto!important;gap:8px!important;align-items:center!important}
+  html.flora-force-desktop .background-swatch-row span{width:30px!important;height:30px!important;border-radius:8px!important;border:1px solid #eee0da!important}
+  html.flora-force-desktop .background-swatch-row strong{font-size:10.5px!important}
+  html.flora-force-desktop .background-swatch-row em{font-style:normal!important;color:#998a84!important;font-size:9px!important}
+  html.flora-force-desktop .slide-prop-wide{display:grid!important;grid-template-columns:34px 1fr auto!important;align-items:center!important;gap:8px!important;text-align:left!important}
+  html.flora-force-desktop .mini-slide-ratio,
+  html.flora-force-desktop .mini-layout-preview{display:block!important;width:30px!important;height:20px!important;border-radius:5px!important;border:1px solid #eadbd6!important}
+  html.flora-force-desktop .inspector-empty{margin:8px 0!important;min-height:340px!important;border:1px dashed #e8d8d2!important;border-radius:15px!important;background:#fffdfb!important;color:#9b8982!important}
+  html.flora-force-desktop .inspector-empty .big-icon{font-size:36px!important;color:#ec9e99!important}
+  html.flora-force-desktop .inspector-empty strong{font-size:14px!important;color:#7d665e!important}
+  html.flora-force-desktop .inspector-empty p{font-size:11.5px!important;line-height:1.55!important;color:#a18f88!important}
+
+  html.flora-force-desktop .control-group{margin:9px 0!important;padding:11px!important;border:1px solid #ece1dc!important;border-radius:13px!important;background:#fffdfb!important;gap:8px!important}
+  html.flora-force-desktop .control-group input,
+  html.flora-force-desktop .control-group select{min-height:34px!important;border-radius:8px!important;font-size:10.5px!important}
+
+  /* Status bar */
+  html.flora-force-desktop .power-status-bar{
+    position:fixed!important;left:0!important;right:0!important;bottom:0!important;z-index:91!important;width:100vw!important;
+    height:var(--exact-status)!important;min-height:var(--exact-status)!important;flex:0 0 var(--exact-status)!important;
+    padding:0 29px!important;display:flex!important;align-items:center!important;gap:10px!important;background:#fffaf8!important;border-top:1px solid #eee3de!important;box-shadow:none!important;color:#786b66!important;font-size:10.5px!important;
+  }
+  html.flora-force-desktop .power-status-bar button{height:27px!important;min-width:29px!important;border:0!important;border-radius:7px!important;background:transparent!important;padding:0 6px!important;font-size:12px!important;color:#786b66!important}
+  html.flora-force-desktop .power-status-bar input[type=range]{width:130px!important;accent-color:#ef6f73!important}
+  html.flora-force-desktop .power-status-bar #powerZoomPercent{min-width:38px!important;text-align:center!important;font-size:10.5px!important;color:#786b66!important}
+}
+
+/* v6.9.33 final runtime-normalization fixes */
+@media (min-width:1181px){
+  html.flora-force-desktop .ref-font-group{
+    display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:stretch!important;
+  }
+  html.flora-force-desktop .ref-font-top{width:100%!important;min-width:0!important;height:32px!important}
+  html.flora-force-desktop .ref-font-actions{width:100%!important;height:30px!important;min-height:30px!important;margin:0!important;flex-wrap:nowrap!important}
+  html.flora-force-desktop .inspector-empty:has(.reference-slide-properties){
+    display:block!important;place-content:normal!important;width:100%!important;height:auto!important;min-height:0!important;
+    margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;
+  }
+  html.flora-force-desktop .inspector-empty:has(.reference-slide-properties) .reference-slide-properties{width:100%!important;max-width:none!important;margin:0!important}
+}
+@media (min-width:1181px){
+  html.flora-force-desktop .stage-shell{margin:0!important}
+}
