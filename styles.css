@@ -2343,3 +2343,33 @@ html.flora-force-desktop .inspector-switch button.active{color:#4c3f3a!important
 html.flora-force-desktop .dock-label,html.flora-force-desktop #closeRightPanels{display:none!important}
 html.flora-force-desktop .slide-prop-card-head b{font-size:14px!important}
 html.flora-force-desktop .power-status-bar{font-size:12px!important}
+
+
+/* v6.9.36 unified icon system */
+.mi{font-family:'Material Symbols Outlined';font-weight:400;font-style:normal;font-size:20px;line-height:1;display:inline-flex;align-items:center;justify-content:center;letter-spacing:normal;text-transform:none;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+html.flora-force-desktop .top-actions .mi{font-size:20px!important}
+html.flora-force-desktop .soft-btn .mi,html.flora-force-desktop .primary-btn .mi{margin-right:6px!important}
+html.flora-force-desktop .top-actions .icon-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:38px!important;padding:0!important}
+html.flora-force-desktop .top-actions .soft-btn,html.flora-force-desktop .top-actions .primary-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:4px!important}
+html.flora-force-desktop .top-actions .share-btn{min-width:112px!important}
+html.flora-force-desktop .top-actions .top-new-btn{min-width:92px!important}
+html.flora-force-desktop .ribbon-search,.ribbon-notes{display:inline-flex!important;align-items:center!important;gap:6px!important}
+html.flora-force-desktop .ribbon-search .mi,html.flora-force-desktop .ribbon-notes .mi{font-size:18px!important}
+html.flora-force-desktop .ref-paste .mi{font-size:24px!important}
+html.flora-force-desktop .ref-clipboard-side .mi{font-size:16px!important;margin-right:6px!important}
+html.flora-force-desktop .ref-start-insert .mi{font-size:22px!important;margin-bottom:2px!important}
+html.flora-force-desktop .ref-start-insert button{padding-top:6px!important}
+html.flora-force-desktop .ref-paste span:last-child{font-size:12px!important;font-weight:700!important}
+html.flora-force-desktop .ref-font-actions button, html.flora-force-desktop .ref-paragraph-group .power-button-row button{font-size:14px!important}
+html.flora-force-desktop .project-title #saveStatus{font-size:12px!important;color:#9a8c86!important}
+html.flora-force-desktop .caret{font-size:12px!important;line-height:1!important;color:#8c7d77!important}
+html.flora-force-desktop .brand{gap:12px!important}
+html.flora-force-desktop .top-divider{height:42px!important;background:#eae0dc!important}
+html.flora-force-desktop .project-title-line{gap:8px!important}
+html.flora-force-desktop .window-dots{margin-right:2px!important}
+html.flora-force-desktop .toolstrip{padding-top:8px!important;padding-bottom:8px!important}
+html.flora-force-desktop .power-ribbon-group{padding-top:8px!important}
+html.flora-force-desktop .slide-add-main b{font-size:14px!important}
+html.flora-force-desktop .slide-add-main small{font-size:0!important}
+html.flora-force-desktop .slide-add-main small::before{content:''}
+html.flora-force-desktop .background-swatch-row,html.flora-force-desktop .slide-prop-wide{font-size:12px!important}
