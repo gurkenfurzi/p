@@ -7,8 +7,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Flora Deck v6.9.36 Exact Reference Match</title>
-  <link rel="stylesheet" href="styles.css?v=6.9.33" />
+  <title>Flora Deck v6.9.38 Exact Reference</title>
+  <link rel="stylesheet" href="styles.css?v=6.9.37" />
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,7 @@
     <div class="brand">
       <button class="icon-btn mobile-only" id="toggleSlides" title="Folien">☰</button>
       <button class="flora-brandmark" id="homeProjectsBtn" title="Meine Präsentationen" aria-label="Meine Präsentationen"><span class="leaf leaf-a"></span><span class="leaf leaf-b"></span><span class="leaf leaf-c"></span></button>
-      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong><span class="version-badge">v6.9.35</span></div></div>
+      <div class="brandcopy"><div class="brandline"><strong>Flora Deck</strong></div></div>
     </div>
     <div class="top-divider" aria-hidden="true"></div>
     <div class="project-title">
@@ -25,16 +25,16 @@
       <span id="saveStatus">✓ Gespeichert · Alle Änderungen gespeichert</span>
     </div>
     <div class="top-actions">
-      <button class="icon-btn" id="undoBtn" title="Rückgängig" aria-label="Rückgängig"><span class="mi">undo</span></button>
-      <button class="icon-btn" id="redoBtn" title="Wiederholen" aria-label="Wiederholen"><span class="mi">redo</span></button>
+      <button class="icon-btn" id="undoBtn" title="Rückgängig" aria-label="Rückgängig"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7H5v-4M5 7c2.4-2.7 5.2-4 8.1-3.5 4.1.6 7.1 4.1 6.9 8.3-.2 4.3-3.8 7.7-8.1 7.7-2.6 0-4.9-1.2-6.4-3.1"/></svg></button>
+      <button class="icon-btn" id="redoBtn" title="Wiederholen" aria-label="Wiederholen"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7h4v-4m0 4c-2.4-2.7-5.2-4-8.1-3.5-4.1.6-7.1 4.1-6.9 8.3.2 4.3 3.8 7.7 8.1 7.7 2.6 0 4.9-1.2 6.4-3.1"/></svg></button>
       <span class="action-divider" aria-hidden="true"></span>
-      <button class="icon-btn" id="topSearchBtn" title="Suchen" aria-label="Suchen"><span class="mi">search</span></button>
-      <button class="soft-btn top-new-btn" id="newDeckBtn" title="Neue Präsentation"><span class="mi">add</span> <span>Neu</span></button>
-      <button class="soft-btn" id="exportBtn"><span class="mi">cloud_upload</span> <span>Speichern</span> <span class="caret">⌄</span></button>
-      <button class="soft-btn" id="presentBtn"><span class="mi">slideshow</span> <span>Präsentieren</span></button>
-      <button class="primary-btn share-btn" id="shareBtn"><span class="mi">ios_share</span> <span>Teilen</span></button>
-      <button class="soft-btn notes-header-btn" id="topNotesBtn" title="Notizen"><span class="mi">notes</span> <span>Notizen</span></button>
-      <button class="icon-btn" id="appSettingsBtn" title="App-Einstellungen" aria-label="App-Einstellungen"><span class="mi">more_horiz</span></button>
+      <button class="icon-btn" id="topSearchBtn" title="Suchen" aria-label="Suchen"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4.5 4.5"/></svg></button>
+      <button class="soft-btn top-new-btn" id="newDeckBtn" title="Neue Präsentation"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Neu</span></button>
+      <button class="soft-btn" id="exportBtn"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 18H18a4 4 0 0 0 .7-7.9A6 6 0 0 0 7.4 8.2 4.5 4.5 0 0 0 7.5 18Z"/><path d="M12 15V8m0 0-3 3m3-3 3 3"/></svg><span>Speichern</span><span class="caret">⌄</span></button>
+      <button class="soft-btn" id="presentBtn"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m10 8 6 3.5-6 3.5Z"/></svg><span>Präsentieren</span></button>
+      <button class="primary-btn share-btn" id="shareBtn"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0-4 4m4-4 4 4"/><path d="M5 12v7h14v-7"/></svg><span>Teilen</span></button>
+      <button class="soft-btn notes-header-btn" id="topNotesBtn" title="Notizen"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span>Notizen</span></button>
+      <button class="icon-btn" id="appSettingsBtn" title="App-Einstellungen" aria-label="App-Einstellungen"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg></button>
       <button id="powerProfile" class="power-profile" title="Meine Präsentationen">SD</button>
     </div>
   </header>
@@ -657,7 +657,7 @@
   <button data-cm="delete" class="danger">Entfernen</button>
 </div>
 
-<script src="pptxgen.bundle.js?v=6.9.36"></script>
-<script src="app.js?v=6.9.36"></script>
+<script src="pptxgen.bundle.js?v=6.9.37"></script>
+<script src="app.js?v=6.9.37"></script>
 </body>
 </html>
